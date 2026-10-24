@@ -140,24 +140,24 @@ function Home() {
             {[
               {
                 name: "Pain Relief Oil",
-                size: "100 ml / 30 ml",
-                image: "/product2.jpeg",
+                size: "100 ml",
+                image: "/new-product1.jpeg",
                 description:
-                  "Topical Ayurvedic herbal oil formulated for massage, joint mobility, and everyday care.",
+                  "Formulated to help provide relief from joint and muscle discomfort, soothe stiffness, and support mobility.",
               },
               {
                 name: "Pain Relief Balm",
-                size: "25 ml / 10 ml",
-                image: "/product1.jpeg",
+                size: "25 ml",
+                image: "/new-product2.jpeg",
                 description:
-                  "Topical fast-acting balm designed for targeted localized application and soothing comfort.",
+                  "Provides a soothing cooling sensation and fast relief from headache, sinus discomfort, and cough.",
               },
               {
                 name: "Calcimax Tablet",
                 size: "60 Tablets",
-                image: "/product3.jpg",
+                image: "/new-product3.jpeg",
                 description:
-                  "Ayurvedic proprietary medicine formula featuring Hawaal Mool, Shuddha Guggulu, and Ashwagandha.",
+                  "Sat Aushadhi Calcimax Tablets are formulated to support bone and joint health and promote an active lifestyle.",
               },
             ].map((product) => (
               <article className="product-card" key={product.name}>

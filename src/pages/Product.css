@@ -1,18 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Poppins:wght@300;400;500;600;700&display=swap");
 @import "./common.css";
 
 /* ==========================================================================
-   PRODUCT PAGE STYLES (Synchronized with Pages.css)
+   PRODUCT PAGE STYLES
    Sat Aushadhi Website
    ========================================================================== */
 
-/* Main Product Page Wrapper (Botanical Ocean Teal Theme) */
 .product-page-wrapper {
-  background-color: #f4f9f9;
+  background-color: #eef3ec;
   width: 100%;
   overflow-x: hidden;
+  font-family: "Poppins", sans-serif;
 }
 
-/* Product Page Banner */
+/* --------------------------------------------------------------------------
+   Product Page Hero Section
+   -------------------------------------------------------------------------- */
+/* Product Page Banner (Matching Netlify live site) */
 .product-banner {
   position: relative;
   isolation: isolate;
@@ -30,7 +34,7 @@
   object-fit: cover;
   object-position: center;
   z-index: -2;
-  filter: blur(2px) brightness(0.85);
+  filter: blur(1px) brightness(0.85);
   transform: scale(1.04);
   pointer-events: none;
 }
@@ -41,8 +45,8 @@
   z-index: -1;
   background: linear-gradient(
     180deg,
-    rgba(11, 81, 50, 0.4) 0%,
-    rgba(7, 45, 28, 0.65) 100%
+    rgba(11, 81, 50, 0.42) 0%,
+    rgba(7, 45, 28, 0.68) 100%
   );
   pointer-events: none;
 }
@@ -58,14 +62,21 @@
   color: #78b844;
   font-weight: 700;
   letter-spacing: 2px;
+  font-size: 13px;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  display: inline-block;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
 }
 
 .product-banner h1 {
   color: #ffffff;
   font-size: clamp(38px, 5vw, 58px);
   text-shadow: 0 3px 14px rgba(0, 0, 0, 0.7);
-  margin-bottom: 14px;
+  margin: 0 0 14px;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif !important;
 }
 
 .product-banner p {
@@ -73,104 +84,903 @@
   font-size: 17px;
   line-height: 1.8;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  max-width: 650px;
+  margin: 0 auto;
+  font-family: "Poppins", sans-serif;
 }
 
-/* Product Catalog Grid */
-.catalog-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
+/* --------------------------------------------------------------------------
+   Top Horizontal Product Selector Bar (Image 2)
+   -------------------------------------------------------------------------- */
+.product-quick-nav-bar {
+  position: sticky;
+  top: 70px;
+  z-index: 35;
+  background: rgba(238, 243, 236, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 20px 20px;
+  border-bottom: 1px solid rgba(11, 70, 50, 0.08);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
 }
 
-.catalog-card {
-  overflow: hidden;
-  border: 1px solid #e7ede3;
-  border-radius: 18px;
+.product-quick-nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.product-nav-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
   background: #ffffff;
-  box-shadow: 0 6px 20px rgba(11, 81, 50, 0.06);
-  transition:
-    transform 0.25s ease,
-    border-color 0.25s ease,
-    box-shadow 0.25s ease;
+  padding: 8px 26px 8px 10px;
+  border-radius: 60px;
+  border: 2px solid transparent;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
 }
 
-.catalog-card img {
-  display: block;
+.product-nav-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(11, 70, 50, 0.35);
+  box-shadow: 0 6px 18px rgba(11, 70, 50, 0.1);
+}
+
+.product-nav-card.is-active {
+  border-color: #0b4632;
+  box-shadow: 0 6px 20px rgba(11, 70, 50, 0.15);
+}
+
+.product-nav-card-thumb {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #20362c;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.product-nav-card-thumb img {
   width: 100%;
-  height: 260px;
-  padding: 15px;
-  box-sizing: border-box;
-  object-fit: contain;
-  background: #f8f6f0;
+  height: 100%;
+  object-fit: cover;
 }
 
-.catalog-card-content {
-  padding: 22px;
+.product-nav-card-info {
+  text-align: left;
 }
 
-.catalog-card h2 {
-  margin-top: 0;
-  color: #0b5132;
-  font-size: 22px;
-  font-family: "Poppins", sans-serif !important;
+.product-nav-card-title {
+  margin: 0;
+  font-size: 15.5px;
+  font-weight: 700;
+  color: #0b4632;
+  line-height: 1.25;
 }
 
-.catalog-card h3 {
-  color: #13a6a0;
+.product-nav-card-sub {
+  display: block;
+  margin-top: 3px;
+  font-size: 13px;
+  color: #63776c;
+  font-weight: 500;
+}
+
+/* --------------------------------------------------------------------------
+   Product Showcase Container & Alternating Rows (Image 1)
+   -------------------------------------------------------------------------- */
+.products-showcase-container {
+  background-color: #eef3ec;
+  width: 100%;
+  overflow: hidden;
+  padding: 10px 0 35px;
+}
+
+.product-showcase-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  position: relative;
+}
+
+/* Alternating Layout: Product 2 (is-reversed) places visual on Right & content on Left */
+.product-showcase-row.is-reversed {
+  flex-direction: row-reverse;
+}
+
+.product-showcase-row:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1160px, 90%);
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(60, 110, 85, 0.22),
+    transparent
+  );
+}
+
+/* --------------------------------------------------------------------------
+   Visual Orbit Column (Left / Right)
+   -------------------------------------------------------------------------- */
+.product-visual-col {
+  flex: 1.1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-height: 480px;
+}
+
+.product-orbit-stage {
+  position: relative;
+  width: 520px;
+  height: 520px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Concentric dashed orbit rings with continuous slow rotational flow */
+.orbit-ring {
+  position: absolute;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  will-change: transform;
+}
+
+.orbit-ring-inner {
+  width: 446px;
+  height: 446px;
+  border: 1.5px dashed rgba(64, 115, 88, 0.48);
+  animation: spinDashedClockwise 50s linear infinite;
+}
+
+.orbit-ring-outer {
+  width: 478px;
+  height: 478px;
+  border: 1.5px dashed rgba(64, 115, 88, 0.38);
+  animation: spinDashedCounterClockwise 60s linear infinite;
+}
+
+@keyframes spinDashedClockwise {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes spinDashedCounterClockwise {
+  from {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+}
+
+/* 7 Big Orbit Leaves: Strictly along the outer 2 dashed lines, 100% clear of labels & green disc */
+.floating-orbit-leaf {
+  position: absolute;
+  pointer-events: none;
+  z-index: 6;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.14));
+  transform-origin: center center;
+  will-change: transform;
+}
+
+/* 1. Top center leaf (~12 o'clock) */
+.leaf-pos-1 {
+  top: 3%;
+  left: 50%;
+  animation: leafFloat1 4.2s ease-in-out infinite;
+}
+
+/* 2. Top Right leaf (~1:45 o'clock) */
+.leaf-pos-2 {
+  top: 15%;
+  right: 14%;
+  animation: leafFloat2 4.6s ease-in-out infinite 0.7s;
+}
+
+/* 3. Bottom Right leaf (~4:15 o'clock) */
+.leaf-pos-3 {
+  bottom: 16%;
+  right: 10%;
+  animation: leafFloat3 4.4s ease-in-out infinite 1.4s;
+}
+
+/* 4. Bottom Center-Right leaf (~5:30 o'clock) */
+.leaf-pos-4 {
+  bottom: 3%;
+  right: 28%;
+  animation: leafFloat4 4.8s ease-in-out infinite 2.1s;
+}
+
+/* 5. Bottom Left leaf (~6:45 o'clock) */
+.leaf-pos-5 {
+  bottom: 4%;
+  left: 34%;
+  animation: leafFloat5 4.3s ease-in-out infinite 2.8s;
+}
+
+/* 6. Middle Left leaf (~8:45 o'clock) */
+.leaf-pos-6 {
+  top: 48%;
+  left: 2%;
+  animation: leafFloat6 4.5s ease-in-out infinite 3.5s;
+}
+
+/* 7. Top Left leaf (~11:15 o'clock) */
+.leaf-pos-7 {
+  top: 8%;
+  left: 28%;
+  animation: leafFloat7 4.1s ease-in-out infinite 1s;
+}
+
+/* Gentle botanical floating & swaying animations for all 7 leaves */
+@keyframes leafFloat1 {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) rotate(10deg) scale(1);
+  }
+  50% {
+    transform: translate(-50%, calc(-50% - 7px)) rotate(14deg) scale(1.06);
+  }
+}
+
+@keyframes leafFloat2 {
+  0%,
+  100% {
+    transform: translate(50%, -50%) rotate(55deg) scale(1);
+  }
+  50% {
+    transform: translate(calc(50% + 5px), calc(-50% - 6px)) rotate(60deg)
+      scale(1.06);
+  }
+}
+
+@keyframes leafFloat3 {
+  0%,
+  100% {
+    transform: translate(50%, 50%) rotate(25deg) scale(1);
+  }
+  50% {
+    transform: translate(calc(50% + 5px), calc(50% + 6px)) rotate(30deg)
+      scale(1.06);
+  }
+}
+
+@keyframes leafFloat4 {
+  0%,
+  100% {
+    transform: translate(50%, 50%) rotate(55deg) scale(1);
+  }
+  50% {
+    transform: translate(calc(50% + 4px), calc(50% + 7px)) rotate(50deg)
+      scale(1.06);
+  }
+}
+
+@keyframes leafFloat5 {
+  0%,
+  100% {
+    transform: translate(-50%, 50%) rotate(-45deg) scale(1);
+  }
+  50% {
+    transform: translate(calc(-50% - 5px), calc(50% + 6px)) rotate(-40deg)
+      scale(1.06);
+  }
+}
+
+@keyframes leafFloat6 {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) rotate(-70deg) scale(1);
+  }
+  50% {
+    transform: translate(calc(-50% - 6px), -50%) rotate(-65deg) scale(1.06);
+  }
+}
+
+@keyframes leafFloat7 {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) rotate(-25deg) scale(1);
+  }
+  50% {
+    transform: translate(calc(-50% - 5px), calc(-50% - 6px)) rotate(-20deg)
+      scale(1.06);
+  }
+}
+
+/* Floating Orbit Badge Pills - Positioned completely OUTSIDE the round green disc & product image */
+.orbit-badge-pill {
+  position: absolute;
+  background: #ffffff;
+  border-radius: 30px;
+  padding: 7px 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.09);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #164230;
+  z-index: 10;
+  white-space: nowrap;
+  pointer-events: auto;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.orbit-badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #40916c;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* Anchored to extend outward away from the green circle */
+.orbit-tag-top-left {
+  top: 18%;
+  right: calc(50% + 140px);
+  left: auto;
+}
+
+.orbit-tag-bottom-left {
+  bottom: 14%;
+  right: calc(50% + 125px);
+  left: auto;
+}
+
+.orbit-tag-right {
+  top: 50%;
+  left: calc(50% + 195px);
+  right: auto;
+  transform: translateY(-50%);
+}
+
+/* Center Deep Green ROUND Disc: Perfect circular boundary with overflow hidden */
+.product-round-disc {
+  position: relative;
+  width: 390px;
+  height: 390px;
+  border-radius: 50%;
+  background: #0c432d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 16px 40px rgba(12, 67, 45, 0.28);
+  z-index: 3;
+  overflow: hidden;
+}
+
+/* Inner arched card with white border - Perfectly proportioned INSIDE the green circle */
+.product-arch-frame {
+  position: relative;
+  width: 220px;
+  height: 300px;
+  border-radius: 98px 98px 14px 14px;
+  border: 3px solid #ffffff;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+  background: #182820;
+}
+
+.product-arch-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.product-round-disc:hover .product-arch-image {
+  transform: scale(1.04);
+}
+
+/* --------------------------------------------------------------------------
+   Content Column (Right / Left)
+   -------------------------------------------------------------------------- */
+.product-content-col {
+  flex: 1;
+  max-width: 530px;
+}
+
+/* Eyebrow line: "1 / 3 —— Sat Aushadhi" */
+.product-eyebrow-line {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.product-counter-badge {
   font-size: 15px;
-  font-family: "Poppins", sans-serif !important;
+  font-weight: 600;
+  color: #4a6c5d;
+  letter-spacing: 0.5px;
 }
 
-.catalog-card p,
-.catalog-card li {
-  color: #3d6b55;
+.product-counter-sep {
+  width: 32px;
+  height: 1.5px;
+  background: #4a6c5d;
+  display: inline-block;
+}
+
+.product-brand-subtitle {
+  font-size: 15px;
+  font-weight: 600;
+  color: #4a6c5d;
+}
+
+/* Product Showcase Title (Serif Heading) */
+.product-showcase-title {
+  font-family: "Playfair Display", Georgia, serif !important;
+  font-size: clamp(34px, 4vw, 48px);
+  font-weight: 700;
+  color: #0b3d2b;
+  margin: 0 0 18px;
+  line-height: 1.15;
+}
+
+/* Pack Size Variant Pills */
+.product-variant-pills {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+}
+
+.variant-pill {
+  background: transparent;
+  color: #0b3d2b;
+  border: 1.5px solid #0b3d2b;
+  border-radius: 25px;
+  padding: 7px 22px;
+  font-size: 14.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: "Poppins", sans-serif;
+}
+
+.variant-pill:hover:not(.is-selected) {
+  background: rgba(11, 61, 43, 0.08);
+}
+
+.variant-pill.is-selected {
+  background: #0b3d2b;
+  color: #ffffff;
+}
+
+/* Description */
+.product-showcase-description {
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: #3b5649;
+  margin: 0 0 26px;
+}
+
+/* Good to know section */
+.product-good-to-know-box {
+  margin-bottom: 32px;
+}
+
+.good-to-know-heading {
+  font-size: 15.5px;
+  font-weight: 700;
+  color: #0b3d2b;
+  margin: 0 0 14px;
+  font-family: "Poppins", sans-serif;
+}
+
+.good-to-know-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 24px;
+}
+
+.good-to-know-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
   font-size: 14px;
-  line-height: 1.8;
-  font-family: "Poppins", sans-serif !important;
+  color: #244234;
+  font-weight: 500;
+  line-height: 1.45;
 }
 
-.catalog-card ul {
-  padding-left: 20px;
+.good-to-know-leaf {
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 
-/* Product Page Specific Color Theme */
-.product-page-wrapper .catalog-card {
-  border: 1px solid #d2ece8;
-  box-shadow: 0 6px 22px rgba(19, 166, 160, 0.08);
+/* CTA Buttons */
+.product-cta-group {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
 }
 
-.product-page-wrapper .catalog-card:hover {
-  transform: translateY(-5px);
-  border-color: #13a6a0;
-  box-shadow: 0 14px 30px rgba(19, 166, 160, 0.18);
+.btn-showcase-details {
+  background: #0b3d2b;
+  color: #ffffff;
+  border: none;
+  border-radius: 30px;
+  padding: 13px 28px;
+  font-size: 15px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(11, 61, 43, 0.2);
+  font-family: "Poppins", sans-serif;
 }
 
-.product-page-wrapper .catalog-card h3 {
-  color: #0d6e6e;
+.btn-showcase-details:hover {
+  background: #15553e;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(11, 61, 43, 0.3);
 }
 
-.product-page-wrapper .catalog-card .primary-button {
-  background: linear-gradient(135deg, #13a6a0 0%, #0d6e6e 100%);
+.btn-showcase-enquire {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #ffffff;
+  color: #0b3d2b;
+  border: 1.5px solid #0b3d2b;
+  border-radius: 30px;
+  padding: 12px 26px;
+  font-size: 14.5px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 3px 10px rgba(11, 61, 43, 0.08);
+  font-family: "Poppins", sans-serif;
+  white-space: nowrap;
 }
 
-.product-page-wrapper .catalog-card .primary-button:hover {
-  background: linear-gradient(135deg, #0b5656 0%, #0d6e6e 100%);
-  box-shadow: 0 6px 18px rgba(13, 110, 110, 0.3);
+.btn-showcase-enquire:hover {
+  background: #0b3d2b;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(11, 61, 43, 0.2);
+}
+
+/* --------------------------------------------------------------------------
+   Product Details Modal
+   -------------------------------------------------------------------------- */
+.product-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 30, 20, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+  animation: fadeIn 0.25s ease-out;
+}
+
+.product-modal-card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 24px;
+  width: min(850px, 94vw);
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+  padding: 35px 32px;
+  animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.product-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #f0f4f1;
+  border: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #3b5649;
+  transition: all 0.2s ease;
+}
+
+.product-modal-close:hover {
+  background: #0b3d2b;
+  color: #ffffff;
+}
+
+.product-modal-header {
+  border-bottom: 1px solid #e5ede7;
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+}
+
+.modal-category {
+  font-size: 12.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #13a6a0;
+}
+
+.product-modal-header h2 {
+  font-family: "Playfair Display", Georgia, serif !important;
+  color: #0b3d2b;
+  font-size: 28px;
+  margin: 6px 0 12px;
+}
+
+.modal-variant-tags {
+  display: flex;
+  gap: 8px;
+}
+
+.modal-tag {
+  background: #edf4ef;
+  color: #0b3d2b;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.product-modal-body {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.modal-img-col {
+  width: 240px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal-img-col img {
+  width: 100%;
+  height: 270px;
+  object-fit: contain;
+  background: #f7faf7;
+  border-radius: 16px;
+  padding: 10px;
+  border: 1px solid #e5ede7;
+}
+
+.modal-guarantee-badge {
+  background: #f0f7f3;
+  color: #0b4632;
+  border: 1px solid rgba(11, 70, 50, 0.15);
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-size: 12.5px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.modal-info-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.modal-info-block h4 {
+  color: #0b3d2b;
+  font-size: 15px;
+  margin: 0 0 6px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-weight: 700;
+}
+
+.modal-info-block p {
+  color: #3b5649;
+  font-size: 14px;
+  line-height: 1.65;
+  margin: 0;
+  white-space: pre-line;
+}
+
+.modal-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.modal-info-subheading {
+  font-weight: 700;
+  font-size: 13.5px;
+  color: #0b3d2b;
+  margin-top: 10px;
+  margin-bottom: 2px;
+  letter-spacing: 0.3px;
+}
+
+.modal-info-subheading:first-child {
+  margin-top: 0;
+}
+
+.modal-info-bullet-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13.5px;
+  color: #3b5649;
+  line-height: 1.5;
+}
+
+.modal-bullet-icon {
+  color: #13a6a0;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 1.25;
+  flex-shrink: 0;
+}
+
+.modal-bullet-text {
+  flex: 1;
+}
+
+.modal-info-gap {
+  height: 6px;
+}
+
+.modal-action-row {
+  margin-top: 12px;
+  padding-top: 16px;
+  border-top: 1px solid #e5ede7;
+}
+
+.modal-enquire-btn {
+  background: #0b3d2b;
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+}
+
+.modal-enquire-btn:hover {
+  background: #15553e;
+  transform: translateY(-2px);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ==========================================================================
-   PRODUCT PAGE RESPONSIVE DESIGN (<= 1024px, <= 860px, <= 640px, <= 380px)
+   RESPONSIVE DESIGN (<= 1100px, <= 860px, <= 640px, <= 380px)
    ========================================================================== */
 
-/* --- 1. Tablets & Small Laptops (<= 1024px) --- */
-@media (max-width: 1024px) {
-  .catalog-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px;
+/* --- 1. Laptops & Large Tablets (<= 1100px) --- */
+@media (max-width: 1100px) {
+  .product-showcase-row {
+    gap: 35px;
+    padding: 35px 20px;
   }
 
-  .product-banner {
-    padding: 85px 20px;
+  .product-orbit-stage {
+    width: 450px;
+    height: 450px;
+  }
+
+  .orbit-ring-inner {
+    width: 390px;
+    height: 390px;
+  }
+
+  .orbit-ring-outer {
+    width: 420px;
+    height: 420px;
+  }
+
+  .product-round-disc {
+    width: 340px;
+    height: 340px;
+  }
+
+  .product-arch-frame {
+    width: 170px;
+    height: 230px;
+    border-radius: 85px 85px 12px 12px;
+  }
+
+  .floating-orbit-leaf {
+    width: 34px;
+    height: 34px;
+  }
+
+  .orbit-tag-top-left {
+    top: 18%;
+    right: calc(50% + 120px);
+    left: auto;
+  }
+
+  .orbit-tag-bottom-left {
+    bottom: 14%;
+    right: calc(50% + 105px);
+    left: auto;
+  }
+
+  .orbit-tag-right {
+    top: 50%;
+    left: calc(50% + 175px);
+    right: auto;
+    transform: translateY(-50%);
   }
 }
 
@@ -183,50 +993,227 @@
   .product-banner h1 {
     font-size: clamp(30px, 5.5vw, 44px);
   }
+
+  .product-quick-nav-bar {
+    top: 60px;
+    padding: 10px 10px;
+  }
+
+  .product-quick-nav-container {
+    gap: 10px;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .product-quick-nav-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .product-nav-card {
+    flex-shrink: 0;
+    padding: 6px 14px 6px 8px;
+    gap: 10px;
+  }
+
+  .product-nav-card-thumb {
+    width: 36px;
+    height: 36px;
+  }
+
+  .product-nav-card-title {
+    font-size: 13px;
+  }
+
+  .product-nav-card-sub {
+    font-size: 11px;
+  }
+
+  /* Remove 480px min-height on tablet & mobile */
+  .product-visual-col {
+    min-height: auto !important;
+    height: auto !important;
+    flex: none !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Both normal and reversed rows stack vertically on tablet & mobile */
+  .product-showcase-row,
+  .product-showcase-row.is-reversed {
+    flex-direction: column !important;
+    gap: 12px !important;
+    padding: 22px 14px !important;
+    text-align: center;
+  }
+
+  .product-showcase-row:not(:last-child)::after {
+    width: min(90%, 340px);
+  }
+
+  /* Compact orbit stage */
+  .product-orbit-stage {
+    width: 100%;
+    max-width: 440px;
+    height: 260px;
+    margin: 0 auto;
+    overflow: visible;
+  }
+
+  .orbit-ring-inner {
+    width: 250px;
+    height: 250px;
+  }
+
+  .orbit-ring-outer {
+    width: 276px;
+    height: 276px;
+  }
+
+  .product-round-disc {
+    width: 215px;
+    height: 215px;
+  }
+
+  .product-arch-frame {
+    width: 112px;
+    height: 152px;
+    border-radius: 56px 56px 8px 8px;
+    border-width: 2.5px;
+  }
+
+  .floating-orbit-leaf {
+    width: 22px;
+    height: 22px;
+  }
+
+  /* Floating pill tags - Anchored inside viewport to avoid cropping */
+  .orbit-badge-pill {
+    padding: 4px 10px;
+    font-size: 11.5px;
+    gap: 6px;
+    white-space: nowrap;
+    z-index: 10;
+  }
+
+  .orbit-badge-dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .orbit-tag-top-left {
+    top: 8%;
+    left: 10px;
+    right: auto;
+    transform: none;
+  }
+
+  .orbit-tag-bottom-left {
+    bottom: 8%;
+    left: 10px;
+    right: auto;
+    transform: none;
+  }
+
+  .orbit-tag-right {
+    top: 48%;
+    right: 10px;
+    left: auto;
+    transform: translateY(-50%);
+  }
+
+  .product-content-col {
+    max-width: 580px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .product-eyebrow-line {
+    justify-content: center;
+    margin-top: 2px !important;
+    margin-bottom: 6px !important;
+  }
+
+  .product-showcase-title {
+    font-size: 28px !important;
+    margin: 0 0 12px !important;
+    line-height: 1.2 !important;
+  }
+
+  .product-variant-pills {
+    justify-content: center;
+    margin-bottom: 12px !important;
+    gap: 10px !important;
+  }
+
+  .variant-pill {
+    padding: 6px 18px !important;
+    font-size: 13px !important;
+  }
+
+  .product-showcase-description {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    margin: 0 0 16px !important;
+    max-width: 480px !important;
+  }
+
+  .product-good-to-know-box {
+    margin-bottom: 18px !important;
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .good-to-know-heading {
+    text-align: center;
+    margin-bottom: 8px !important;
+    font-size: 14px !important;
+  }
+
+  .good-to-know-grid {
+    text-align: left;
+    max-width: 420px;
+    margin: 0 auto;
+    gap: 8px 16px;
+  }
+
+  .product-cta-group {
+    justify-content: center;
+    gap: 14px !important;
+  }
+
+  .btn-showcase-details {
+    padding: 11px 22px !important;
+    font-size: 14px !important;
+  }
+
+  .btn-showcase-enquire {
+    padding: 11px 22px !important;
+    font-size: 14px !important;
+  }
+
+  .product-modal-body {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .modal-img-col {
+    width: 100%;
+    max-width: 280px;
+  }
 }
 
 /* --- 3. Mobile Phones (<= 640px) --- */
 @media (max-width: 640px) {
-  .catalog-grid {
-    grid-template-columns: 1fr !important;
-    gap: 20px !important;
-  }
-
-  .catalog-card {
-    max-width: 440px;
-    margin: 0 auto;
-    width: 100%;
-  }
-
-  .catalog-card img {
-    height: 220px;
-    padding: 10px;
-  }
-
-  .catalog-card-content {
-    padding: 18px 16px;
-  }
-
-  .catalog-card h2 {
-    font-size: 20px;
-  }
-
-  .catalog-card h3 {
-    font-size: 14px;
-  }
-
-  .catalog-card p,
-  .catalog-card li {
-    font-size: 13.5px;
-    line-height: 1.65;
-  }
-
-  .catalog-card .primary-button {
-    width: 100%;
-    justify-content: center;
-    margin-top: 10px;
-  }
-
   .product-banner {
     padding: 55px 16px;
   }
@@ -245,36 +1232,354 @@
     font-size: 11px;
     letter-spacing: 1.5px;
   }
+
+  .products-showcase-container {
+    padding: 4px 0 18px;
+  }
+
+  .product-quick-nav-bar {
+    top: 55px;
+    padding: 8px 8px;
+  }
+
+  .product-quick-nav-container {
+    gap: 8px;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .product-quick-nav-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .product-nav-card {
+    flex-shrink: 0;
+    padding: 5px 12px 5px 6px;
+    gap: 8px;
+    border-radius: 40px;
+  }
+
+  .product-nav-card-thumb {
+    width: 32px;
+    height: 32px;
+  }
+
+  .product-nav-card-title {
+    font-size: 12px;
+  }
+
+  .product-nav-card-sub {
+    font-size: 10.5px;
+  }
+
+  /* Eliminate artificial vertical empty spaces between products */
+  .product-showcase-row,
+  .product-showcase-row.is-reversed {
+    padding: 14px 8px 18px !important;
+    gap: 8px !important;
+  }
+
+  .product-showcase-row:not(:last-child)::after {
+    width: min(85%, 260px);
+  }
+
+  /* Zero vertical dead space on visual column */
+  .product-visual-col {
+    min-height: auto !important;
+    height: auto !important;
+    width: 100% !important;
+    flex: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Compact orbit stage: tightly wraps around the disc and rings */
+  .product-orbit-stage {
+    width: 100%;
+    max-width: 350px;
+    height: 215px;
+    margin: 0 auto;
+    position: relative;
+    overflow: visible;
+  }
+
+  .orbit-ring-inner {
+    width: 200px;
+    height: 200px;
+  }
+
+  .orbit-ring-outer {
+    width: 220px;
+    height: 220px;
+  }
+
+  .product-round-disc {
+    width: 168px;
+    height: 168px;
+    box-shadow: 0 10px 24px rgba(12, 67, 45, 0.22);
+  }
+
+  .product-arch-frame {
+    width: 88px;
+    height: 120px;
+    border-radius: 44px 44px 6px 6px;
+    border-width: 2px;
+  }
+
+  .floating-orbit-leaf {
+    width: 17px;
+    height: 17px;
+  }
+
+  /* Pill tags: Anchored to avoid ANY right/left screen edge cropping */
+  .orbit-badge-pill {
+    padding: 3.5px 8px;
+    font-size: 10.5px;
+    gap: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    white-space: nowrap;
+    z-index: 10;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  .orbit-badge-dot {
+    width: 5.5px;
+    height: 5.5px;
+  }
+
+  /* Left tags: Anchored comfortably inside left edge */
+  .orbit-tag-top-left {
+    top: 7%;
+    left: 4px;
+    right: auto;
+    transform: none;
+  }
+
+  .orbit-tag-bottom-left {
+    bottom: 7%;
+    left: 4px;
+    right: auto;
+    transform: none;
+  }
+
+  /* Right tag: Anchored inside right edge so it NEVER crops */
+  .orbit-tag-right {
+    top: 45%;
+    right: 4px;
+    left: auto;
+    transform: translateY(-50%);
+  }
+
+  /* Content Column - Snug & clean vertical rhythm */
+  .product-content-col {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .product-eyebrow-line {
+    margin-top: 2px !important;
+    margin-bottom: 4px !important;
+    justify-content: center;
+  }
+
+  .product-counter-badge,
+  .product-brand-subtitle {
+    font-size: 12.5px !important;
+  }
+
+  .product-counter-sep {
+    width: 20px !important;
+  }
+
+  .product-showcase-title {
+    font-size: clamp(22px, 5.5vw, 25px) !important;
+    margin: 0 0 8px !important;
+    line-height: 1.2 !important;
+  }
+
+  .product-variant-pills {
+    margin-bottom: 8px !important;
+    gap: 8px !important;
+    justify-content: center;
+  }
+
+  .variant-pill {
+    padding: 4px 13px !important;
+    font-size: 11.5px !important;
+  }
+
+  .product-showcase-description {
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+    margin: 0 0 10px !important;
+    max-width: 320px !important;
+  }
+
+  .product-good-to-know-box {
+    margin-bottom: 12px !important;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .good-to-know-heading {
+    font-size: 12.5px !important;
+    margin: 0 0 6px !important;
+    text-align: center;
+  }
+
+  .good-to-know-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px 8px;
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .good-to-know-item {
+    font-size: 11.5px !important;
+    gap: 6px;
+  }
+
+  .good-to-know-leaf {
+    width: 14px;
+    height: 14px;
+  }
+
+  .product-cta-group {
+    flex-direction: column;
+    gap: 10px !important;
+    width: 100%;
+    max-width: 290px;
+    margin: 0 auto;
+  }
+
+  .btn-showcase-details {
+    width: 100%;
+    justify-content: center;
+    padding: 11px 18px !important;
+    font-size: 13.5px !important;
+    border-radius: 25px;
+    box-sizing: border-box;
+  }
+
+  .btn-showcase-enquire {
+    width: 100%;
+    justify-content: center;
+    padding: 11px 18px !important;
+    font-size: 13.5px !important;
+    border-radius: 25px;
+    box-sizing: border-box;
+  }
+
+  .product-modal-card {
+    padding: 20px 14px;
+    border-radius: 16px;
+    width: 94%;
+  }
 }
 
-/* --- 4. Extra Small Phones (<= 380px) --- */
-@media (max-width: 380px) {
-  .catalog-card img {
-    height: 180px;
-    padding: 8px;
+/* --- 4. Extra Small Phones (<= 360px) --- */
+@media (max-width: 360px) {
+  .product-hero-img-box {
+    max-width: 280px !important;
   }
 
-  .catalog-card-content {
-    padding: 15px 12px;
+  .product-hero-img {
+    max-height: 165px !important;
   }
 
-  .catalog-card h2 {
-    font-size: 18px;
+  .product-hero-title {
+    font-size: 21px !important;
   }
 
-  .catalog-card h3 {
-    font-size: 13px;
+  .product-hero-desc {
+    font-size: 12.5px !important;
   }
 
-  .product-banner {
-    padding: 46px 12px;
+  .product-showcase-row,
+  .product-showcase-row.is-reversed {
+    padding: 12px 6px 14px !important;
+    gap: 6px !important;
   }
 
-  .product-banner h1 {
-    font-size: 22px;
+  .product-orbit-stage {
+    max-width: 310px;
+    height: 195px;
   }
 
-  .product-banner p {
-    font-size: 13px;
+  .orbit-ring-inner {
+    width: 182px;
+    height: 182px;
+  }
+
+  .orbit-ring-outer {
+    width: 200px;
+    height: 200px;
+  }
+
+  .product-round-disc {
+    width: 152px;
+    height: 152px;
+  }
+
+  .product-arch-frame {
+    width: 78px;
+    height: 106px;
+    border-radius: 39px 39px 5px 5px;
+    border-width: 2px;
+  }
+
+  .orbit-badge-pill {
+    font-size: 9.5px;
+    padding: 3px 6px;
+    gap: 4px;
+  }
+
+  .orbit-badge-dot {
+    width: 5px;
+    height: 5px;
+  }
+
+  .orbit-tag-top-left {
+    top: 5%;
+    left: 2px;
+  }
+
+  .orbit-tag-bottom-left {
+    bottom: 5%;
+    left: 2px;
+  }
+
+  .orbit-tag-right {
+    top: 45%;
+    right: 2px;
+    left: auto;
+    transform: translateY(-50%);
+  }
+
+  .floating-orbit-leaf {
+    width: 15px;
+    height: 15px;
+  }
+
+  .product-showcase-title {
+    font-size: 21px !important;
+  }
+
+  .variant-pill {
+    padding: 4px 10px;
+    font-size: 11px;
+  }
+
+  .good-to-know-grid {
+    grid-template-columns: 1fr;
+    gap: 5px;
   }
 }
+

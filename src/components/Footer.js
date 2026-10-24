@@ -90,7 +90,7 @@ function Footer() {
                 <div>
                   <strong>Enquiry Phone</strong>
                   <br />
-                  <span>Verified Business Support</span>
+                  <span>+91 70960 08301</span>
                 </div>
               </li>
               <li>
@@ -99,10 +99,10 @@ function Footer() {
                   <strong>Email Us</strong>
                   <br />
                   <a
-                    href="mailto:info@sataushadhi.com"
+                    href="mailto:darshanherbs25@gmail.com"
                     className="footer-mail-link"
                   >
-                    info@sataushadhi.com
+                    darshanherbs25@gmail.com
                   </a>
                 </div>
               </li>
@@ -114,7 +114,7 @@ function Footer() {
         <div className="footer-bottom">
           <div>
             © {new Date().getFullYear()} Sat Aushadhi. Manufactured by Darshan
-            Herbs. All Rights Reserved.
+            Herbs | Developed with 🫶 by Techstrota | All Rights Reserved.
           </div>
 
           <div className="footer-bottom-links">
