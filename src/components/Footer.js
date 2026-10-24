@@ -44,7 +44,7 @@ function Footer() {
           </div>
 
           {/* Column 2: Quick Links */}
-          <div className="footer-col">
+          <div className="footer-col footer-links-col">
             <h3>Quick Links</h3>
             <ul className="footer-links">
               <li>
@@ -53,13 +53,13 @@ function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/products">
-                  <ChevronRight size={14} /> Our Products
+                <Link to="/about">
+                  <ChevronRight size={14} /> About Us
                 </Link>
               </li>
               <li>
-                <Link to="/about">
-                  <ChevronRight size={14} /> About Us
+                <Link to="/products">
+                  <ChevronRight size={14} /> Our Products
                 </Link>
               </li>
               <li>
@@ -70,40 +70,8 @@ function Footer() {
             </ul>
           </div>
 
-          {/* Column 3: Our Products */}
-          <div className="footer-col">
-            <h3>Our Products</h3>
-            <ul className="footer-links">
-              <li>
-                <Link to="/products">
-                  <ChevronRight size={14} /> Pain Relief Oil (100 ml)
-                </Link>
-              </li>
-              <li>
-                <Link to="/products">
-                  <ChevronRight size={14} /> Pain Relief Oil (30 ml)
-                </Link>
-              </li>
-              <li>
-                <Link to="/products">
-                  <ChevronRight size={14} /> Calcimax Tablets (60 Tab)
-                </Link>
-              </li>
-              <li>
-                <Link to="/products">
-                  <ChevronRight size={14} /> Pain Relief Balm (25 ml)
-                </Link>
-              </li>
-              <li>
-                <Link to="/products">
-                  <ChevronRight size={14} /> Pain Relief Balm (10 ml)
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Column 4: Contact & Manufacturer */}
-          <div className="footer-col">
+          {/* Column 3: Contact & Manufacturer */}
+          <div className="footer-col footer-contact-col">
             <h3>Get In Touch</h3>
             <ul className="footer-contact-list">
               <li>
@@ -111,8 +79,10 @@ function Footer() {
                 <div>
                   <strong>Darshan Herbs</strong>
                   <br />
-                  B-303, Hazelwood Apartment, Iskcon Temple Road, Gotri,
-                  Vadodara - 390021
+                  <span>
+                    B-303, Hazelwood Apartment, Iskcon Temple Road, Gotri,
+                    Vadodara - 390021
+                  </span>
                 </div>
               </li>
               <li>
@@ -120,7 +90,7 @@ function Footer() {
                 <div>
                   <strong>Enquiry Phone</strong>
                   <br />
-                  Verified Business Support
+                  <span>Verified Business Support</span>
                 </div>
               </li>
               <li>
@@ -128,7 +98,12 @@ function Footer() {
                 <div>
                   <strong>Email Us</strong>
                   <br />
-                  info@sataushadhi.com
+                  <a
+                    href="mailto:info@sataushadhi.com"
+                    className="footer-mail-link"
+                  >
+                    info@sataushadhi.com
+                  </a>
                 </div>
               </li>
             </ul>

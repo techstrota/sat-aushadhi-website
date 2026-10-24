@@ -30,22 +30,31 @@
   margin: 0 auto;
 }
 
+/* Balanced 3-column grid layout */
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.4fr 0.9fr 0.9fr 1.2fr;
-  gap: 40px;
+  grid-template-columns: 1.7fr 1fr 1.3fr;
+  column-gap: 50px;
+  row-gap: 40px;
   margin-bottom: 50px;
+  align-items: start;
 }
 
 .footer-brand {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  max-width: 440px;
 }
 
 .footer-logo {
   display: inline-block;
   margin-bottom: 18px;
+  transition: transform 0.25s ease;
+}
+
+.footer-logo:hover {
+  transform: scale(1.03);
 }
 
 .footer-logo img {
@@ -57,7 +66,7 @@
 
 .footer-brand p {
   color: #b2c4bc;
-  font-size: 14px;
+  font-size: 14.5px;
   line-height: 1.8;
   margin: 0 0 20px;
 }
@@ -74,20 +83,29 @@
   gap: 6px;
   background: rgba(19, 166, 160, 0.12);
   border: 1px solid rgba(19, 166, 160, 0.25);
-  padding: 6px 12px;
+  padding: 6px 14px;
   border-radius: 20px;
   font-size: 12px;
   color: #13a6a0;
   font-weight: 600;
+  letter-spacing: 0.2px;
+  transition: all 0.2s ease;
+}
+
+.footer-badge-item:hover {
+  background: rgba(19, 166, 160, 0.2);
+  border-color: rgba(19, 166, 160, 0.4);
+  transform: translateY(-2px);
 }
 
 .footer-col h3 {
   color: #ffffff;
   font-size: 17px;
   font-weight: 600;
-  margin: 0 0 20px;
+  margin: 0 0 22px;
   position: relative;
-  padding-bottom: 8px;
+  padding-bottom: 9px;
+  letter-spacing: 0.3px;
 }
 
 .footer-col h3::after {
@@ -95,10 +113,14 @@
   position: absolute;
   left: 0;
   bottom: 0;
-  width: 35px;
+  width: 36px;
   height: 3px;
-  background: #13a6a0;
+  background: linear-gradient(90deg, #13a6a0, #78b844);
   border-radius: 2px;
+}
+
+.footer-links-col {
+  padding-left: 10px;
 }
 
 .footer-links {
@@ -114,16 +136,16 @@
 .footer-links a {
   color: #c8d6cf;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 14.5px;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 7px;
   transition: all 0.2s ease;
 }
 
 .footer-links a:hover {
   color: #13a6a0;
-  transform: translateX(4px);
+  transform: translateX(5px);
 }
 
 .footer-contact-list {
@@ -136,10 +158,10 @@
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  font-size: 13.5px;
+  font-size: 14px;
   color: #b2c4bc;
   line-height: 1.6;
-  margin-bottom: 15px;
+  margin-bottom: 16px;
 }
 
 .footer-contact-icon {
@@ -150,6 +172,20 @@
 
 .footer-contact-list strong {
   color: #ffffff;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 2px;
+}
+
+.footer-mail-link {
+  color: #c8d6cf;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-mail-link:hover {
+  color: #13a6a0;
+  text-decoration: underline;
 }
 
 .footer-bottom {
@@ -160,13 +196,13 @@
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 15px;
-  font-size: 13px;
+  font-size: 13.5px;
   color: #92a89e;
 }
 
 .footer-bottom-links {
   display: flex;
-  gap: 20px;
+  gap: 24px;
 }
 
 .footer-bottom-links a {
@@ -179,15 +215,25 @@
   color: #13a6a0;
 }
 
-/* Tablet Responsive */
-@media (max-width: 990px) {
+/* Tablet Responsive: Brand spans across the top, Quick Links & Contact side-by-side */
+@media (max-width: 960px) {
   .footer-container {
     width: min(1300px, 92%);
   }
 
   .footer-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 35px;
+    gap: 40px 30px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+    max-width: 600px;
+    margin-bottom: 10px;
+  }
+
+  .footer-links-col {
+    padding-left: 0;
   }
 }
 
@@ -204,8 +250,13 @@
 
   .footer-grid {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 32px;
     margin-bottom: 35px;
+  }
+
+  .footer-brand {
+    max-width: 100%;
+    margin-bottom: 0;
   }
 
   .footer-logo img {
@@ -228,7 +279,7 @@
 
   .footer-bottom-links {
     justify-content: center;
-    gap: 18px;
+    gap: 20px;
   }
 
   .footer-contact-list li {
@@ -244,7 +295,7 @@
 
   .footer-badge-item {
     font-size: 11px;
-    padding: 5px 9px;
+    padding: 5px 10px;
   }
 
   .footer-links a {
@@ -252,10 +303,11 @@
   }
 
   .footer-contact-list li {
-    font-size: 12.5px;
+    font-size: 13px;
   }
 
   .footer-bottom {
     font-size: 12px;
   }
 }
+
