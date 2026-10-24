@@ -1,0 +1,395 @@
+@import "./common.css";
+
+/* ==========================================================================
+   CONTACT PAGE STYLES
+   Sat Aushadhi Website
+   ========================================================================== */
+
+/* Main Contact Page Wrapper (Deep Navy Slate Cyan Theme) */
+.contact-page-wrapper {
+  background-color: #f8fafc;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Contact Page Banner */
+.contact-banner {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%) !important;
+  color: #ffffff;
+  position: relative;
+  padding: 85px 20px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.contact-banner .banner-content {
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.contact-banner .eyebrow {
+  color: #38bdf8;
+}
+
+.contact-banner h1 {
+  margin: 0 0 14px;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif !important;
+  font-size: clamp(32px, 4.5vw, 50px);
+}
+
+.contact-banner p {
+  color: #cbd5e1;
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 16px;
+  line-height: 1.7;
+  font-family: "Poppins", sans-serif !important;
+}
+
+/* Contact Grid Layout */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: start;
+  gap: 35px;
+}
+
+/* Common Card Containers */
+.contact-details,
+.contact-form {
+  padding: 32px 28px;
+  border-radius: 20px;
+  box-shadow: 0 6px 24px rgba(15, 23, 42, 0.05);
+}
+
+.contact-details {
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+}
+
+.contact-form {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+}
+
+.contact-details h2,
+.contact-form h2 {
+  margin: 0 0 10px;
+  color: #0f172a;
+  font-family: "Poppins", sans-serif !important;
+  font-size: 26px;
+}
+
+.contact-details .eyebrow {
+  color: #0284c7;
+  margin-bottom: 8px;
+}
+
+.contact-intro {
+  color: #475569;
+  font-size: 14.5px;
+  line-height: 1.7;
+  margin: 0 0 20px;
+  font-family: "Poppins", sans-serif !important;
+}
+
+/* Contact Info Items List */
+.contact-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 15px;
+}
+
+.contact-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 16px;
+  background: #ffffff;
+  border-radius: 14px;
+  border: 1px solid #e0f2fe;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-info-item:hover {
+  transform: translateY(-2px);
+  border-color: #0284c7;
+  box-shadow: 0 6px 16px rgba(2, 132, 199, 0.1);
+}
+
+.contact-info-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+  background: #e0f9fe;
+  color: #0284c7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.contact-info-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.contact-info-text strong {
+  display: block;
+  color: #0f172a;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 3px;
+  font-family: "Poppins", sans-serif !important;
+}
+
+.contact-info-text p {
+  margin: 0 !important;
+  color: #475569 !important;
+  font-size: 13.5px !important;
+  line-height: 1.6 !important;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  font-family: "Poppins", sans-serif !important;
+}
+
+/* Contact Form Styling */
+.contact-form label {
+  display: block;
+  margin-bottom: 7px;
+  color: #0f172a;
+  font-size: 13.5px;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif !important;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 18px;
+  padding: 13px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  outline: none;
+  background: #ffffff;
+  color: #0f172a;
+  font-family: "Poppins", sans-serif !important;
+  font-size: 15px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  border-color: #0284c7;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+
+.contact-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.contact-form .primary-button {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  border: 0;
+  cursor: pointer;
+  min-height: 48px;
+}
+
+.contact-form .primary-button:hover {
+  background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.3);
+}
+
+.form-disclaimer {
+  margin-top: 14px;
+  margin-bottom: 0;
+  font-size: 12px;
+  color: #64748b;
+  line-height: 1.6;
+  text-align: center;
+  font-family: "Poppins", sans-serif !important;
+}
+
+/* ==========================================================================
+   CONTACT PAGE RESPONSIVE DESIGN (<= 1024px, <= 860px, <= 640px, <= 380px)
+   ========================================================================== */
+
+/* --- 1. Tablets & Small Laptops (<= 1024px) --- */
+@media (max-width: 1024px) {
+  .contact-grid {
+    gap: 25px;
+  }
+
+  .contact-banner {
+    padding: 75px 20px;
+  }
+}
+
+/* --- 2. Tablets Portrait & Mobile Landscape (<= 860px) --- */
+@media (max-width: 860px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .contact-details,
+  .contact-form {
+    padding: 26px 22px;
+  }
+
+  .contact-banner {
+    padding: 65px 20px;
+  }
+
+  .contact-banner h1 {
+    font-size: clamp(28px, 5.5vw, 42px);
+  }
+}
+
+/* --- 3. Mobile Phones (<= 640px) --- */
+@media (max-width: 640px) {
+  .contact-grid {
+    gap: 22px;
+  }
+
+  .contact-details,
+  .contact-form {
+    padding: 20px 16px;
+    border-radius: 16px;
+  }
+
+  .contact-details h2,
+  .contact-form h2 {
+    font-size: 22px;
+  }
+
+  .contact-intro {
+    font-size: 13.5px;
+    margin-bottom: 16px;
+  }
+
+  .contact-info-list {
+    gap: 10px;
+  }
+
+  .contact-info-item {
+    padding: 12px 12px;
+    gap: 12px;
+    border-radius: 12px;
+  }
+
+  .contact-info-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 9px;
+  }
+
+  .contact-info-icon svg {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  .contact-info-text strong {
+    font-size: 13.5px;
+  }
+
+  .contact-info-text p {
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+  }
+
+  .contact-form label {
+    font-size: 13px;
+    margin-bottom: 5px;
+  }
+
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea {
+    font-size: 16px; /* Prevents auto-zoom on iOS browsers */
+    padding: 12px;
+    margin-bottom: 14px;
+    border-radius: 8px;
+  }
+
+  .contact-form .primary-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .contact-banner {
+    padding: 50px 16px;
+  }
+
+  .contact-banner h1 {
+    font-size: clamp(25px, 6.8vw, 34px);
+    margin-bottom: 10px;
+  }
+
+  .contact-banner p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .contact-banner .eyebrow {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+  }
+}
+
+/* --- 4. Extra Small Phones (<= 380px) --- */
+@media (max-width: 380px) {
+  .contact-details,
+  .contact-form {
+    padding: 16px 12px;
+    border-radius: 14px;
+  }
+
+  .contact-details h2,
+  .contact-form h2 {
+    font-size: 20px;
+  }
+
+  .contact-info-item {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .contact-info-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .contact-info-icon svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  .contact-info-text strong {
+    font-size: 13px;
+  }
+
+  .contact-info-text p {
+    font-size: 12.5px !important;
+  }
+
+  .contact-banner {
+    padding: 42px 12px;
+  }
+
+  .contact-banner h1 {
+    font-size: 22px;
+  }
+
+  .contact-banner p {
+    font-size: 13px;
+  }
+}

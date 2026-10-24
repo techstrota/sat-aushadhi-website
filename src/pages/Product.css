@@ -1,0 +1,280 @@
+@import "./common.css";
+
+/* ==========================================================================
+   PRODUCT PAGE STYLES (Synchronized with Pages.css)
+   Sat Aushadhi Website
+   ========================================================================== */
+
+/* Main Product Page Wrapper (Botanical Ocean Teal Theme) */
+.product-page-wrapper {
+  background-color: #f4f9f9;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Product Page Banner */
+.product-banner {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 115px 20px;
+  text-align: center;
+  background: none !important;
+}
+
+.product-banner-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: -2;
+  filter: blur(2px) brightness(0.85);
+  transform: scale(1.04);
+  pointer-events: none;
+}
+
+.product-banner .banner-bg-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    180deg,
+    rgba(11, 81, 50, 0.4) 0%,
+    rgba(7, 45, 28, 0.65) 100%
+  );
+  pointer-events: none;
+}
+
+.product-banner .banner-content {
+  position: relative;
+  z-index: 2;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.product-banner .eyebrow {
+  color: #78b844;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.product-banner h1 {
+  color: #ffffff;
+  font-size: clamp(38px, 5vw, 58px);
+  text-shadow: 0 3px 14px rgba(0, 0, 0, 0.7);
+  margin-bottom: 14px;
+}
+
+.product-banner p {
+  color: #f8f6f0;
+  font-size: 17px;
+  line-height: 1.8;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+/* Product Catalog Grid */
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.catalog-card {
+  overflow: hidden;
+  border: 1px solid #e7ede3;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 6px 20px rgba(11, 81, 50, 0.06);
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.catalog-card img {
+  display: block;
+  width: 100%;
+  height: 260px;
+  padding: 15px;
+  box-sizing: border-box;
+  object-fit: contain;
+  background: #f8f6f0;
+}
+
+.catalog-card-content {
+  padding: 22px;
+}
+
+.catalog-card h2 {
+  margin-top: 0;
+  color: #0b5132;
+  font-size: 22px;
+  font-family: "Poppins", sans-serif !important;
+}
+
+.catalog-card h3 {
+  color: #13a6a0;
+  font-size: 15px;
+  font-family: "Poppins", sans-serif !important;
+}
+
+.catalog-card p,
+.catalog-card li {
+  color: #3d6b55;
+  font-size: 14px;
+  line-height: 1.8;
+  font-family: "Poppins", sans-serif !important;
+}
+
+.catalog-card ul {
+  padding-left: 20px;
+}
+
+/* Product Page Specific Color Theme */
+.product-page-wrapper .catalog-card {
+  border: 1px solid #d2ece8;
+  box-shadow: 0 6px 22px rgba(19, 166, 160, 0.08);
+}
+
+.product-page-wrapper .catalog-card:hover {
+  transform: translateY(-5px);
+  border-color: #13a6a0;
+  box-shadow: 0 14px 30px rgba(19, 166, 160, 0.18);
+}
+
+.product-page-wrapper .catalog-card h3 {
+  color: #0d6e6e;
+}
+
+.product-page-wrapper .catalog-card .primary-button {
+  background: linear-gradient(135deg, #13a6a0 0%, #0d6e6e 100%);
+}
+
+.product-page-wrapper .catalog-card .primary-button:hover {
+  background: linear-gradient(135deg, #0b5656 0%, #0d6e6e 100%);
+  box-shadow: 0 6px 18px rgba(13, 110, 110, 0.3);
+}
+
+/* ==========================================================================
+   PRODUCT PAGE RESPONSIVE DESIGN (<= 1024px, <= 860px, <= 640px, <= 380px)
+   ========================================================================== */
+
+/* --- 1. Tablets & Small Laptops (<= 1024px) --- */
+@media (max-width: 1024px) {
+  .catalog-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .product-banner {
+    padding: 85px 20px;
+  }
+}
+
+/* --- 2. Tablets Portrait & Mobile Landscape (<= 860px) --- */
+@media (max-width: 860px) {
+  .product-banner {
+    padding: 70px 20px;
+  }
+
+  .product-banner h1 {
+    font-size: clamp(30px, 5.5vw, 44px);
+  }
+}
+
+/* --- 3. Mobile Phones (<= 640px) --- */
+@media (max-width: 640px) {
+  .catalog-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .catalog-card {
+    max-width: 440px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .catalog-card img {
+    height: 220px;
+    padding: 10px;
+  }
+
+  .catalog-card-content {
+    padding: 18px 16px;
+  }
+
+  .catalog-card h2 {
+    font-size: 20px;
+  }
+
+  .catalog-card h3 {
+    font-size: 14px;
+  }
+
+  .catalog-card p,
+  .catalog-card li {
+    font-size: 13.5px;
+    line-height: 1.65;
+  }
+
+  .catalog-card .primary-button {
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .product-banner {
+    padding: 55px 16px;
+  }
+
+  .product-banner h1 {
+    font-size: clamp(25px, 6.8vw, 36px);
+    margin-bottom: 10px;
+  }
+
+  .product-banner p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .product-banner .eyebrow {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+  }
+}
+
+/* --- 4. Extra Small Phones (<= 380px) --- */
+@media (max-width: 380px) {
+  .catalog-card img {
+    height: 180px;
+    padding: 8px;
+  }
+
+  .catalog-card-content {
+    padding: 15px 12px;
+  }
+
+  .catalog-card h2 {
+    font-size: 18px;
+  }
+
+  .catalog-card h3 {
+    font-size: 13px;
+  }
+
+  .product-banner {
+    padding: 46px 12px;
+  }
+
+  .product-banner h1 {
+    font-size: 22px;
+  }
+
+  .product-banner p {
+    font-size: 13px;
+  }
+}

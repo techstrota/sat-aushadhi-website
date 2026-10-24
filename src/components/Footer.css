@@ -1,0 +1,261 @@
+.site-footer {
+  background: linear-gradient(145deg, #161d1a 0%, #101613 100%);
+  color: #c8d6cf;
+  padding-top: 60px;
+  padding-bottom: 25px;
+  font-family: "Poppins", sans-serif !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-top-glow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #13a6a0,
+    #78b844,
+    #13a6a0,
+    transparent
+  );
+}
+
+.footer-container {
+  width: min(1300px, 90%);
+  margin: 0 auto;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 0.9fr 0.9fr 1.2fr;
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer-logo {
+  display: inline-block;
+  margin-bottom: 18px;
+}
+
+.footer-logo img {
+  display: block;
+  width: 90px;
+  height: 100px;
+  object-fit: contain;
+}
+
+.footer-brand p {
+  color: #b2c4bc;
+  font-size: 14px;
+  line-height: 1.8;
+  margin: 0 0 20px;
+}
+
+.footer-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.footer-badge-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(19, 166, 160, 0.12);
+  border: 1px solid rgba(19, 166, 160, 0.25);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  color: #13a6a0;
+  font-weight: 600;
+}
+
+.footer-col h3 {
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 600;
+  margin: 0 0 20px;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.footer-col h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 35px;
+  height: 3px;
+  background: #13a6a0;
+  border-radius: 2px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: #c8d6cf;
+  text-decoration: none;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #13a6a0;
+  transform: translateX(4px);
+}
+
+.footer-contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-contact-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 13.5px;
+  color: #b2c4bc;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.footer-contact-icon {
+  color: #13a6a0;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.footer-contact-list strong {
+  color: #ffffff;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(200, 214, 207, 0.12);
+  padding-top: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+  font-size: 13px;
+  color: #92a89e;
+}
+
+.footer-bottom-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-bottom-links a {
+  color: #92a89e;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-bottom-links a:hover {
+  color: #13a6a0;
+}
+
+/* Tablet Responsive */
+@media (max-width: 990px) {
+  .footer-container {
+    width: min(1300px, 92%);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 640px) {
+  .site-footer {
+    padding-top: 45px;
+    padding-bottom: 22px;
+  }
+
+  .footer-container {
+    width: calc(100% - 32px);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-bottom: 35px;
+  }
+
+  .footer-logo img {
+    width: 80px;
+    height: 90px;
+  }
+
+  .footer-brand p {
+    font-size: 13.5px;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 14px;
+    padding-top: 20px;
+  }
+
+  .footer-bottom-links {
+    justify-content: center;
+    gap: 18px;
+  }
+
+  .footer-contact-list li {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+}
+
+@media (max-width: 380px) {
+  .footer-container {
+    width: calc(100% - 20px);
+  }
+
+  .footer-badge-item {
+    font-size: 11px;
+    padding: 5px 9px;
+  }
+
+  .footer-links a {
+    font-size: 13px;
+  }
+
+  .footer-contact-list li {
+    font-size: 12.5px;
+  }
+
+  .footer-bottom {
+    font-size: 12px;
+  }
+}

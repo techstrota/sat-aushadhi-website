@@ -1,0 +1,1324 @@
+@import "./common.css";
+
+/* ==========================================================================
+   HOME PAGE STYLES (Synchronized with Pages.css)
+   Sat Aushadhi Website
+   ========================================================================== */
+
+.home-page {
+  width: 100%;
+  overflow-x: clip;
+  color: #0b5132;
+  background-color: #f8f6f0;
+  font-family: "Poppins", sans-serif !important;
+}
+
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
+
+.hero-section {
+  position: relative;
+  min-height: 590px;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(120deg, #f8f6f0 0%, #e7ede3 50%, #dce6d7 100%);
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(
+      ellipse at 80% 35%,
+      rgba(19, 166, 160, 0.12),
+      transparent 45%
+    ),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.4), transparent 65%);
+  pointer-events: none;
+}
+
+.hero-content {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 55px 5%;
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  align-items: center;
+  gap: 20px;
+}
+
+.hero-text {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-copy {
+  display: contents;
+}
+
+.hero-label {
+  display: inline-block;
+  color: #13a6a0;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+  font-family: "Poppins", sans-serif !important;
+}
+
+.hero-text h1 {
+  margin: 0;
+  color: #0b5132;
+  font-family: "Poppins", sans-serif !important;
+  font-size: clamp(38px, 4.1vw, 62px);
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.hero-text h1 span {
+  color: #13a6a0;
+}
+
+.hero-description {
+  color: #2a6349;
+  font-size: 15px;
+  line-height: 1.8;
+  margin: 20px 0 25px;
+  font-family: "Poppins", sans-serif !important;
+}
+
+.hero-description span {
+  margin: 0 7px;
+  color: #78b844;
+}
+
+.hero-button {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  padding: 14px 25px;
+  border-radius: 40px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #0b5132 0%, #13a6a0 100%);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  box-shadow: 0 6px 20px rgba(11, 81, 50, 0.2);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+  font-family: "Poppins", sans-serif !important;
+}
+
+.hero-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px rgba(19, 166, 160, 0.35);
+  color: #ffffff;
+}
+
+.hero-benefits {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 13px;
+  margin-top: 35px;
+  max-width: 500px;
+}
+
+.benefit-item {
+  text-align: center;
+  min-width: 0;
+}
+
+.benefit-icon {
+  width: 65px;
+  height: 65px;
+  margin: 0 auto 10px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0b5132;
+  background: #ffffff;
+  border: 1px solid #d5e1ce;
+  box-shadow: 0 5px 18px rgba(11, 81, 50, 0.08);
+}
+
+.benefit-item p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: #0b5132;
+  font-family: "Poppins", sans-serif !important;
+}
+
+.hero-left-leaves {
+  position: absolute;
+  left: -80px;
+  top: 45%;
+  transform: translateY(-50%);
+  width: min(550px, 46vw);
+  height: auto;
+  object-fit: contain;
+  z-index: 1;
+  filter: blur(4px) opacity(0.32);
+  pointer-events: none;
+  animation: gentleLeafSway 12s ease-in-out infinite alternate;
+}
+
+@keyframes gentleLeafSway {
+  0% {
+    transform: translateY(-50%) rotate(0deg) scale(1);
+    filter: blur(4px) opacity(0.32);
+  }
+  50% {
+    transform: translateY(-52%) rotate(3deg) scale(1.03);
+    filter: blur(3px) opacity(0.38);
+  }
+  100% {
+    transform: translateY(-48%) rotate(-2deg) scale(0.98);
+    filter: blur(5px) opacity(0.3);
+  }
+}
+
+.hero-image {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-image-frame {
+  position: relative;
+  width: 100%;
+  max-width: 680px;
+  padding: 10px;
+  border-radius: 48px 140px 48px 140px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(19, 166, 160, 0.45) 45%,
+    rgba(120, 184, 68, 0.4) 75%,
+    rgba(255, 255, 255, 0.95) 100%
+  );
+  box-shadow:
+    0 22px 45px rgba(11, 81, 50, 0.18),
+    0 0 0 1px rgba(255, 255, 255, 0.8),
+    inset 0 0 20px rgba(255, 255, 255, 0.6);
+  animation: heroFloat 6s ease-in-out infinite alternate;
+  will-change: transform, box-shadow;
+  transition: all 0.4s ease;
+}
+
+.hero-image-frame::before {
+  content: "";
+  position: absolute;
+  inset: -12px;
+  z-index: -1;
+  border-radius: 56px 148px 56px 148px;
+  background: linear-gradient(
+    135deg,
+    rgba(19, 166, 160, 0.28),
+    rgba(120, 184, 68, 0.25)
+  );
+  filter: blur(14px);
+  opacity: 0.7;
+}
+
+.hero-image-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 40px 132px 40px 132px;
+  border: 3px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 8px 24px rgba(11, 81, 50, 0.12);
+}
+
+@keyframes heroFloat {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+    box-shadow:
+      0 20px 40px rgba(11, 81, 50, 0.16),
+      0 0 0 1px rgba(255, 255, 255, 0.8),
+      inset 0 0 20px rgba(255, 255, 255, 0.6);
+  }
+  50% {
+    transform: translateY(-14px) rotate(0.6deg);
+    box-shadow:
+      0 30px 50px rgba(19, 166, 160, 0.28),
+      0 0 0 2px rgba(255, 255, 255, 0.95),
+      inset 0 0 25px rgba(255, 255, 255, 0.8);
+  }
+  100% {
+    transform: translateY(-6px) rotate(-0.4deg);
+    box-shadow:
+      0 24px 42px rgba(11, 81, 50, 0.2),
+      0 0 0 1px rgba(255, 255, 255, 0.8),
+      inset 0 0 20px rgba(255, 255, 255, 0.6);
+  }
+}
+
+.hero-bottom-text {
+  position: absolute;
+  bottom: 13px;
+  left: 5%;
+  color: #2a6349;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  font-family: "Poppins", sans-serif !important;
+}
+
+/* ==========================================================================
+   WHY CHOOSE SAT AUSHADHI (BANNER)
+   ========================================================================== */
+
+.why-choose-wrapper {
+  position: relative;
+  width: 100%;
+  padding: 45px 0;
+  overflow: hidden;
+  background-color: #f8f6f0;
+}
+
+.why-choose-banner {
+  position: relative;
+  width: calc(100% - 90px);
+  max-width: 1320px;
+  min-height: 230px;
+  margin: 0 auto;
+  padding: 30px 65px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 65px;
+  background: linear-gradient(110deg, #e7ede3 0%, #f8f6f0 48%, #dfe8da 100%);
+  border: 1px solid #d5e1ce;
+}
+
+.why-choose-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.why-choose-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.heading-leaf {
+  color: #78b844;
+  fill: #78b844;
+  margin-bottom: 4px;
+}
+
+.why-choose-heading h2 {
+  margin: 0;
+  color: #0b5132;
+  font-family: "Poppins", sans-serif !important;
+  font-size: clamp(24px, 2.6vw, 34px);
+  font-weight: 700;
+  text-align: center;
+}
+
+.why-choose-items {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: center;
+  gap: 20px;
+}
+
+.why-choose-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.why-choose-icon {
+  width: 62px;
+  height: 62px;
+  flex: 0 0 62px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0b5132;
+  background: #ffffff;
+  border: 1px solid #d5e1ce;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(11, 81, 50, 0.1);
+}
+
+.why-choose-item p {
+  margin: 0;
+  color: #0b5132;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.55;
+  font-family: "Poppins", sans-serif !important;
+}
+
+.why-leaf {
+  position: absolute;
+  z-index: 5;
+  width: 160px;
+  height: 190px;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.why-leaf-left {
+  left: -50px;
+  bottom: -35px;
+}
+
+.why-leaf-right {
+  right: -40px;
+  top: -55px;
+  transform: rotate(25deg);
+  transform-origin: center;
+}
+
+/* ==========================================================================
+   WELCOME SECTION (OUR STORY ON HOME)
+   ========================================================================== */
+
+.welcome-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+  padding-top: 70px;
+  padding-bottom: 70px;
+  background-color: #f8f6f0;
+}
+
+.welcome-copy h2 span {
+  color: #13a6a0;
+}
+
+.welcome-visual {
+  position: relative;
+  border-radius: 50% 50% 24px 24px;
+  background: #ffffff;
+  padding: 8px;
+  border: 2px solid #d5e1ce;
+  box-shadow:
+    0 0 0 5px rgba(231, 237, 227, 0.6),
+    0 16px 40px rgba(11, 81, 50, 0.12);
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.welcome-visual::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  border-radius: 50% 50% 30px 30px;
+  border: 1.5px dashed #13a6a0;
+  opacity: 0.65;
+  pointer-events: none;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.welcome-visual:hover {
+  transform: translateY(-5px);
+  border-color: #13a6a0;
+  box-shadow:
+    0 0 0 7px rgba(19, 166, 160, 0.15),
+    0 22px 48px rgba(11, 81, 50, 0.16);
+}
+
+.welcome-visual:hover::before {
+  opacity: 1;
+  transform: scale(1.01);
+}
+
+.welcome-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 50% 50% 18px 18px;
+  border: none;
+}
+
+/* ==========================================================================
+   PRODUCTS SECTION (HOME PRODUCT SHOWCASE)
+   ========================================================================== */
+
+.products-section {
+  padding: 70px 0;
+  background: #e7ede3;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.home-product-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 28px !important;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.home-product-grid .product-image {
+  height: 230px;
+}
+
+.home-product-grid .product-card {
+  padding: 18px;
+  border-radius: 20px;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 15px;
+  border: 1px solid #d5e1ce;
+  border-radius: 17px;
+  background: #ffffff;
+  box-shadow: 0 5px 20px rgba(11, 81, 50, 0.06);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 26px rgba(11, 81, 50, 0.12);
+  border-color: #13a6a0;
+}
+
+.product-image {
+  height: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+}
+
+.product-image img {
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+  padding-top: 14px;
+}
+
+.product-info h3 {
+  margin: 0 0 5px;
+  color: #0b5132;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif !important;
+}
+
+.product-size {
+  color: #13a6a0;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif !important;
+}
+
+.product-info p {
+  color: #3d6b55;
+  font-size: 13px;
+  line-height: 1.7;
+  font-family: "Poppins", sans-serif !important;
+}
+
+.product-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 10px;
+  color: #13a6a0;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif !important;
+}
+
+.product-link:hover {
+  color: #0b5132;
+}
+
+.section-action {
+  margin-top: 35px;
+  text-align: center;
+}
+
+/* ==========================================================================
+   WHY CHOOSE US / THE SAT AUSHADHI APPROACH
+   ========================================================================== */
+
+.why-section {
+  position: relative;
+  overflow: hidden;
+  padding: 70px 0;
+  background: #f8f6f0;
+}
+
+.why-section .page-container {
+  position: relative;
+  z-index: 2;
+}
+
+.why-bg-leaves-right {
+  position: absolute;
+  right: -40px;
+  bottom: -40px;
+  width: min(550px, 50vw);
+  height: auto;
+  object-fit: contain;
+  z-index: 1;
+  opacity: 0.45;
+  filter: blur(1.5px);
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.value-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.value-grid article {
+  padding: 28px 20px;
+  text-align: center;
+  border: 1px solid #e7ede3;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 4px 15px rgba(11, 81, 50, 0.04);
+}
+
+.value-grid svg {
+  color: #13a6a0;
+}
+
+.value-grid h3 {
+  color: #0b5132;
+  font-size: 17px;
+  font-family: "Poppins", sans-serif !important;
+}
+
+.value-grid p {
+  color: #3d6b55;
+  font-size: 14px;
+  line-height: 1.7;
+  font-family: "Poppins", sans-serif !important;
+}
+
+/* ==========================================================================
+   DEALER ENQUIRY BANNER
+   ========================================================================== */
+
+.dealer-banner {
+  padding: 48px 0;
+  color: #ffffff;
+  background: linear-gradient(135deg, #0b5132 0%, #073923 100%);
+}
+
+.dealer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.dealer-content h2 {
+  margin: 0 0 12px;
+  font-family: "Poppins", sans-serif !important;
+  font-size: clamp(26px, 3vw, 38px);
+}
+
+.dealer-content p {
+  margin: 0;
+  color: #e7ede3;
+  font-size: 15px;
+  line-height: 1.7;
+  font-family: "Poppins", sans-serif !important;
+}
+
+.dealer-content .eyebrow {
+  color: #78b844;
+}
+
+.light-button {
+  flex-shrink: 0;
+  color: #0b5132;
+  background: #ffffff;
+  font-family: "Poppins", sans-serif !important;
+}
+
+.light-button:hover {
+  color: #0b5132;
+  background: #e7ede3;
+}
+
+/* ==========================================================================
+   HOME PAGE RESPONSIVE DESIGN (<= 1024px, <= 860px, <= 640px, <= 380px)
+   ========================================================================== */
+
+/* --- 1. Tablets & Small Laptops (<= 1024px / 1000px) --- */
+@media (max-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .home-product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 20px !important;
+  }
+
+  .value-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .hero-section {
+    min-height: 500px;
+  }
+
+  .hero-left-leaves {
+    width: 380px;
+    left: -70px;
+    filter: blur(4px) opacity(0.28);
+  }
+
+  .hero-image-frame {
+    border-radius: 32px 100px 32px 100px;
+    padding: 8px;
+  }
+
+  .hero-image-frame img {
+    border-radius: 26px 94px 26px 94px;
+  }
+
+  .hero-image-frame::before {
+    border-radius: 40px 108px 40px 108px;
+  }
+
+  .hero-content {
+    grid-template-columns: 1fr 1fr;
+    padding: 45px 4%;
+    gap: 12px;
+  }
+
+  .hero-text h1 {
+    font-size: clamp(34px, 4.3vw, 48px);
+  }
+
+  .hero-description {
+    font-size: 13px;
+  }
+
+  .hero-description span {
+    margin: 0 3px;
+  }
+
+  .hero-benefits {
+    gap: 8px;
+  }
+
+  .benefit-icon {
+    width: 53px;
+    height: 53px;
+  }
+
+  .benefit-item p {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 900px) {
+  .why-choose-banner {
+    width: calc(100% - 32px);
+    padding: 25px 24px;
+    min-height: 180px;
+    border-radius: 36px;
+  }
+
+  .why-choose-items {
+    gap: 14px;
+  }
+
+  .why-choose-item {
+    gap: 8px;
+  }
+
+  .why-choose-icon {
+    width: 52px;
+    height: 52px;
+    flex-basis: 52px;
+  }
+
+  .why-choose-icon svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .why-choose-item p {
+    font-size: 12px;
+  }
+
+  .why-leaf {
+    width: 95px;
+    height: 130px;
+  }
+
+  .why-leaf-left {
+    left: -20px;
+    bottom: -30px;
+  }
+
+  .why-leaf-right {
+    right: -10px;
+    top: -30px;
+  }
+}
+
+/* --- 2. Tablets Portrait & Mobile Landscape (<= 860px) --- */
+@media (max-width: 860px) {
+  .hero-section {
+    min-height: auto;
+    background: linear-gradient(180deg, #f8f6f0 0%, #e7ede3 100%);
+  }
+
+  .hero-left-leaves {
+    display: block !important;
+    position: absolute;
+    left: -35px;
+    top: auto !important;
+    bottom: 30px;
+    transform: none !important;
+    animation: none !important;
+    width: clamp(210px, 48vw, 300px);
+    height: auto;
+    opacity: 0.45 !important;
+    filter: blur(2.5px) !important;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .why-section {
+    padding-bottom: 75px;
+  }
+
+  .why-bg-leaves-right {
+    display: block !important;
+    position: absolute;
+    right: -30px;
+    bottom: -20px;
+    width: clamp(240px, 50vw, 340px);
+    height: auto;
+    opacity: 0.45 !important;
+    filter: blur(2.5px) !important;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .hero-image-frame {
+    border-radius: 24px 70px 24px 70px;
+    padding: 6px;
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto;
+  }
+
+  .hero-image-frame img {
+    border-radius: 20px 64px 20px 64px;
+  }
+
+  .hero-image-frame::before {
+    border-radius: 28px 74px 28px 74px;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 38px 18px 48px;
+    gap: 24px;
+  }
+
+  .hero-text {
+    display: contents;
+  }
+
+  .hero-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    order: 1;
+  }
+
+  .hero-image {
+    order: 2;
+    width: 100%;
+    margin-bottom: 6px;
+  }
+
+  .hero-label {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+  }
+
+  .hero-text h1 {
+    font-size: clamp(28px, 7vw, 44px);
+    letter-spacing: -0.5px;
+    line-height: 1.15;
+  }
+
+  .hero-description {
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 14px 0 20px;
+  }
+
+  .hero-button {
+    margin: 0 auto;
+    padding: 12px 22px;
+    font-size: 14px;
+    max-width: 100%;
+  }
+
+  .hero-benefits {
+    order: 3;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(8px, 2.5vw, 16px);
+    width: 100%;
+    max-width: 540px;
+    margin: 14px auto 0;
+    padding: 0 4px;
+  }
+
+  .benefit-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .benefit-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 8px;
+  }
+
+  .benefit-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .benefit-item p {
+    font-size: clamp(10px, 2.4vw, 11.5px);
+    line-height: 1.35;
+  }
+
+  .hero-image img {
+    width: 100%;
+    max-width: 440px;
+  }
+
+  .hero-bottom-text {
+    display: none;
+  }
+
+  .welcome-section {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 32px;
+    padding-top: 55px;
+    padding-bottom: 55px;
+  }
+
+  .welcome-copy {
+    order: 1;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .welcome-visual {
+    order: 2;
+    max-width: 380px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .dealer-content {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 22px;
+  }
+
+  .dealer-content .light-button {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .why-choose-wrapper {
+    padding: 30px 0;
+  }
+
+  .why-choose-banner {
+    width: calc(100% - 28px);
+    padding: 26px 16px;
+    border-radius: 26px;
+  }
+
+  .why-leaf {
+    width: 70px;
+    height: 90px;
+    opacity: 0.7;
+  }
+
+  .why-leaf-left {
+    left: -15px;
+    bottom: -25px;
+  }
+
+  .why-leaf-right {
+    right: -10px;
+    top: -20px;
+  }
+
+  .why-choose-heading {
+    margin-bottom: 22px;
+  }
+
+  .why-choose-heading h2 {
+    font-size: clamp(20px, 5.5vw, 25px);
+  }
+
+  .why-choose-items {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 12px;
+  }
+
+  .why-choose-item {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .why-choose-icon {
+    width: 48px;
+    height: 48px;
+    flex: 0 0 48px;
+    margin: 0 auto;
+  }
+
+  .why-choose-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .why-choose-item p {
+    font-size: 11.5px;
+    line-height: 1.4;
+  }
+}
+
+/* --- 3. Mobile Phones (<= 640px) --- */
+@media (max-width: 640px) {
+  .welcome-section,
+  .products-section,
+  .why-section {
+    padding-top: 45px;
+    padding-bottom: 45px;
+  }
+
+  .hero-image-frame {
+    max-width: 330px;
+    border-radius: 20px 60px 20px 60px;
+  }
+
+  .hero-image-frame img {
+    border-radius: 17px 54px 17px 54px;
+  }
+
+  .hero-left-leaves {
+    display: block !important;
+    position: absolute;
+    left: -30px;
+    top: auto !important;
+    bottom: 25px;
+    transform: none !important;
+    animation: none !important;
+    width: clamp(190px, 50vw, 260px) !important;
+    height: auto;
+    opacity: 0.45 !important;
+    filter: blur(2.5px) !important;
+    pointer-events: none;
+    z-index: 1 !important;
+  }
+
+  .welcome-visual {
+    max-width: 320px;
+    border-radius: 40% 40% 20px 20px;
+  }
+
+  .welcome-visual img {
+    border-radius: 40% 40% 16px 16px;
+  }
+
+  .welcome-visual::before {
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border-radius: 42% 42% 22px 22px;
+  }
+
+  .home-product-grid,
+  .product-grid {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+
+  .home-product-grid .product-card,
+  .product-grid .product-card {
+    max-width: 380px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 16px;
+    border-radius: 18px;
+  }
+
+  .home-product-grid .product-image {
+    height: 190px;
+  }
+
+  .section-action .primary-button {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .why-leaf {
+    display: block !important;
+    position: absolute;
+    width: 60px;
+    height: 75px;
+    opacity: 0.65;
+    pointer-events: none;
+    z-index: 5;
+  }
+
+  .why-leaf-left {
+    left: -10px;
+    bottom: -15px;
+  }
+
+  .why-leaf-right {
+    right: -8px;
+    top: -15px;
+    transform: rotate(20deg);
+  }
+
+  .value-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+
+  .why-section {
+    padding-bottom: 75px;
+  }
+
+  .value-grid article {
+    padding: 22px 16px;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(6px);
+  }
+
+  .why-bg-leaves-right {
+    display: block !important;
+    position: absolute;
+    right: -25px;
+    bottom: -15px;
+    width: clamp(230px, 62vw, 310px) !important;
+    height: auto;
+    opacity: 0.45 !important;
+    filter: blur(2.5px) !important;
+    pointer-events: none;
+    z-index: 1 !important;
+  }
+}
+
+/* --- 4. Extra Small Phones (<= 380px) --- */
+@media (max-width: 380px) {
+  .hero-content {
+    padding: 26px 8px 36px;
+    gap: 18px;
+  }
+
+  .hero-text h1 {
+    font-size: 24px;
+    line-height: 1.2;
+  }
+
+  .hero-description {
+    font-size: 12px;
+    margin: 10px 0 16px;
+  }
+
+  .hero-button {
+    padding: 11px 18px;
+    font-size: 13px;
+  }
+
+  .hero-benefits {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    max-width: 100%;
+    gap: 5px;
+    margin: 10px auto 0;
+    padding: 0;
+  }
+
+  .benefit-icon {
+    width: 38px;
+    height: 38px;
+    margin: 0 auto 6px;
+  }
+
+  .benefit-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .benefit-item p {
+    font-size: 9px;
+    line-height: 1.2;
+  }
+
+  .hero-image-frame {
+    border-radius: 18px 50px 18px 50px;
+  }
+
+  .hero-image-frame img {
+    border-radius: 16px 46px 16px 46px;
+  }
+
+  .why-choose-banner {
+    padding: 22px 10px;
+    width: calc(100% - 18px);
+    border-radius: 20px;
+  }
+
+  .why-choose-heading h2 {
+    font-size: 19px;
+  }
+
+  .why-choose-icon {
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+  }
+
+  .why-choose-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .why-choose-item p {
+    font-size: 10px;
+  }
+
+  .welcome-section,
+  .products-section,
+  .why-section {
+    padding-top: 36px;
+    padding-bottom: 36px;
+  }
+
+  .hero-left-leaves {
+    display: block !important;
+    position: absolute;
+    width: 155px;
+    left: -20px;
+    top: auto !important;
+    bottom: 20px;
+    transform: none !important;
+    animation: none !important;
+    opacity: 0.42 !important;
+    filter: blur(2px) !important;
+    z-index: 1 !important;
+  }
+
+  .why-leaf {
+    width: 48px;
+    height: 60px;
+    opacity: 0.55;
+  }
+
+  .why-leaf-left {
+    left: -6px;
+    bottom: -10px;
+  }
+
+  .why-leaf-right {
+    right: -6px;
+    top: -10px;
+  }
+
+  .why-bg-leaves-right {
+    display: block !important;
+    position: absolute;
+    width: 190px;
+    right: -20px;
+    bottom: -10px;
+    opacity: 0.42 !important;
+    filter: blur(2px) !important;
+    z-index: 1 !important;
+  }
+}
