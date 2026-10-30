@@ -113,8 +113,7 @@ function Footer() {
         {/* Footer Bottom */}
         <div className="footer-bottom">
           <div>
-            © {new Date().getFullYear()} Sat Aushadhi. Manufactured by Darshan
-            Herbs | Developed with 🫶 by Techstrota | All Rights Reserved.
+            © {new Date().getFullYear()} Sat Aushadhi. | Developed with 🫶 by Techstrota | All Rights Reserved.
           </div>
 
           <div className="footer-bottom-links">

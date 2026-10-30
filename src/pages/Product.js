@@ -143,7 +143,7 @@ const productsData = [
     description:
       "Sat Aushadhi Pain Relief Oil is formulated to help provide relief from joint and muscle discomfort, soothe stiffness, and support comfortable joint movement.",
     tags: [
-      { text: "Easy Movement", className: "orbit-tag-top-left" },
+      { text: "Frozen Shoulder", className: "orbit-tag-top-left" },
       { text: "Joint Pain Relief", className: "orbit-tag-bottom-left" },
       { text: "Swelling Relief", className: "orbit-tag-right" },
     ],

@@ -58,8 +58,7 @@ function Home() {
               </h1>
 
               <p className="hero-description">
-                Natural Care <span>|</span> Trusted Ingredients
-                <span>|</span> Everyday Wellness
+               <b> Pratyek boond ki Ayurved ki shakti</b>
               </p>
 
               <a href="/products" className="hero-button">
@@ -117,10 +116,11 @@ function Home() {
             Welcome to <span>Sat Aushadhi</span>
           </h2>
           <p>
-            Discover an Ayurvedic product range developed around traditional
+            Discover an Ayurvedic product range developed traditional
             botanical formulations and everyday wellness. Explore our pain
             relief oil, balm and Calcimax tablet range.
           </p>
+          <p>Our products and ingredients takens from ancient Books like Charaka Samhita, Aryabhishek-Hindustan no khajano etc.</p>
           <Link to="/about" className="primary-button">
             Discover Our Story <ArrowRight size={17} />
           </Link>

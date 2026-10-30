@@ -49,9 +49,7 @@ function About() {
             <span className="eyebrow">ABOUT SAT AUSHADHI</span>
             <h2>Bridging Tradition and Clinical Precision</h2>
             <p className="lead-text">
-              Darshan Herbs engineers holistic pain management solutions that
-              honor traditional Ayurvedic formulations while meeting the
-              stringent consistency demands of modern pharmacy.
+             Our products and ingredients takens from ancient Books like Charaka Samhita, Aryabhishek-Hindustan no khajano etc.
             </p>
 
             {/* Core Pillars */}
