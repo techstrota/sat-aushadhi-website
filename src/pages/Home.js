@@ -5,6 +5,8 @@ import {
   FlaskConical,
   ShieldCheck,
   UsersRound,
+  Droplets,
+  Sparkles,
 } from "lucide-react";
 import "./Home.css";
 import { Link } from "react-router-dom";
@@ -57,9 +59,29 @@ function Home() {
                 Tomorrow
               </h1>
 
-              <p className="hero-description">
-               <b> Pratyek boond ki Ayurved ki shakti</b>
-              </p>
+              {/* Highlighted Hero Tagline Badge */}
+              <div
+                className="hero-tagline-highlight"
+                role="region"
+                aria-label="Brand Tagline"
+              >
+                <div className="hero-tagline-shimmer" />
+                <div className="hero-tagline-icon-badge">
+                  <Droplets size={18} strokeWidth={2.2} />
+                </div>
+                <div className="hero-tagline-content">
+                  <span className="hero-tagline-motto">
+                    Pratyek Boond Ki Ayurved Ki Shakti
+                  </span>
+                </div>
+                <Sparkles size={16} className="hero-tagline-sparkle" />
+              </div>
+
+              {/* <p className="hero-description">
+                Experience natural healing rooted in ancient texts like Charaka
+                Samhita. Pure botanical extracts crafted for everyday vitality,
+                relief, and family wellness.
+              </p> */}
 
               <a href="/products" className="hero-button">
                 Explore Our Products
@@ -104,6 +126,47 @@ function Home() {
         </div>
       </section>
 
+      {/* Golden-Emerald Tagline Highlight Strip */}
+      {/* <section className="site-tagline-ticker" aria-label="Brand Motto Strip">
+        <div className="ticker-track">
+          <div className="ticker-item">
+            <Sparkles size={14} className="ticker-sparkle" />
+            <span className="ticker-tagline">
+              Pratyek Boond Ki Ayurved Ki Shakti
+            </span>
+          </div>
+          <span className="ticker-bullet">•</span>
+          <div className="ticker-item">
+            <Leaf size={14} className="ticker-leaf" />
+            <span>100% Herbal Botanical Formulations</span>
+          </div>
+          <span className="ticker-bullet">•</span>
+          <div className="ticker-item">
+            <Droplets size={14} className="ticker-drop" />
+            <span className="ticker-tagline">
+              Pratyek Boond Ki Ayurved Ki Shakti
+            </span>
+          </div>
+          <span className="ticker-bullet">•</span>
+          <div className="ticker-item">
+            <ShieldCheck size={14} className="ticker-shield" />
+            <span>Wisdom from Charaka Samhita & Aryabhishek</span>
+          </div>
+          <span className="ticker-bullet">•</span>
+          <div className="ticker-item">
+            <Sparkles size={14} className="ticker-sparkle" />
+            <span className="ticker-tagline">
+              Pratyek Boond Ki Ayurved Ki Shakti
+            </span>
+          </div>
+          <span className="ticker-bullet">•</span>
+          <div className="ticker-item">
+            <Leaf size={14} className="ticker-leaf" />
+            <span>Trusted Care for Everyday Wellness</span>
+          </div>
+        </div>
+      </section> */}
+
       {/* Welcome Section */}
       <section className="welcome-section page-container">
         <div className="welcome-visual arch-shape">
@@ -116,11 +179,14 @@ function Home() {
             Welcome to <span>Sat Aushadhi</span>
           </h2>
           <p>
-            Discover an Ayurvedic product range developed traditional
-            botanical formulations and everyday wellness. Explore our pain
-            relief oil, balm and Calcimax tablet range.
+            Discover an Ayurvedic product range developed traditional botanical
+            formulations and everyday wellness. Explore our pain relief oil,
+            balm and Calcimax tablet range.
           </p>
-          <p>Our products and ingredients takens from ancient Books like Charaka Samhita, Aryabhishek-Hindustan no khajano etc.</p>
+          <p>
+            Our products and ingredients takens from ancient Books like Charaka
+            Samhita, Aryabhishek-Hindustan no khajano etc.
+          </p>
           <Link to="/about" className="primary-button">
             Discover Our Story <ArrowRight size={17} />
           </Link>
@@ -133,6 +199,10 @@ function Home() {
           <div className="section-heading">
             <span className="eyebrow">OUR COLLECTION</span>
             <h2>Our Products</h2>
+            <div className="section-tagline-pill">
+              <Droplets size={13} />
+              <span>Pratyek Boond Ki Ayurved Ki Shakti</span>
+            </div>
             <p>Explore the Sat Aushadhi product portfolio.</p>
           </div>
 
@@ -206,6 +276,11 @@ function Home() {
             <div className="why-choose-heading">
               <Leaf size={22} className="heading-leaf" />
               <h2>Why Choose Sat Aushadhi?</h2>
+              <div className="why-tagline-badge">
+                <Droplets size={14} className="why-tagline-icon" />
+                <span>Pratyek Boond Ki Ayurved Ki Shakti</span>
+                <Sparkles size={13} className="why-tagline-sparkle" />
+              </div>
             </div>
 
             <div className="why-choose-items">

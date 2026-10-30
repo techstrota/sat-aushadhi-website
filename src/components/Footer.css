@@ -311,3 +311,23 @@
   }
 }
 
+
+.footer-tagline-callout {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(19, 166, 160, 0.12);
+  border: 1px solid rgba(120, 184, 68, 0.35);
+  border-radius: 24px;
+  padding: 5px 14px;
+  margin-bottom: 14px;
+  color: #a8e594;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.footer-tagline-icon {
+  color: #78b844;
+  flex-shrink: 0;
+}

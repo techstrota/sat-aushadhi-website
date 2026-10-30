@@ -85,6 +85,238 @@
   color: #13a6a0;
 }
 
+
+/* --- High-Impact Highlighted Hero Tagline Badge --- */
+.hero-tagline-highlight {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, #f4fbf7 50%, rgba(230, 246, 238, 0.98) 100%);
+  border: 1.5px solid #13a6a0;
+  border-radius: 60px;
+  padding: 10px 22px 10px 12px;
+  margin: 18px 0 8px;
+  box-shadow:
+    0 10px 28px rgba(11, 81, 50, 0.12),
+    0 2px 8px rgba(19, 166, 160, 0.15),
+    inset 0 1px 1px rgba(255, 255, 255, 0.9);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  max-width: 100%;
+}
+
+.hero-tagline-highlight:hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow:
+    0 16px 36px rgba(19, 166, 160, 0.24),
+    0 4px 12px rgba(11, 81, 50, 0.15);
+  border-color: #0b5132;
+}
+
+/* Shimmer sweep animation over the badge */
+.hero-tagline-shimmer {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.65),
+    transparent
+  );
+  transform: skewX(-20deg);
+  animation: taglineShimmer 5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes taglineShimmer {
+  0% { left: -100%; }
+  35%, 100% { left: 160%; }
+}
+
+.hero-tagline-icon-badge {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #13a6a0 0%, #0b5132 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(19, 166, 160, 0.38);
+}
+
+.hero-tagline-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.hero-tagline-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  color: #13a6a0;
+  text-transform: uppercase;
+  line-height: 1.2;
+  margin-bottom: 2px;
+}
+
+.hero-tagline-motto {
+  font-size: clamp(14.5px, 1.4vw, 17px);
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  color: #073523;
+  line-height: 1.25;
+  background: linear-gradient(135deg, #073523 0%, #0d5f3d 50%, #13a6a0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-tagline-sparkle {
+  color: #d89e18;
+  flex-shrink: 0;
+  animation: sparkleTwinkle 2.5s ease-in-out infinite;
+}
+
+@keyframes sparkleTwinkle {
+  0%, 100% {
+    transform: scale(0.9) rotate(0deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.2) rotate(20deg);
+    opacity: 1;
+  }
+}
+
+/* ==========================================================================
+   GOLDEN-EMERALD BRAND TAGLINE STRIP
+   ========================================================================== */
+.site-tagline-ticker {
+  background: linear-gradient(90deg, #062b1d 0%, #0b4632 50%, #062b1d 100%);
+  color: #e5f5ec;
+  padding: 13px 20px;
+  border-top: 1px solid rgba(120, 184, 68, 0.35);
+  border-bottom: 1px solid rgba(19, 166, 160, 0.35);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: hidden;
+  z-index: 5;
+}
+
+.ticker-track {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px 22px;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  color: #e5f5ec;
+}
+
+.ticker-tagline {
+  font-weight: 700;
+  color: #8be04e;
+  letter-spacing: 0.4px;
+}
+
+.ticker-sparkle {
+  color: #ffd85e;
+  flex-shrink: 0;
+}
+
+.ticker-leaf {
+  color: #78b844;
+  flex-shrink: 0;
+}
+
+.ticker-drop {
+  color: #4ed5c6;
+  flex-shrink: 0;
+}
+
+.ticker-shield {
+  color: #8be04e;
+  flex-shrink: 0;
+}
+
+.ticker-bullet {
+  color: rgba(120, 184, 68, 0.55);
+  font-size: 14px;
+}
+
+/* --- Products Section Tagline Pill --- */
+.section-tagline-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(19, 166, 160, 0.08);
+  border: 1px solid rgba(19, 166, 160, 0.28);
+  color: #0b5132;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 5px 16px;
+  border-radius: 30px;
+  margin: 8px auto 10px;
+  letter-spacing: 0.3px;
+  box-shadow: 0 2px 8px rgba(19, 166, 160, 0.08);
+}
+
+.section-tagline-pill svg {
+  color: #13a6a0;
+  flex-shrink: 0;
+}
+
+/* --- Why Choose Sat Aushadhi Tagline Badge --- */
+.why-tagline-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  border: 1px solid rgba(11, 81, 50, 0.2);
+  border-radius: 30px;
+  padding: 6px 18px;
+  margin-top: 10px;
+  color: #0b5132;
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  box-shadow: 0 4px 14px rgba(11, 81, 50, 0.08);
+  transition: transform 0.25s ease;
+}
+
+.why-tagline-badge:hover {
+  transform: translateY(-2px);
+  border-color: #13a6a0;
+  box-shadow: 0 6px 18px rgba(19, 166, 160, 0.16);
+}
+
+.why-tagline-icon {
+  color: #13a6a0;
+  flex-shrink: 0;
+}
+
+.why-tagline-sparkle {
+  color: #d89e18;
+  flex-shrink: 0;
+}
+
 .hero-description {
   color: #2a6349;
   font-size: 15px;

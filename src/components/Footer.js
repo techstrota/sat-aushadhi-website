@@ -8,6 +8,7 @@ import {
   ShieldCheck,
   ChevronRight,
   Award,
+  Droplets,
 } from "lucide-react";
 import "./Footer.css";
 
@@ -23,6 +24,11 @@ function Footer() {
             <Link to="/" className="footer-logo">
               <img src="/logo.png" alt="Sat Aushadhi Logo" />
             </Link>
+
+            <div className="footer-tagline-callout">
+              <Droplets size={14} className="footer-tagline-icon" />
+              <span>Pratyek Boond Ki Ayurved Ki Shakti</span>
+            </div>
 
             <p>
               Sat Aushadhi brings together centuries-old Ayurvedic wisdom and

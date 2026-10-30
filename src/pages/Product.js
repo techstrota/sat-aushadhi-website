@@ -15,6 +15,9 @@ import {
   Zap,
   Wind,
   RefreshCw,
+  Droplets,
+  Clock,
+  Bell,
 } from "lucide-react";
 import "./Product.css";
 
@@ -145,7 +148,8 @@ const productsData = [
     tags: [
       { text: "Frozen Shoulder", className: "orbit-tag-top-left" },
       { text: "Joint Pain Relief", className: "orbit-tag-bottom-left" },
-      { text: "Swelling Relief", className: "orbit-tag-right" },
+      { text: "Sciatica", className: "orbit-tag-top-right" },
+      { text: "Swelling Relief", className: "orbit-tag-bottom-right" },
     ],
     keyConditions: [
       "Spondylosis & Sciatica",
@@ -291,7 +295,8 @@ Pain relief oils provide symptomatic relief by reducing local inflammation, rela
     tags: [
       { text: "Headache Relief", className: "orbit-tag-top-left" },
       { text: "Sinus Relief", className: "orbit-tag-bottom-left" },
-      { text: "Asthma Relief", className: "orbit-tag-right" },
+      { text: "Migraine", className: "orbit-tag-top-right" },
+      { text: "Asthma Relief", className: "orbit-tag-bottom-right" },
     ],
     keyConditions: [
       "Tension Headaches & Migraines",
@@ -397,8 +402,9 @@ Pain relief oils provide symptomatic relief by reducing local inflammation, rela
       "Sat Aushadhi Calcimax Tablets are formulated to support bone and joint health and promote an active lifestyle.",
     tags: [
       { text: "Bone Strength", className: "orbit-tag-top-left" },
-      { text: "Bone & joint care", className: "orbit-tag-bottom-left" },
-      { text: "Easy Movement", className: "orbit-tag-right" },
+      { text: "Bone & Joint Care", className: "orbit-tag-bottom-left" },
+      { text: "Calcium Deficiency", className: "orbit-tag-top-right" },
+      { text: "Easy Movement", className: "orbit-tag-bottom-right" },
     ],
     goodToKnow: [
       "Supports stronger bones and joints.",
@@ -422,6 +428,25 @@ Pain relief oils provide symptomatic relief by reducing local inflammation, rela
 - Keep away from direct sunlight.`,
       manufacturer: "Manufactured under certified Ayurvedic standards.",
     },
+  },
+];
+
+
+const comingSoonCategories = [
+  {
+    categoryTitle: "Herbal Hair Products",
+    icon: "droplets",
+    items: ["Shampoo", "Hair Oil", "Amla Hair Oil", "Heena"],
+  },
+  {
+    categoryTitle: "Herbal Powders & Tablets",
+    icon: "leaf",
+    items: [
+      "Gooseberry Powder",
+      "Beetroot Powder",
+      "Moringa Powder",
+      "Moringa Tablets",
+    ],
   },
 ];
 
@@ -505,6 +530,11 @@ function Product() {
         <div className="banner-content">
           <span className="eyebrow">THE SAT AUSHADHI COLLECTION</span>
           <h1>Our Products</h1>
+          <div className="product-banner-tagline-badge">
+            <Droplets size={14} className="banner-tagline-icon" />
+            <span>Pratyek Boond Ki Ayurved Ki Shakti</span>
+            <Sparkles size={13} className="banner-tagline-sparkle" />
+          </div>
           <p>Explore our range of Ayurvedic oil, balm and tablet products.</p>
         </div>
       </section>
@@ -773,6 +803,73 @@ function Product() {
           );
         })}
       </div>
+
+      {/* ================================================================= */}
+      {/* COMING SOON PRODUCTS SECTION (Names Only - Clean & Minimal) */}
+      {/* ================================================================= */}
+      <section className="coming-soon-section" id="coming-soon" aria-label="Coming Soon Products">
+        <div className="coming-soon-container">
+          {/* Header */}
+          <div className="coming-soon-header">
+            <span className="coming-soon-pill">
+              <Clock size={13} className="coming-soon-pulse" />
+              IN FORMULATION
+            </span>
+            <h2 className="coming-soon-title">
+              Coming Soon <span>Products</span>
+            </h2>
+            <p className="coming-soon-subtitle">
+              Pure classical Ayurvedic formulations arriving soon to Sat Aushadhi.
+            </p>
+          </div>
+
+          {/* 2 Clean Category Panels - Names Only */}
+          <div className="coming-soon-names-grid">
+            {comingSoonCategories.map((cat, catIdx) => (
+              <div className="coming-soon-category-card" key={catIdx}>
+                <div className="category-card-header">
+                  <div className="category-card-icon">
+                    {cat.icon === "droplets" ? (
+                      <Droplets size={22} />
+                    ) : (
+                      <Leaf size={22} />
+                    )}
+                  </div>
+                  <div>
+                    <h3 className="category-card-title">{cat.categoryTitle}</h3>
+                    <span className="category-card-badge">Upcoming Range</span>
+                  </div>
+                </div>
+
+                <div className="category-items-list">
+                  {cat.items.map((name, idx) => (
+                    <div className="coming-soon-item-tile" key={idx}>
+                      <div className="item-tile-icon">
+                        <Sparkles size={14} />
+                      </div>
+                      <span className="item-tile-name">{name}</span>
+                      <span className="item-tile-status">Coming Soon</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Clean Enquiry CTA Button */}
+          <div className="coming-soon-cta-row">
+            <Link
+              to="/contact"
+              state={{ enquiryProduct: "Pre-Launch Enquiry for Upcoming Products" }}
+              className="coming-soon-cta-btn"
+            >
+              <Bell size={16} />
+              <span>Enquire for Pre-Launch Updates</span>
+              <ArrowRight size={15} />
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* Full Details Modal */}
       {activeModalProduct && (
