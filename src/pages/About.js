@@ -256,11 +256,11 @@ function About() {
               <div className="ingredient-card-body">
                 <h3>Camphor & Tagar</h3>
                 <div className="ingredient-tagline">
-                  Instant Cooling Sensation
+                  Instant Soothing Relief
                 </div>
                 <p>
                   Accelerates topical herbal absorption to deliver immediate
-                  relief with a refreshing, tranquil cooling sensation that
+                  relief with a refreshing, tranquil calming effect that
                   calms irritation.
                 </p>
               </div>
@@ -334,7 +334,7 @@ function About() {
               <div className="ingredient-card-body">
                 <h3>Menthol</h3>
                 <div className="ingredient-tagline">
-                  Fast-Acting Cooling Soother
+                  Fast-Acting Pain Soother
                 </div>
                 <p>
                   Crystalline mint extract delivering an instant soothing
@@ -439,7 +439,6 @@ function About() {
           <div className="manufacturer-badge">
             <Award size={20} /> Certified Operations
           </div>
-          <h2>Manufactured by Darshan Herbs</h2>
           <p className="address-text">
             B-303, Hazelwood Apartment, Iskcon Temple Road, Opposite Mothers
             School, Gotri, Vadodara - 390021.

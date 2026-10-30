@@ -9,8 +9,34 @@ import {
   Check,
   MessageSquare,
   Package,
+  Activity,
+  AlertCircle,
+  Shield,
+  Zap,
+  Wind,
+  RefreshCw,
 } from "lucide-react";
 import "./Product.css";
+
+// Helper for Category Icons
+const getCategoryIcon = (iconName) => {
+  switch (iconName) {
+    case "spine":
+      return <Activity size={14} />;
+    case "joint":
+      return <Shield size={14} />;
+    case "strain":
+      return <Zap size={14} />;
+    case "recovery":
+      return <RefreshCw size={14} />;
+    case "headache":
+      return <Zap size={14} />;
+    case "respiratory":
+      return <Wind size={14} />;
+    default:
+      return <Sparkles size={14} />;
+  }
+};
 
 // Teardrop leaf icon matching Image 1
 const TeardropLeafIcon = () => (
@@ -82,8 +108,12 @@ const renderModalDetails = (text) => {
         if (!trimmed) {
           return <div key={idx} className="modal-info-gap" />;
         }
-        if (trimmed.startsWith("-") || trimmed.startsWith("•")) {
-          const itemText = trimmed.replace(/^[-•]\s*/, "");
+        if (
+          trimmed.startsWith("-") ||
+          trimmed.startsWith("•") ||
+          trimmed.startsWith("*")
+        ) {
+          const itemText = trimmed.replace(/^[-•*]\s*/, "");
           return (
             <div key={idx} className="modal-info-bullet-item">
               <span className="modal-bullet-icon">•</span>
@@ -105,17 +135,67 @@ const productsData = [
   {
     id: "pain-relief-oil",
     number: "1 / 3",
-    name: "Pain Relief Oil",
-    navSubtitle: "100 ml",
+    name: "Sat Aushadhi Pain Relief Oil",
+    navSubtitle: "100 ml / 30 ml",
     category: "Topical Ayurvedic Herbal Oil",
     image: "/new-product1.jpeg",
-    variants: ["100 ml"],
+    variants: ["100 ml", "30 ml"],
     description:
       "Sat Aushadhi Pain Relief Oil is formulated to help provide relief from joint and muscle discomfort, soothe stiffness, and support comfortable joint movement.",
     tags: [
       { text: "Easy Movement", className: "orbit-tag-top-left" },
       { text: "Joint Pain Relief", className: "orbit-tag-bottom-left" },
       { text: "Swelling Relief", className: "orbit-tag-right" },
+    ],
+    keyConditions: [
+      "Spondylosis & Sciatica",
+      "Slipped Disc & Tech Neck",
+      "Osteoarthritis (Knee, Hip, Hands)",
+      "Frozen Shoulder",
+      "Trigger Finger & Wrist Sprains",
+      "Ankle Sprains & Ligament Strains",
+      "Muscle Spasms, Cramps & Charley Horses",
+      "Post-Viral Joint Pain (Dengue/Flu)",
+      "Post-Cast & Post-Surgical Stiffness",
+      "Age-Related Muscle Aches",
+    ],
+    categorizedConditions: [
+      {
+        category: "Spine & Back",
+        icon: "spine",
+        items: [
+          "Spondylosis & Sciatica",
+          "Slipped Disc & Nerve Relief",
+          "Postural Back Strain (Tech Neck)",
+        ],
+      },
+      {
+        category: "Major Joints",
+        icon: "joint",
+        items: [
+          "Osteoarthritis (Knee, Hip, Hands)",
+          "Frozen Shoulder (Adhesive Capsulitis)",
+          "Joint Stiffness & Swelling",
+        ],
+      },
+      {
+        category: "Strains & Spasms",
+        icon: "strain",
+        items: [
+          "Ankle & Wrist Ligament Sprains",
+          "Muscle Cramps & Spasms",
+          "Trigger Finger & Tendon Strain",
+        ],
+      },
+      {
+        category: "Rehab & Recovery",
+        icon: "recovery",
+        items: [
+          "Post-Viral Arthralgia (Dengue/Flu)",
+          "Post-Cast Joint Stiffness",
+          "Post-Surgical Rehab Stiffness",
+        ],
+      },
     ],
     goodToKnow: [
       "Helps provide relief from joint and muscle discomfort.",
@@ -126,22 +206,53 @@ const productsData = [
     ],
     fullDetails: {
       ingredients: `Sneha Dravya (Base Oils)
-- Sarson Oil (Brassica campestris): 62% v/v
-- Til Oil (Sesamum indicum): 19% v/v
-- Erand Oil (Ricinus communis): 19% v/v
+- Sarson Oil (Brassica campestris)
+- Til Oil (Sesamum indicum)
+- Erand Oil (Ricinus communis)
 
 Kwath Dravya (Herbal Ingredients)
-- Nagod (Vitex negundo): 4.05%
-- Ashwagandha (Withania somnifera): 2.02%
-- Dhamaso (Fagonia arabica): 2.02%
-- Rasna (Vanda roxburghii): 2.02%
-- Sunthi (Zingiber officinale): 2.02%
-- Lavang (Syzygium aromaticum): 1.8%
-- Taj (Cinnamomum zeylanicum): 1.8%
-- Methi (Trigonella foenum-graecum): 1.8%
-- Guggulu (Commiphora mukul): 2.02%
-- Kapoor (Cinnamomum camphora): 2.02%
-- Akada Pan (Calotropis procera): 2.02%`,
+- Nagod (Vitex negundo)
+- Ashwagandha (Withania somnifera)
+- Dhamaso (Fagonia arabica)
+- Rasna (Vanda roxburghii)
+- Sunthi (Zingiber officinale)
+- Lavang (Syzygium aromaticum)
+- Taj (Cinnamomum zeylanicum)
+- Methi (Trigonella foenum-graecum)
+- Guggulu (Commiphora mukul)
+- Camphor (Cinnamomum camphora)
+- Akada Pan (Calotropis procera)`,
+      conditions: `1. Joint Conditions & Diseases
+- Spondylosis (Cervical & Lumbar Spondylosis)
+- Slipped Disc & Sciatica Nerve Discomfort
+- Postural Upper / Lower Back Pain (Tech Neck, Desk Worker Strain)
+- Lupus & Autoimmune-related joint aches
+
+2. Major Joint Conditions
+- Osteoarthritis (Knee, Hip, Hands, Ankle)
+- Frozen Shoulder (Adhesive Capsulitis)
+
+3. Upper Extremity Conditions (Shoulder, Arm, Hand)
+- Trigger Finger / Trigger Thumb
+- Wrist Sprains & Strains
+
+4. Lower Extremity Conditions (Leg, Ankle, Foot)
+- Ankle Sprains & Ligament Strains
+- Band Syndrome
+- Muscle Spasms, Cramps & Charley Horses
+
+5. Muscle & Soft Tissue Conditions
+- Muscular stiffness, soreness & tension
+- Fibromyalgia & localized muscular aches
+
+6. Systemic, Inflammatory & Post-Traumatic Conditions
+- Post-Viral Arthralgia (Joint Pain After Dengue, Chikungunya, or Flu)
+- Post-Fracture / Post-Cast Joint Stiffness
+- Post-Surgical Rehabilitation Stiffness (e.g., Post-Knee Replacement)
+- Age-Related Muscle Atrophy Stiffness (Sarcopenic Aches)
+
+7. Spine & Structural Conditions
+- Chronic spinal stiffness, postural imbalance & disc strain`,
       indications: `- Traditionally indicated for Sandhishool (joint pain).
 - Traditionally indicated for Amavat.
 - Helps soothe muscle and joint discomfort.
@@ -149,10 +260,16 @@ Kwath Dravya (Herbal Ingredients)
 - Has Shothahara (anti-inflammatory) properties.
 - Helps provide comfort in associated symptoms.`,
       howToUse: `- Apply oil to the affected area.
-- Massage gently until absorbed.
 - Apply twice daily.
+- Use hot pack or ice pack as suggested for good result.
 - Or use as advised by a physician.`,
-      packaging: `- Packaging: 100 ml bottle.
+      safetyGuidelines: `Important Safety Guidelines
+Pain relief oils provide symptomatic relief by reducing local inflammation, relaxing tense muscles, and improving localized blood circulation.
+- Avoid Active Wounds: Never apply pain relief oil on open cuts, broken skin, or acute skin infections.
+- Acute Injuries (First 48 Hours): Avoid deep massage or heavy heating oils on freshly swollen, red, or warm injuries (apply ice instead during the first 48 hours).
+- Patch Test: Perform a patch test on a small area of skin before full application to ensure you do not have an allergic reaction to essential or herbal oils.
+- Medical Consultation: Pain relief oils manage symptoms but do not reverse structural bone changes, severe cartilage loss, or underlying autoimmune conditions. Consult a physician for proper diagnosis and medical treatment.`,
+      packaging: `- Packaging: 100 ml & 30 ml bottle.
 - Store in a cool, dry place.
 - Keep away from direct sunlight.
 - Keep the lid tightly closed after opening.
@@ -164,39 +281,103 @@ Kwath Dravya (Herbal Ingredients)
   {
     id: "pain-relief-balm",
     number: "2 / 3",
-    name: "Pain Relief Balm",
-    navSubtitle: "25 ml",
+    name: "Sat Aushadhi Pain Relief Balm",
+    navSubtitle: "25 ml / 10 ml",
     category: "Topical Fast-Acting Balm",
     image: "/new-product2.jpeg",
-    variants: ["25 ml"],
+    variants: ["25 ml", "10 ml"],
     description:
-      "Sat Aushadhi Balm provides a soothing cooling sensation and helps provide fast relief from headache, sinus-related discomfort, and cough.",
+      "Sat Aushadhi Balm helps provide fast relief from headache, sinus-related discomfort, and cough.",
     tags: [
       { text: "Headache Relief", className: "orbit-tag-top-left" },
       { text: "Sinus Relief", className: "orbit-tag-bottom-left" },
       { text: "Asthma Relief", className: "orbit-tag-right" },
     ],
+    keyConditions: [
+      "Tension Headaches & Migraines",
+      "Sinusitis & Rhinosinusitis",
+      "Cold, Flu & Congestion",
+      "Sciatica & Back Pain",
+      "Osteoarthritis & Stiff Joints",
+      "Sprains, Strains & Tendonitis",
+      "Muscle Soreness (DOMS) & Fibromyalgia",
+    ],
+    categorizedConditions: [
+      {
+        category: "Headaches & Nerve Pain",
+        icon: "headache",
+        items: [
+          "Tension Headaches & Migraines",
+          "Temple & Neck Muscular Strain",
+          "Sciatica & Back Pain Counter-Action",
+        ],
+      },
+      {
+        category: "Respiratory & Sinus",
+        icon: "respiratory",
+        items: [
+          "Sinusitis & Rhinosinusitis Pressure",
+          "Cold, Flu & Nasal Congestion",
+          "Throat & Chest Respiratory Relief",
+        ],
+      },
+      {
+        category: "Joints & Inflammation",
+        icon: "joint",
+        items: [
+          "Osteoarthritis & Stiff Aching Joints",
+          "Sprains, Strains & Tendonitis",
+          "Localized Inflammation & Swelling",
+        ],
+      },
+      {
+        category: "Muscle Soreness",
+        icon: "strain",
+        items: [
+          "Muscle Soreness (DOMS)",
+          "Fibromyalgia Deep Aches",
+          "Muscle Spasms & Tightness",
+        ],
+      },
+    ],
     goodToKnow: [
-      "Provides a soothing cooling sensation.",
       "Helps provide relief from headache discomfort.",
       "Helps ease sinus-related discomfort.",
       "Provides soothing comfort during cough and cold.",
       "Supports respiratory comfort.",
     ],
     fullDetails: {
-      ingredients: `- Menthol Crystal (Mentha piperata): 10% w/w
-- Thymol Crystal (Trachyspermum ammi): 10% w/w
-- Kapur Crystal (Cinnamomum camphora): 10% w/w
-- Nilgiri Oil (Eucalyptus globulus): 10% w/w`,
+      ingredients: `- Menthol Crystal (Mentha piperata)
+- Thymol Crystal (Trachyspermum ammi)
+- Camphor (Cinnamomum camphora)
+- Nilgiri Oil (Eucalyptus globulus)`,
+      conditions: `1. Headaches & Neurological Pain
+- Tension Headaches & Migraines / Sinusitis: Massaged onto temples or neck to ease blood flow and muscle strain.
+- Sciatica & Back Pain: Provides counter-irritant soothing action to block pain signals.
+- Sinusitis & Rhinosinusitis facial pressure and headache discomfort.
+
+2. Respiratory Conditions
+- Colds, Flu, & Sinusitis: Applied to the chest or throat (vapor balm) to clear congestion, relieve coughs, and open nasal passages.
+
+3. Joint & Inflammatory Conditions
+- Osteoarthritis & Rheumatoid Arthritis: Soothes stiff, aching joints.
+- Sprains, Strains, & Tendonitis: Reduces localized swelling, pain, and inflammation.
+
+4. Muscle Soreness & Spasms
+- Muscle Soreness (DOMS) & Fibromyalgia: Relieves muscle spasms and deep tissue soreness.`,
       indications: `- Traditionally indicated for Amavat.
 - Traditionally indicated for Shirashool.
 - Helps soothe headache discomfort.
-- Provides a refreshing sensation when applied externally.`,
+- Provides a refreshing, soothing effect when applied externally.`,
       howToUse: `- Apply balm to the affected part of the body.
 - Massage gently until absorbed.
 - Apply twice daily or as advised by a physician.
 - For external use only.`,
-      packaging: `- Packaging: 25 ml jar.
+      safetyGuidelines: `Important Safety Guidelines & Notes
+- Temporary Symptom Relief: Balms provide temporary symptom relief and are not a replacement for medical treatment for serious underlying diseases.
+- Avoid Broken Skin: Avoid applying medicated balms to open wounds, broken skin, or sensitive areas (eyes, nose, mucous membranes).
+- External Use Only: Keep out of reach of children. Store in a cool, dry place away from direct sunlight.`,
+      packaging: `- Packaging: 25 ml & 10 ml jar.
 - Store in a cool, dry place.
 - Keep away from direct sunlight.
 - Keep the lid tightly closed after opening.
@@ -207,7 +388,7 @@ Kwath Dravya (Herbal Ingredients)
   {
     id: "calcimax-tablet",
     number: "3 / 3",
-    name: "Calcimax Tablet",
+    name: "Sat Aushadhi Calcimax Tablet",
     navSubtitle: "60 Tablets",
     category: "Ayurvedic Proprietary Medicine",
     image: "/new-product3.jpeg",
@@ -227,9 +408,9 @@ Kwath Dravya (Herbal Ingredients)
       "Supports an active lifestyle.",
     ],
     fullDetails: {
-      ingredients: `- Baval Beej Powder – 250 mg
-- Saragavo Powder – 150 mg
-- Ashwagandha Powder – 100 mg`,
+      ingredients: `- Baval Beej Powder
+- Saragavo Powder
+- Ashwagandha Powder`,
       indications: `- Helps support bone strength.
 - Traditionally used for joint and bone health.
 - Supports nourishment of bones and joints.
@@ -250,6 +431,10 @@ function Product() {
     "pain-relief-oil": "100 ml",
     "pain-relief-balm": "25 ml",
     "calcimax-tablet": "60 Tablets",
+  });
+  const [activeInfoTabs, setActiveInfoTabs] = useState({
+    "pain-relief-oil": "conditions",
+    "pain-relief-balm": "conditions",
   });
   const [activeModalProduct, setActiveModalProduct] = useState(null);
 
@@ -309,12 +494,13 @@ function Product() {
     <div className="inner-page product-page-wrapper">
       {/* Top Page Hero Banner */}
       <section className="page-banner product-banner" aria-label="Our Products">
-        <img
-          src="/product-hero.png"
-          alt=""
-          className="product-banner-bg-img"
-          aria-hidden="true"
-        />
+        <div className="product-banner-img-box">
+          <img
+            src="/product-hero.png"
+            alt="Sat Aushadhi Products"
+            className="product-banner-bg-img"
+          />
+        </div>
         <div className="banner-bg-overlay" />
         <div className="banner-content">
           <span className="eyebrow">THE SAT AUSHADHI COLLECTION</span>
@@ -450,18 +636,116 @@ function Product() {
                   {product.description}
                 </p>
 
-                {/* Good to know section */}
-                <div className="product-good-to-know-box">
-                  <h3 className="good-to-know-heading">Good to know</h3>
-                  <div className="good-to-know-grid">
-                    {product.goodToKnow.map((item, itemIdx) => (
-                      <div className="good-to-know-item" key={itemIdx}>
+                {/* If product has categorized conditions (Oil & Balm): show segmented panel */}
+                {product.categorizedConditions ? (
+                  <div className="product-intel-panel">
+                    <div className="product-info-tabs-nav" role="tablist">
+                      <button
+                        type="button"
+                        className={`info-tab-btn ${
+                          (activeInfoTabs[product.id] || "conditions") ===
+                          "conditions"
+                            ? "is-active"
+                            : ""
+                        }`}
+                        onClick={() =>
+                          setActiveInfoTabs((prev) => ({
+                            ...prev,
+                            [product.id]: "conditions",
+                          }))
+                        }
+                        role="tab"
+                        aria-selected={
+                          (activeInfoTabs[product.id] || "conditions") ===
+                          "conditions"
+                        }
+                      >
+                        <Activity size={15} />
+                        <span>Conditions Relieved</span>
+                        <span className="tab-count-badge">
+                          {product.keyConditions.length}
+                        </span>
+                      </button>
+
+                      <button
+                        type="button"
+                        className={`info-tab-btn ${
+                          activeInfoTabs[product.id] === "goodToKnow"
+                            ? "is-active"
+                            : ""
+                        }`}
+                        onClick={() =>
+                          setActiveInfoTabs((prev) => ({
+                            ...prev,
+                            [product.id]: "goodToKnow",
+                          }))
+                        }
+                        role="tab"
+                        aria-selected={
+                          activeInfoTabs[product.id] === "goodToKnow"
+                        }
+                      >
                         <TeardropLeafIcon />
-                        <span>{item}</span>
+                        <span>Good to Know</span>
+                        <span className="tab-count-badge">
+                          {product.goodToKnow.length}
+                        </span>
+                      </button>
+                    </div>
+
+                    {/* Tab 1: Categorized Bento Grid */}
+                    {(activeInfoTabs[product.id] || "conditions") ===
+                      "conditions" && (
+                      <div className="bento-conditions-grid">
+                        {product.categorizedConditions.map((cat, cIdx) => (
+                          <div key={cIdx} className="bento-condition-card">
+                            <div className="bento-card-header">
+                              <span className="bento-card-icon">
+                                {getCategoryIcon(cat.icon)}
+                              </span>
+                              <h4 className="bento-card-title">
+                                {cat.category}
+                              </h4>
+                            </div>
+                            <ul className="bento-card-items">
+                              {cat.items.map((item, itemIdx) => (
+                                <li key={itemIdx} className="bento-item-bullet">
+                                  <span className="bento-dot" />
+                                  <span>{item}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
                       </div>
-                    ))}
+                    )}
+
+                    {/* Tab 2: Good to Know */}
+                    {activeInfoTabs[product.id] === "goodToKnow" && (
+                      <div className="good-to-know-tab-grid">
+                        {product.goodToKnow.map((item, itemIdx) => (
+                          <div className="good-to-know-tab-card" key={itemIdx}>
+                            <TeardropLeafIcon />
+                            <span>{item}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
-                </div>
+                ) : (
+                  /* Otherwise (Calcimax Tablet): keep normal Good to know layout as before */
+                  <div className="product-good-to-know-box">
+                    <h3 className="good-to-know-heading">Good to know</h3>
+                    <div className="good-to-know-grid">
+                      {product.goodToKnow.map((item, itemIdx) => (
+                        <div className="good-to-know-item" key={itemIdx}>
+                          <TeardropLeafIcon />
+                          <span>{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
 
                 {/* Action buttons */}
                 <div className="product-cta-group">
@@ -549,6 +833,17 @@ function Product() {
                   )}
                 </div>
 
+                {activeModalProduct.fullDetails.conditions && (
+                  <div className="modal-info-block modal-conditions-block">
+                    <h4>
+                      <Activity size={16} /> Conditions & Diseases Relieved
+                    </h4>
+                    {renderModalDetails(
+                      activeModalProduct.fullDetails.conditions,
+                    )}
+                  </div>
+                )}
+
                 <div className="modal-info-block">
                   <h4>
                     <Check size={16} /> Indications & Benefits
@@ -564,6 +859,17 @@ function Product() {
                   </h4>
                   {renderModalDetails(activeModalProduct.fullDetails.howToUse)}
                 </div>
+
+                {activeModalProduct.fullDetails.safetyGuidelines && (
+                  <div className="modal-info-block modal-safety-block">
+                    <h4>
+                      <AlertCircle size={16} /> Important Safety Guidelines
+                    </h4>
+                    {renderModalDetails(
+                      activeModalProduct.fullDetails.safetyGuidelines,
+                    )}
+                  </div>
+                )}
 
                 <div className="modal-info-block">
                   <h4>

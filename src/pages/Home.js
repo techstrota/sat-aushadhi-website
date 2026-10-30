@@ -139,21 +139,21 @@ function Home() {
           <div className="product-grid home-product-grid">
             {[
               {
-                name: "Pain Relief Oil",
-                size: "100 ml",
+                name: "Sat Aushadhi Pain Relief Oil",
+                size: "100 ml / 30 ml",
                 image: "/new-product1.jpeg",
                 description:
                   "Formulated to help provide relief from joint and muscle discomfort, soothe stiffness, and support mobility.",
               },
               {
-                name: "Pain Relief Balm",
-                size: "25 ml",
+                name: "Sat Aushadhi Pain Relief Balm",
+                size: "25 ml / 10 ml",
                 image: "/new-product2.jpeg",
                 description:
-                  "Provides a soothing cooling sensation and fast relief from headache, sinus discomfort, and cough.",
+                  "Provides soothing comfort and fast relief from headache, sinus discomfort, and cough.",
               },
               {
-                name: "Calcimax Tablet",
+                name: "Sat Aushadhi Calcimax Tablet",
                 size: "60 Tablets",
                 image: "/new-product3.jpeg",
                 description:

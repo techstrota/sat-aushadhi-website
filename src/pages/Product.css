@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Poppins:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
 @import "./common.css";
 
 /* ==========================================================================
@@ -10,33 +10,43 @@
   background-color: #eef3ec;
   width: 100%;
   overflow-x: hidden;
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif !important;
 }
 
 /* --------------------------------------------------------------------------
    Product Page Hero Section
    -------------------------------------------------------------------------- */
-/* Product Page Banner (Matching Netlify live site) */
+/* Product Page Banner (Larger size in Laptop view, no top cropping) */
 .product-banner {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  padding: 115px 20px;
+  min-height: 640px;
+  padding: 200px 24px 180px;
   text-align: center;
-  background: none !important;
+  background: #073523;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.product-banner-bg-img {
+.product-banner-img-box {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center;
   z-index: -2;
-  filter: blur(1px) brightness(0.85);
-  transform: scale(1.04);
   pointer-events: none;
+  overflow: hidden;
+}
+
+.product-banner-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top !important;
+  filter: brightness(0.86);
+  display: block;
 }
 
 .product-banner .banner-bg-overlay {
@@ -544,14 +554,15 @@
   color: #4a6c5d;
 }
 
-/* Product Showcase Title (Serif Heading) */
+/* Product Showcase Title (Matching Home & About: Poppins) */
 .product-showcase-title {
-  font-family: "Playfair Display", Georgia, serif !important;
-  font-size: clamp(34px, 4vw, 48px);
+  font-family: "Poppins", sans-serif !important;
+  font-size: clamp(30px, 3.8vw, 44px);
   font-weight: 700;
   color: #0b3d2b;
-  margin: 0 0 18px;
-  line-height: 1.15;
+  margin: 0 0 16px;
+  line-height: 1.2;
+  letter-spacing: -0.3px;
 }
 
 /* Pack Size Variant Pills */
@@ -590,25 +601,219 @@
   font-size: 15.5px;
   line-height: 1.75;
   color: #3b5649;
-  margin: 0 0 26px;
+  margin: 0 0 20px;
 }
 
-/* Good to know section */
+/* ==========================================================================
+   SEGMENTED PRODUCT INTELLIGENCE PANEL (Tabs + Bento Cards)
+   ========================================================================== */
+.product-intel-panel {
+  background: #ffffff;
+  border: 1px solid rgba(11, 81, 50, 0.12);
+  border-radius: 20px;
+  padding: 18px 20px 20px;
+  margin: 0 0 28px;
+  box-shadow:
+    0 4px 20px rgba(11, 81, 50, 0.05),
+    0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s ease;
+}
+
+.product-intel-panel:hover {
+  box-shadow:
+    0 8px 28px rgba(11, 81, 50, 0.08),
+    0 1px 4px rgba(0, 0, 0, 0.03);
+  border-color: rgba(11, 81, 50, 0.2);
+}
+
+/* Tab Navigation Switcher */
+.product-info-tabs-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #edf4eb;
+  padding: 5px;
+  border-radius: 30px;
+  margin-bottom: 16px;
+}
+
+.info-tab-btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border-radius: 24px;
+  border: none;
+  background: transparent;
+  color: #3b5a4a;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  font-family: "Poppins", sans-serif;
+}
+
+.info-tab-btn:hover:not(.is-active) {
+  color: #0b5132;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.info-tab-btn.is-active {
+  background: #0b5132;
+  color: #ffffff;
+  box-shadow: 0 3px 10px rgba(11, 81, 50, 0.28);
+}
+
+.tab-count-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.22);
+  color: inherit;
+  line-height: 1;
+}
+
+.info-tab-btn:not(.is-active) .tab-count-badge {
+  background: rgba(11, 81, 50, 0.1);
+  color: #0b5132;
+}
+
+/* --- TAB 1: Bento Conditions Grid --- */
+.bento-conditions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  animation: fadeIn 0.3s ease;
+}
+
+.bento-condition-card {
+  background: #f8faf7;
+  border: 1px solid #e1ede0;
+  border-radius: 14px;
+  padding: 12px 14px;
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.bento-condition-card:hover {
+  background: #ffffff;
+  border-color: #13a6a0;
+  box-shadow: 0 4px 14px rgba(19, 166, 160, 0.12);
+  transform: translateY(-2px);
+}
+
+.bento-card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #edf4eb;
+}
+
+.bento-card-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  background: rgba(19, 166, 160, 0.12);
+  color: #0b5132;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.bento-card-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0b5132;
+  margin: 0;
+  letter-spacing: 0.2px;
+  font-family: "Poppins", sans-serif;
+}
+
+.bento-card-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.bento-item-bullet {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  font-size: 12px;
+  color: #2d4d3d;
+  line-height: 1.4;
+  font-family: "Poppins", sans-serif;
+}
+
+.bento-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #13a6a0;
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+/* --- TAB 2: Good To Know List --- */
+.good-to-know-tab-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  animation: fadeIn 0.3s ease;
+}
+
+.good-to-know-tab-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: #f8faf7;
+  border: 1px solid #e1ede0;
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-size: 13.5px;
+  color: #244234;
+  font-weight: 500;
+  line-height: 1.45;
+  transition: all 0.2s ease;
+  font-family: "Poppins", sans-serif;
+}
+
+.good-to-know-tab-card:hover {
+  background: #ffffff;
+  border-color: #6ea34e;
+  box-shadow: 0 3px 10px rgba(110, 163, 78, 0.1);
+}
+
+/* Standard Good to Know box (for Calcimax Tablet) */
 .product-good-to-know-box {
-  margin-bottom: 32px;
+  margin: 0 0 28px;
 }
 
 .good-to-know-heading {
-  font-size: 15.5px;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
   font-weight: 700;
   color: #0b3d2b;
   margin: 0 0 14px;
-  font-family: "Poppins", sans-serif;
+  letter-spacing: -0.2px;
 }
 
 .good-to-know-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: 12px 24px;
 }
 
@@ -751,10 +956,12 @@
 }
 
 .product-modal-header h2 {
-  font-family: "Playfair Display", Georgia, serif !important;
+  font-family: "Poppins", sans-serif !important;
+  font-weight: 700;
   color: #0b3d2b;
-  font-size: 28px;
+  font-size: 26px;
   margin: 6px 0 12px;
+  line-height: 1.25;
 }
 
 .modal-variant-tags {
@@ -877,6 +1084,40 @@
   height: 6px;
 }
 
+/* Modal Conditions & Safety Blocks */
+.modal-conditions-block {
+  background: #fbfdfa;
+  border: 1px solid #e1ede0;
+  border-radius: 12px;
+  padding: 16px 18px;
+}
+
+.modal-conditions-block h4 {
+  color: #0b5132;
+  border-bottom: 1px solid #e7f0e6;
+  padding-bottom: 8px;
+  margin-bottom: 10px;
+}
+
+.modal-safety-block {
+  background: #fefcf7;
+  border: 1px solid #f2e2be;
+  border-left: 4px solid #d97706;
+  border-radius: 10px;
+  padding: 16px 18px;
+}
+
+.modal-safety-block h4 {
+  color: #92400e;
+  border-bottom: 1px solid #fae8c8;
+  padding-bottom: 8px;
+  margin-bottom: 10px;
+}
+
+.modal-safety-block .modal-bullet-icon {
+  color: #d97706;
+}
+
 .modal-action-row {
   margin-top: 12px;
   padding-top: 16px;
@@ -899,6 +1140,7 @@
 
 .modal-enquire-btn:hover {
   background: #15553e;
+  color: #ffffff;
   transform: translateY(-2px);
 }
 
@@ -987,7 +1229,8 @@
 /* --- 2. Tablets Portrait & Mobile Landscape (<= 860px) --- */
 @media (max-width: 860px) {
   .product-banner {
-    padding: 70px 20px;
+    min-height: 480px;
+    padding: 120px 20px;
   }
 
   .product-banner h1 {
@@ -1212,25 +1455,87 @@
   }
 }
 
-/* --- 3. Mobile Phones (<= 640px) --- */
-@media (max-width: 640px) {
+/* --- 3. Mobile Phones & Small Tablets (<= 768px) --- */
+@media (max-width: 768px) {
+  /* Hero Banner for Mobile: Image on Top, Content Below (Zero Cropping) */
   .product-banner {
-    padding: 55px 16px;
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 0 !important;
+    min-height: auto !important;
+    background: #073523 !important;
+    isolation: auto !important;
   }
 
-  .product-banner h1 {
-    font-size: clamp(25px, 6.8vw, 36px);
-    margin-bottom: 10px;
+  .product-banner-img-box {
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    z-index: 1 !important;
+    order: 1 !important;
+    background: #052619 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 14px 12px 10px !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25) !important;
   }
 
-  .product-banner p {
-    font-size: 14px;
-    line-height: 1.6;
+  .product-banner-bg-img {
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    display: block !important;
+    filter: none !important;
+    transform: none !important;
+    border-radius: 8px !important;
+  }
+
+  .product-banner .banner-bg-overlay {
+    display: none !important;
+  }
+
+  .product-banner .banner-content {
+    position: relative !important;
+    order: 2 !important;
+    padding: 24px 18px 28px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: center !important;
+    margin: 0 !important;
+    background: linear-gradient(180deg, #073523 0%, #052619 100%) !important;
   }
 
   .product-banner .eyebrow {
-    font-size: 11px;
-    letter-spacing: 1.5px;
+    font-size: 11.5px !important;
+    letter-spacing: 1.5px !important;
+    margin-bottom: 6px !important;
+    text-shadow: none !important;
+    display: inline-block !important;
+    font-family: "Poppins", sans-serif !important;
+  }
+
+  .product-banner h1 {
+    font-size: clamp(26px, 7vw, 32px) !important;
+    margin: 0 0 8px !important;
+    text-shadow: none !important;
+    font-family: "Poppins", sans-serif !important;
+  }
+
+  .product-banner p {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    text-shadow: none !important;
+    max-width: 92% !important;
+    margin: 0 auto !important;
+    color: #e2ede2 !important;
+    font-family: "Poppins", sans-serif !important;
   }
 
   .products-showcase-container {
@@ -1422,28 +1727,53 @@
     max-width: 320px !important;
   }
 
-  .product-good-to-know-box {
-    margin-bottom: 12px !important;
+  .product-intel-panel {
+    margin-bottom: 14px !important;
+    padding: 12px !important;
     width: 100%;
-    max-width: 320px;
+    max-width: 340px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 16px !important;
   }
 
-  .good-to-know-heading {
-    font-size: 12.5px !important;
-    margin: 0 0 6px !important;
-    text-align: center;
+  .product-info-tabs-nav {
+    margin-bottom: 12px !important;
+    padding: 3px !important;
   }
 
-  .good-to-know-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 5px 8px;
-    max-width: 100%;
-    text-align: left;
-  }
-
-  .good-to-know-item {
+  .info-tab-btn {
     font-size: 11.5px !important;
-    gap: 6px;
+    padding: 6px 8px !important;
+    gap: 5px !important;
+  }
+
+  .tab-count-badge {
+    font-size: 10px !important;
+    padding: 1px 5px !important;
+  }
+
+  .bento-conditions-grid {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+
+  .bento-condition-card {
+    padding: 10px 12px !important;
+    border-radius: 10px !important;
+  }
+
+  .bento-card-title {
+    font-size: 12px !important;
+  }
+
+  .bento-item-bullet {
+    font-size: 11.5px !important;
+  }
+
+  .good-to-know-tab-card {
+    font-size: 12px !important;
+    padding: 8px 10px !important;
   }
 
   .good-to-know-leaf {
@@ -1582,4 +1912,3 @@
     gap: 5px;
   }
 }
-
