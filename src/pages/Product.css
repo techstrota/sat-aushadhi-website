@@ -1,18 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
 @import "./common.css";
-
 /* ==========================================================================
    PRODUCT PAGE STYLES
    Sat Aushadhi Website
    ========================================================================== */
-
 .product-page-wrapper {
   background-color: #eef3ec;
   width: 100%;
   overflow-x: hidden;
   font-family: "Poppins", sans-serif !important;
 }
-
 /* --------------------------------------------------------------------------
    Product Page Hero Section
    -------------------------------------------------------------------------- */
@@ -29,7 +26,6 @@
   align-items: center;
   justify-content: center;
 }
-
 .product-banner-img-box {
   position: absolute;
   inset: 0;
@@ -39,7 +35,6 @@
   pointer-events: none;
   overflow: hidden;
 }
-
 .product-banner-bg-img {
   width: 100%;
   height: 100%;
@@ -48,7 +43,6 @@
   filter: brightness(0.86);
   display: block;
 }
-
 .product-banner .banner-bg-overlay {
   position: absolute;
   inset: 0;
@@ -60,14 +54,12 @@
   );
   pointer-events: none;
 }
-
 .product-banner .banner-content {
   position: relative;
   z-index: 2;
   max-width: 850px;
   margin: 0 auto;
 }
-
 .product-banner .eyebrow {
   color: #78b844;
   font-weight: 700;
@@ -79,7 +71,6 @@
   text-transform: uppercase;
   font-family: "Poppins", sans-serif;
 }
-
 .product-banner h1 {
   color: #ffffff;
   font-size: clamp(38px, 5vw, 58px);
@@ -88,7 +79,6 @@
   font-weight: 700;
   font-family: "Poppins", sans-serif !important;
 }
-
 .product-banner-tagline-badge {
   display: inline-flex;
   align-items: center;
@@ -107,24 +97,20 @@
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25), 0 0 16px rgba(120, 184, 68, 0.2);
   transition: all 0.3s ease;
 }
-
 .product-banner-tagline-badge:hover {
   transform: translateY(-2px);
   background: rgba(255, 255, 255, 0.18);
   border-color: #8be04e;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 0 20px rgba(139, 224, 78, 0.35);
 }
-
 .product-banner-tagline-badge .banner-tagline-icon {
   color: #8be04e;
   flex-shrink: 0;
 }
-
 .product-banner-tagline-badge .banner-tagline-sparkle {
   color: #ffde6b;
   flex-shrink: 0;
 }
-
 .product-banner p {
   color: #f8f6f0;
   font-size: 17px;
@@ -134,7 +120,6 @@
   margin: 0 auto;
   font-family: "Poppins", sans-serif;
 }
-
 /* --------------------------------------------------------------------------
    Top Horizontal Product Selector Bar (Image 2)
    -------------------------------------------------------------------------- */
@@ -145,28 +130,69 @@
   background: rgba(238, 243, 236, 0.94);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  padding: 20px 20px;
+  padding: 12px 14px;
   border-bottom: 1px solid rgba(11, 70, 50, 0.08);
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
   transition: all 0.3s ease;
 }
-
+.product-quick-nav-wrapper {
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 .product-quick-nav-container {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 12px;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  flex-wrap: nowrap;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 6px 4px;
+  cursor: grab;
 }
-
+.product-quick-nav-container:active {
+  cursor: grabbing;
+}
+.product-quick-nav-container::-webkit-scrollbar {
+  display: none;
+}
+.nav-scroll-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1.5px solid rgba(19, 166, 160, 0.35);
+  color: #0b5132;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(11, 81, 50, 0.12);
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+  z-index: 5;
+}
+.nav-scroll-btn:hover {
+  background: #0b5132;
+  color: #ffffff;
+  border-color: #0b5132;
+  transform: scale(1.08);
+}
 .product-nav-card {
   display: inline-flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
   background: #ffffff;
-  padding: 8px 26px 8px 10px;
+  padding: 8px 18px 8px 10px;
   border-radius: 60px;
   border: 2px solid transparent;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
@@ -175,18 +201,15 @@
   font-family: "Poppins", sans-serif;
   text-decoration: none;
 }
-
 .product-nav-card:hover {
   transform: translateY(-2px);
   border-color: rgba(11, 70, 50, 0.35);
   box-shadow: 0 6px 18px rgba(11, 70, 50, 0.1);
 }
-
 .product-nav-card.is-active {
   border-color: #0b4632;
   box-shadow: 0 6px 20px rgba(11, 70, 50, 0.15);
 }
-
 .product-nav-card-thumb {
   width: 50px;
   height: 50px;
@@ -199,17 +222,14 @@
   justify-content: center;
   border: 1px solid rgba(0, 0, 0, 0.06);
 }
-
 .product-nav-card-thumb img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-
 .product-nav-card-info {
   text-align: left;
 }
-
 .product-nav-card-title {
   margin: 0;
   font-size: 15.5px;
@@ -217,7 +237,6 @@
   color: #0b4632;
   line-height: 1.25;
 }
-
 .product-nav-card-sub {
   display: block;
   margin-top: 3px;
@@ -225,7 +244,6 @@
   color: #63776c;
   font-weight: 500;
 }
-
 /* --------------------------------------------------------------------------
    Product Showcase Container & Alternating Rows (Image 1)
    -------------------------------------------------------------------------- */
@@ -235,7 +253,6 @@
   overflow: hidden;
   padding: 10px 0 35px;
 }
-
 .product-showcase-row {
   display: flex;
   align-items: center;
@@ -246,12 +263,10 @@
   padding: 40px 24px;
   position: relative;
 }
-
 /* Alternating Layout: Product 2 (is-reversed) places visual on Right & content on Left */
 .product-showcase-row.is-reversed {
   flex-direction: row-reverse;
 }
-
 .product-showcase-row:not(:last-child)::after {
   content: "";
   position: absolute;
@@ -267,7 +282,6 @@
     transparent
   );
 }
-
 /* --------------------------------------------------------------------------
    Visual Orbit Column (Left / Right)
    -------------------------------------------------------------------------- */
@@ -279,7 +293,6 @@
   position: relative;
   min-height: 480px;
 }
-
 .product-orbit-stage {
   position: relative;
   width: 520px;
@@ -288,7 +301,6 @@
   justify-content: center;
   align-items: center;
 }
-
 /* Concentric dashed orbit rings with continuous slow rotational flow */
 .orbit-ring {
   position: absolute;
@@ -299,21 +311,18 @@
   pointer-events: none;
   will-change: transform;
 }
-
 .orbit-ring-inner {
   width: 446px;
   height: 446px;
   border: 1.5px dashed rgba(64, 115, 88, 0.48);
   animation: spinDashedClockwise 50s linear infinite;
 }
-
 .orbit-ring-outer {
   width: 478px;
   height: 478px;
   border: 1.5px dashed rgba(64, 115, 88, 0.38);
   animation: spinDashedCounterClockwise 60s linear infinite;
 }
-
 @keyframes spinDashedClockwise {
   from {
     transform: translate(-50%, -50%) rotate(0deg);
@@ -322,7 +331,6 @@
     transform: translate(-50%, -50%) rotate(360deg);
   }
 }
-
 @keyframes spinDashedCounterClockwise {
   from {
     transform: translate(-50%, -50%) rotate(360deg);
@@ -331,7 +339,6 @@
     transform: translate(-50%, -50%) rotate(0deg);
   }
 }
-
 /* 7 Big Orbit Leaves: Strictly along the outer 2 dashed lines, 100% clear of labels & green disc */
 .floating-orbit-leaf {
   position: absolute;
@@ -341,56 +348,48 @@
   transform-origin: center center;
   will-change: transform;
 }
-
 /* 1. Top center leaf (~12 o'clock) */
 .leaf-pos-1 {
   top: 3%;
   left: 50%;
   animation: leafFloat1 4.2s ease-in-out infinite;
 }
-
 /* 2. Top Right leaf (~1:30 o'clock - above top-right tag) */
 .leaf-pos-2 {
   top: 6%;
   right: 28%;
   animation: leafFloat2 4.6s ease-in-out infinite 0.7s;
 }
-
 /* 3. Middle Right leaf (~3 o'clock - between top-right & bottom-right tags) */
 .leaf-pos-3 {
   top: 48%;
   right: 2%;
   animation: leafFloat3 4.4s ease-in-out infinite 1.4s;
 }
-
 /* 4. Bottom Right leaf (~5 o'clock - below bottom-right tag) */
 .leaf-pos-4 {
   bottom: 4%;
   right: 30%;
   animation: leafFloat4 4.8s ease-in-out infinite 2.1s;
 }
-
 /* 5. Bottom Left leaf (~6:45 o'clock) */
 .leaf-pos-5 {
   bottom: 4%;
   left: 34%;
   animation: leafFloat5 4.3s ease-in-out infinite 2.8s;
 }
-
 /* 6. Middle Left leaf (~8:45 o'clock) */
 .leaf-pos-6 {
   top: 48%;
   left: 2%;
   animation: leafFloat6 4.5s ease-in-out infinite 3.5s;
 }
-
 /* 7. Top Left leaf (~11:15 o'clock) */
 .leaf-pos-7 {
   top: 8%;
   left: 28%;
   animation: leafFloat7 4.1s ease-in-out infinite 1s;
 }
-
 /* Gentle botanical floating & swaying animations for all 7 leaves */
 @keyframes leafFloat1 {
   0%,
@@ -401,7 +400,6 @@
     transform: translate(-50%, calc(-50% - 7px)) rotate(14deg) scale(1.06);
   }
 }
-
 @keyframes leafFloat2 {
   0%,
   100% {
@@ -412,7 +410,6 @@
       scale(1.06);
   }
 }
-
 @keyframes leafFloat3 {
   0%,
   100% {
@@ -423,7 +420,6 @@
       scale(1.06);
   }
 }
-
 @keyframes leafFloat4 {
   0%,
   100% {
@@ -434,7 +430,6 @@
       scale(1.06);
   }
 }
-
 @keyframes leafFloat5 {
   0%,
   100% {
@@ -445,7 +440,6 @@
       scale(1.06);
   }
 }
-
 @keyframes leafFloat6 {
   0%,
   100% {
@@ -455,7 +449,6 @@
     transform: translate(calc(-50% - 6px), -50%) rotate(-65deg) scale(1.06);
   }
 }
-
 @keyframes leafFloat7 {
   0%,
   100% {
@@ -466,7 +459,6 @@
       scale(1.06);
   }
 }
-
 /* Floating Orbit Badge Pills - Positioned completely OUTSIDE the round green disc & product image */
 .orbit-badge-pill {
   position: absolute;
@@ -485,7 +477,6 @@
   pointer-events: auto;
   border: 1px solid rgba(0, 0, 0, 0.05);
 }
-
 .orbit-badge-dot {
   width: 8px;
   height: 8px;
@@ -494,39 +485,33 @@
   display: inline-block;
   flex-shrink: 0;
 }
-
 /* Anchored to extend outward away from the green circle */
 .orbit-tag-top-left {
   top: 17%;
   right: calc(50% + 135px);
   left: auto;
 }
-
 .orbit-tag-bottom-left {
   bottom: 17%;
   right: calc(50% + 135px);
   left: auto;
 }
-
 .orbit-tag-top-right {
   top: 17%;
   left: calc(50% + 135px);
   right: auto;
 }
-
 .orbit-tag-bottom-right {
   bottom: 17%;
   left: calc(50% + 135px);
   right: auto;
 }
-
 .orbit-tag-right {
   top: 50%;
   left: calc(50% + 195px);
   right: auto;
   transform: translateY(-50%);
 }
-
 /* Center Deep Green ROUND Disc: Perfect circular boundary with overflow hidden */
 .product-round-disc {
   position: relative;
@@ -541,7 +526,6 @@
   z-index: 3;
   overflow: hidden;
 }
-
 /* Inner arched card with white border - Perfectly proportioned INSIDE the green circle */
 .product-arch-frame {
   position: relative;
@@ -553,7 +537,6 @@
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
   background: #182820;
 }
-
 .product-arch-image {
   width: 100%;
   height: 100%;
@@ -561,11 +544,9 @@
   display: block;
   transition: transform 0.4s ease;
 }
-
 .product-round-disc:hover .product-arch-image {
   transform: scale(1.04);
 }
-
 /* --------------------------------------------------------------------------
    Content Column (Right / Left)
    -------------------------------------------------------------------------- */
@@ -573,7 +554,6 @@
   flex: 1;
   max-width: 530px;
 }
-
 /* Eyebrow line: "1 / 3 —— Sat Aushadhi" */
 .product-eyebrow-line {
   display: flex;
@@ -581,27 +561,23 @@
   gap: 12px;
   margin-bottom: 14px;
 }
-
 .product-counter-badge {
   font-size: 15px;
   font-weight: 600;
   color: #4a6c5d;
   letter-spacing: 0.5px;
 }
-
 .product-counter-sep {
   width: 32px;
   height: 1.5px;
   background: #4a6c5d;
   display: inline-block;
 }
-
 .product-brand-subtitle {
   font-size: 15px;
   font-weight: 600;
   color: #4a6c5d;
 }
-
 /* Product Showcase Title (Matching Home & About: Poppins) */
 .product-showcase-title {
   font-family: "Poppins", sans-serif !important;
@@ -612,6 +588,50 @@
   line-height: 1.2;
   letter-spacing: -0.3px;
 }
+/* Product Showcase Pricing Row */
+.product-showcase-pricing-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px 20px;
+  margin-bottom: 22px;
+}
+.product-showcase-pricing-row .product-variant-pills {
+  margin-bottom: 0;
+}
+.product-price-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, rgba(11, 81, 50, 0.08) 0%, rgba(19, 166, 160, 0.12) 100%);
+  border: 1.5px solid rgba(19, 166, 160, 0.35);
+  border-radius: 99px;
+  padding: 6px 16px;
+}
+.product-price-tag {
+  font-size: 13px;
+  font-weight: 600;
+  color: #3b5649;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.product-price-number {
+  font-size: 19px;
+  font-weight: 800;
+  color: #0b5132;
+  letter-spacing: -0.01em;
+}
+.product-price-mrp {
+  font-size: 11.5px;
+  color: #6a8c7b;
+  font-weight: 500;
+}
+.modal-price-highlight {
+  background: #0b5132 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  border-color: #0b5132 !important;
+}
 
 /* Pack Size Variant Pills */
 .product-variant-pills {
@@ -621,7 +641,6 @@
   margin-bottom: 22px;
   flex-wrap: wrap;
 }
-
 .variant-pill {
   background: transparent;
   color: #0b3d2b;
@@ -634,16 +653,13 @@
   transition: all 0.2s ease;
   font-family: "Poppins", sans-serif;
 }
-
 .variant-pill:hover:not(.is-selected) {
   background: rgba(11, 61, 43, 0.08);
 }
-
 .variant-pill.is-selected {
   background: #0b3d2b;
   color: #ffffff;
 }
-
 /* Description */
 .product-showcase-description {
   font-size: 15.5px;
@@ -651,7 +667,6 @@
   color: #3b5649;
   margin: 0 0 20px;
 }
-
 /* ==========================================================================
    SEGMENTED PRODUCT INTELLIGENCE PANEL (Tabs + Bento Cards)
    ========================================================================== */
@@ -666,14 +681,12 @@
     0 1px 3px rgba(0, 0, 0, 0.02);
   transition: all 0.3s ease;
 }
-
 .product-intel-panel:hover {
   box-shadow:
     0 8px 28px rgba(11, 81, 50, 0.08),
     0 1px 4px rgba(0, 0, 0, 0.03);
   border-color: rgba(11, 81, 50, 0.2);
 }
-
 /* Tab Navigation Switcher */
 .product-info-tabs-nav {
   display: flex;
@@ -684,7 +697,6 @@
   border-radius: 30px;
   margin-bottom: 16px;
 }
-
 .info-tab-btn {
   flex: 1;
   display: inline-flex;
@@ -702,18 +714,15 @@
   transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
   font-family: "Poppins", sans-serif;
 }
-
 .info-tab-btn:hover:not(.is-active) {
   color: #0b5132;
   background: rgba(255, 255, 255, 0.7);
 }
-
 .info-tab-btn.is-active {
   background: #0b5132;
   color: #ffffff;
   box-shadow: 0 3px 10px rgba(11, 81, 50, 0.28);
 }
-
 .tab-count-badge {
   display: inline-flex;
   align-items: center;
@@ -726,12 +735,10 @@
   color: inherit;
   line-height: 1;
 }
-
 .info-tab-btn:not(.is-active) .tab-count-badge {
   background: rgba(11, 81, 50, 0.1);
   color: #0b5132;
 }
-
 /* --- TAB 1: Bento Conditions Grid --- */
 .bento-conditions-grid {
   display: grid;
@@ -739,7 +746,6 @@
   gap: 12px;
   animation: fadeIn 0.3s ease;
 }
-
 .bento-condition-card {
   background: #f8faf7;
   border: 1px solid #e1ede0;
@@ -749,14 +755,12 @@
   display: flex;
   flex-direction: column;
 }
-
 .bento-condition-card:hover {
   background: #ffffff;
   border-color: #13a6a0;
   box-shadow: 0 4px 14px rgba(19, 166, 160, 0.12);
   transform: translateY(-2px);
 }
-
 .bento-card-header {
   display: flex;
   align-items: center;
@@ -765,7 +769,6 @@
   padding-bottom: 6px;
   border-bottom: 1px solid #edf4eb;
 }
-
 .bento-card-icon {
   width: 26px;
   height: 26px;
@@ -777,7 +780,6 @@
   justify-content: center;
   flex-shrink: 0;
 }
-
 .bento-card-title {
   font-size: 13px;
   font-weight: 700;
@@ -786,7 +788,6 @@
   letter-spacing: 0.2px;
   font-family: "Poppins", sans-serif;
 }
-
 .bento-card-items {
   list-style: none;
   padding: 0;
@@ -795,7 +796,6 @@
   flex-direction: column;
   gap: 5px;
 }
-
 .bento-item-bullet {
   display: flex;
   align-items: baseline;
@@ -805,7 +805,6 @@
   line-height: 1.4;
   font-family: "Poppins", sans-serif;
 }
-
 .bento-dot {
   width: 5px;
   height: 5px;
@@ -814,7 +813,6 @@
   flex-shrink: 0;
   margin-top: 5px;
 }
-
 /* --- TAB 2: Good To Know List --- */
 .good-to-know-tab-grid {
   display: flex;
@@ -822,7 +820,6 @@
   gap: 8px;
   animation: fadeIn 0.3s ease;
 }
-
 .good-to-know-tab-card {
   display: flex;
   align-items: flex-start;
@@ -838,18 +835,15 @@
   transition: all 0.2s ease;
   font-family: "Poppins", sans-serif;
 }
-
 .good-to-know-tab-card:hover {
   background: #ffffff;
   border-color: #6ea34e;
   box-shadow: 0 3px 10px rgba(110, 163, 78, 0.1);
 }
-
 /* Standard Good to Know box (for Calcimax Tablet) */
 .product-good-to-know-box {
   margin: 0 0 28px;
 }
-
 .good-to-know-heading {
   font-family: "Poppins", sans-serif;
   font-size: 16px;
@@ -858,13 +852,11 @@
   margin: 0 0 14px;
   letter-spacing: -0.2px;
 }
-
 .good-to-know-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 12px 24px;
 }
-
 .good-to-know-item {
   display: flex;
   align-items: flex-start;
@@ -874,12 +866,10 @@
   font-weight: 500;
   line-height: 1.45;
 }
-
 .good-to-know-leaf {
   flex-shrink: 0;
   margin-top: 2px;
 }
-
 /* CTA Buttons */
 .product-cta-group {
   display: flex;
@@ -887,7 +877,6 @@
   gap: 24px;
   flex-wrap: wrap;
 }
-
 .btn-showcase-details {
   background: #0b3d2b;
   color: #ffffff;
@@ -904,13 +893,11 @@
   box-shadow: 0 4px 14px rgba(11, 61, 43, 0.2);
   font-family: "Poppins", sans-serif;
 }
-
 .btn-showcase-details:hover {
   background: #15553e;
   transform: translateY(-2px);
   box-shadow: 0 8px 22px rgba(11, 61, 43, 0.3);
 }
-
 .btn-showcase-enquire {
   display: inline-flex;
   align-items: center;
@@ -930,14 +917,12 @@
   font-family: "Poppins", sans-serif;
   white-space: nowrap;
 }
-
 .btn-showcase-enquire:hover {
   background: #0b3d2b;
   color: #ffffff;
   transform: translateY(-2px);
   box-shadow: 0 6px 18px rgba(11, 61, 43, 0.2);
 }
-
 /* --------------------------------------------------------------------------
    Product Details Modal
    -------------------------------------------------------------------------- */
@@ -954,7 +939,6 @@
   padding: 20px;
   animation: fadeIn 0.25s ease-out;
 }
-
 .product-modal-card {
   position: relative;
   background: #ffffff;
@@ -966,7 +950,6 @@
   padding: 35px 32px;
   animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
-
 .product-modal-close {
   position: absolute;
   top: 20px;
@@ -983,18 +966,15 @@
   color: #3b5649;
   transition: all 0.2s ease;
 }
-
 .product-modal-close:hover {
   background: #0b3d2b;
   color: #ffffff;
 }
-
 .product-modal-header {
   border-bottom: 1px solid #e5ede7;
   padding-bottom: 16px;
   margin-bottom: 24px;
 }
-
 .modal-category {
   font-size: 12.5px;
   font-weight: 700;
@@ -1002,7 +982,6 @@
   letter-spacing: 1.5px;
   color: #13a6a0;
 }
-
 .product-modal-header h2 {
   font-family: "Poppins", sans-serif !important;
   font-weight: 700;
@@ -1011,12 +990,10 @@
   margin: 6px 0 12px;
   line-height: 1.25;
 }
-
 .modal-variant-tags {
   display: flex;
   gap: 8px;
 }
-
 .modal-tag {
   background: #edf4ef;
   color: #0b3d2b;
@@ -1025,13 +1002,11 @@
   font-size: 12.5px;
   font-weight: 600;
 }
-
 .product-modal-body {
   display: flex;
   gap: 30px;
   align-items: flex-start;
 }
-
 .modal-img-col {
   width: 240px;
   flex-shrink: 0;
@@ -1039,7 +1014,6 @@
   flex-direction: column;
   gap: 12px;
 }
-
 .modal-img-col img {
   width: 100%;
   height: 270px;
@@ -1049,7 +1023,6 @@
   padding: 10px;
   border: 1px solid #e5ede7;
 }
-
 .modal-guarantee-badge {
   background: #f0f7f3;
   color: #0b4632;
@@ -1062,14 +1035,12 @@
   align-items: center;
   gap: 8px;
 }
-
 .modal-info-col {
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 18px;
 }
-
 .modal-info-block h4 {
   color: #0b3d2b;
   font-size: 15px;
@@ -1079,7 +1050,6 @@
   gap: 7px;
   font-weight: 700;
 }
-
 .modal-info-block p {
   color: #3b5649;
   font-size: 14px;
@@ -1087,13 +1057,11 @@
   margin: 0;
   white-space: pre-line;
 }
-
 .modal-info-list {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
-
 .modal-info-subheading {
   font-weight: 700;
   font-size: 13.5px;
@@ -1102,11 +1070,9 @@
   margin-bottom: 2px;
   letter-spacing: 0.3px;
 }
-
 .modal-info-subheading:first-child {
   margin-top: 0;
 }
-
 .modal-info-bullet-item {
   display: flex;
   align-items: flex-start;
@@ -1115,7 +1081,6 @@
   color: #3b5649;
   line-height: 1.5;
 }
-
 .modal-bullet-icon {
   color: #13a6a0;
   font-weight: bold;
@@ -1123,15 +1088,12 @@
   line-height: 1.25;
   flex-shrink: 0;
 }
-
 .modal-bullet-text {
   flex: 1;
 }
-
 .modal-info-gap {
   height: 6px;
 }
-
 /* Modal Conditions & Safety Blocks */
 .modal-conditions-block {
   background: #fbfdfa;
@@ -1139,14 +1101,12 @@
   border-radius: 12px;
   padding: 16px 18px;
 }
-
 .modal-conditions-block h4 {
   color: #0b5132;
   border-bottom: 1px solid #e7f0e6;
   padding-bottom: 8px;
   margin-bottom: 10px;
 }
-
 .modal-safety-block {
   background: #fefcf7;
   border: 1px solid #f2e2be;
@@ -1154,24 +1114,20 @@
   border-radius: 10px;
   padding: 16px 18px;
 }
-
 .modal-safety-block h4 {
   color: #92400e;
   border-bottom: 1px solid #fae8c8;
   padding-bottom: 8px;
   margin-bottom: 10px;
 }
-
 .modal-safety-block .modal-bullet-icon {
   color: #d97706;
 }
-
 .modal-action-row {
   margin-top: 12px;
   padding-top: 16px;
   border-top: 1px solid #e5ede7;
 }
-
 .modal-enquire-btn {
   background: #0b3d2b;
   color: #ffffff;
@@ -1185,13 +1141,11 @@
   gap: 8px;
   transition: all 0.25s ease;
 }
-
 .modal-enquire-btn:hover {
   background: #15553e;
   color: #ffffff;
   transform: translateY(-2px);
 }
-
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -1200,7 +1154,6 @@
     opacity: 1;
   }
 }
-
 @keyframes slideUp {
   from {
     opacity: 0;
@@ -1211,73 +1164,60 @@
     transform: translateY(0);
   }
 }
-
 /* ==========================================================================
    RESPONSIVE DESIGN (<= 1100px, <= 860px, <= 640px, <= 380px)
    ========================================================================== */
-
 /* --- 1. Laptops & Large Tablets (<= 1100px) --- */
 @media (max-width: 1100px) {
   .product-showcase-row {
     gap: 35px;
     padding: 35px 20px;
   }
-
   .product-orbit-stage {
     width: 450px;
     height: 450px;
   }
-
   .orbit-ring-inner {
     width: 390px;
     height: 390px;
   }
-
   .orbit-ring-outer {
     width: 420px;
     height: 420px;
   }
-
   .product-round-disc {
     width: 340px;
     height: 340px;
   }
-
   .product-arch-frame {
     width: 170px;
     height: 230px;
     border-radius: 85px 85px 12px 12px;
   }
-
   .floating-orbit-leaf {
     width: 34px;
     height: 34px;
   }
-
   .orbit-tag-top-left {
     top: 17%;
     right: calc(50% + 115px);
     left: auto;
   }
-
   .orbit-tag-bottom-left {
     bottom: 17%;
     right: calc(50% + 115px);
     left: auto;
   }
-
   .orbit-tag-top-right {
     top: 17%;
     left: calc(50% + 115px);
     right: auto;
   }
-
   .orbit-tag-bottom-right {
     bottom: 17%;
     left: calc(50% + 115px);
     right: auto;
   }
-
   .orbit-tag-right {
     top: 50%;
     left: calc(50% + 175px);
@@ -1285,23 +1225,19 @@
     transform: translateY(-50%);
   }
 }
-
 /* --- 2. Tablets Portrait & Mobile Landscape (<= 860px) --- */
 @media (max-width: 860px) {
   .product-banner {
     min-height: 480px;
     padding: 120px 20px;
   }
-
   .product-banner h1 {
     font-size: clamp(30px, 5.5vw, 44px);
   }
-
   .product-quick-nav-bar {
     top: 60px;
     padding: 10px 10px;
   }
-
   .product-quick-nav-container {
     gap: 10px;
     justify-content: flex-start;
@@ -1312,30 +1248,24 @@
     flex-wrap: nowrap;
     -webkit-overflow-scrolling: touch;
   }
-
   .product-quick-nav-container::-webkit-scrollbar {
     display: none;
   }
-
   .product-nav-card {
     flex-shrink: 0;
     padding: 6px 14px 6px 8px;
     gap: 10px;
   }
-
   .product-nav-card-thumb {
     width: 36px;
     height: 36px;
   }
-
   .product-nav-card-title {
     font-size: 13px;
   }
-
   .product-nav-card-sub {
     font-size: 11px;
   }
-
   /* Remove 480px min-height on tablet & mobile */
   .product-visual-col {
     min-height: auto !important;
@@ -1345,7 +1275,6 @@
     margin: 0 !important;
     padding: 0 !important;
   }
-
   /* Both normal and reversed rows stack vertically on tablet & mobile */
   .product-showcase-row,
   .product-showcase-row.is-reversed {
@@ -1354,11 +1283,9 @@
     padding: 22px 14px !important;
     text-align: center;
   }
-
   .product-showcase-row:not(:last-child)::after {
     width: min(90%, 340px);
   }
-
   /* Compact orbit stage */
   .product-orbit-stage {
     width: 100%;
@@ -1367,34 +1294,28 @@
     margin: 0 auto;
     overflow: visible;
   }
-
   .orbit-ring-inner {
     width: 250px;
     height: 250px;
   }
-
   .orbit-ring-outer {
     width: 276px;
     height: 276px;
   }
-
   .product-round-disc {
     width: 215px;
     height: 215px;
   }
-
   .product-arch-frame {
     width: 112px;
     height: 152px;
     border-radius: 56px 56px 8px 8px;
     border-width: 2.5px;
   }
-
   .floating-orbit-leaf {
     width: 22px;
     height: 22px;
   }
-
   /* Floating pill tags - Anchored inside viewport to avoid cropping */
   .orbit-badge-pill {
     padding: 4px 10px;
@@ -1403,47 +1324,40 @@
     white-space: nowrap;
     z-index: 10;
   }
-
   .orbit-badge-dot {
     width: 6px;
     height: 6px;
   }
-
   .orbit-tag-top-left {
     top: 8%;
     left: 10px;
     right: auto;
     transform: none;
   }
-
   .orbit-tag-bottom-left {
     bottom: 8%;
     left: 10px;
     right: auto;
     transform: none;
   }
-
   .orbit-tag-top-right {
     top: 8%;
     right: 10px;
     left: auto;
     transform: none;
   }
-
   .orbit-tag-bottom-right {
     bottom: 8%;
     right: 10px;
     left: auto;
     transform: none;
   }
-
   .orbit-tag-right {
     top: 48%;
     right: 10px;
     left: auto;
     transform: translateY(-50%);
   }
-
   .product-content-col {
     max-width: 580px;
     width: 100%;
@@ -1453,82 +1367,68 @@
     margin: 0 !important;
     padding: 0 !important;
   }
-
   .product-eyebrow-line {
     justify-content: center;
     margin-top: 2px !important;
     margin-bottom: 6px !important;
   }
-
   .product-showcase-title {
     font-size: 28px !important;
     margin: 0 0 12px !important;
     line-height: 1.2 !important;
   }
-
   .product-variant-pills {
     justify-content: center;
     margin-bottom: 12px !important;
     gap: 10px !important;
   }
-
   .variant-pill {
     padding: 6px 18px !important;
     font-size: 13px !important;
   }
-
   .product-showcase-description {
     font-size: 14px !important;
     line-height: 1.6 !important;
     margin: 0 0 16px !important;
     max-width: 480px !important;
   }
-
   .product-good-to-know-box {
     margin-bottom: 18px !important;
     width: 100%;
     max-width: 420px;
   }
-
   .good-to-know-heading {
     text-align: center;
     margin-bottom: 8px !important;
     font-size: 14px !important;
   }
-
   .good-to-know-grid {
     text-align: left;
     max-width: 420px;
     margin: 0 auto;
     gap: 8px 16px;
   }
-
   .product-cta-group {
     justify-content: center;
     gap: 14px !important;
   }
-
   .btn-showcase-details {
     padding: 11px 22px !important;
     font-size: 14px !important;
   }
-
   .btn-showcase-enquire {
     padding: 11px 22px !important;
     font-size: 14px !important;
   }
-
   .product-modal-body {
     flex-direction: column;
     align-items: center;
   }
-
   .modal-img-col {
     width: 100%;
     max-width: 280px;
   }
 }
-
 /* --- 3. Mobile Phones & Small Tablets (<= 768px) --- */
 @media (max-width: 768px) {
   /* Hero Banner for Mobile: Image on Top, Content Below (Zero Cropping) */
@@ -1540,7 +1440,6 @@
     background: #073523 !important;
     isolation: auto !important;
   }
-
   .product-banner-img-box {
     position: relative !important;
     inset: auto !important;
@@ -1556,7 +1455,6 @@
     padding: 14px 12px 10px !important;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25) !important;
   }
-
   .product-banner-bg-img {
     position: static !important;
     width: 100% !important;
@@ -1570,11 +1468,9 @@
     transform: none !important;
     border-radius: 8px !important;
   }
-
   .product-banner .banner-bg-overlay {
     display: none !important;
   }
-
   .product-banner .banner-content {
     position: relative !important;
     order: 2 !important;
@@ -1585,7 +1481,6 @@
     margin: 0 !important;
     background: linear-gradient(180deg, #073523 0%, #052619 100%) !important;
   }
-
   .product-banner .eyebrow {
     font-size: 11.5px !important;
     letter-spacing: 1.5px !important;
@@ -1594,14 +1489,12 @@
     display: inline-block !important;
     font-family: "Poppins", sans-serif !important;
   }
-
   .product-banner h1 {
     font-size: clamp(26px, 7vw, 32px) !important;
     margin: 0 0 8px !important;
     text-shadow: none !important;
     font-family: "Poppins", sans-serif !important;
   }
-
   .product-banner p {
     font-size: 14px !important;
     line-height: 1.6 !important;
@@ -1611,16 +1504,13 @@
     color: #e2ede2 !important;
     font-family: "Poppins", sans-serif !important;
   }
-
   .products-showcase-container {
     padding: 4px 0 18px;
   }
-
   .product-quick-nav-bar {
     top: 55px;
     padding: 8px 8px;
   }
-
   .product-quick-nav-container {
     gap: 8px;
     justify-content: flex-start;
@@ -1631,42 +1521,34 @@
     flex-wrap: nowrap;
     -webkit-overflow-scrolling: touch;
   }
-
   .product-quick-nav-container::-webkit-scrollbar {
     display: none;
   }
-
   .product-nav-card {
     flex-shrink: 0;
     padding: 5px 12px 5px 6px;
     gap: 8px;
     border-radius: 40px;
   }
-
   .product-nav-card-thumb {
     width: 32px;
     height: 32px;
   }
-
   .product-nav-card-title {
     font-size: 12px;
   }
-
   .product-nav-card-sub {
     font-size: 10.5px;
   }
-
   /* Eliminate artificial vertical empty spaces between products */
   .product-showcase-row,
   .product-showcase-row.is-reversed {
     padding: 14px 8px 18px !important;
     gap: 8px !important;
   }
-
   .product-showcase-row:not(:last-child)::after {
     width: min(85%, 260px);
   }
-
   /* Zero vertical dead space on visual column */
   .product-visual-col {
     min-height: auto !important;
@@ -1676,7 +1558,6 @@
     margin: 0 !important;
     padding: 0 !important;
   }
-
   /* Compact orbit stage: tightly wraps around the disc and rings */
   .product-orbit-stage {
     width: 100%;
@@ -1686,35 +1567,29 @@
     position: relative;
     overflow: visible;
   }
-
   .orbit-ring-inner {
     width: 200px;
     height: 200px;
   }
-
   .orbit-ring-outer {
     width: 220px;
     height: 220px;
   }
-
   .product-round-disc {
     width: 168px;
     height: 168px;
     box-shadow: 0 10px 24px rgba(12, 67, 45, 0.22);
   }
-
   .product-arch-frame {
     width: 88px;
     height: 120px;
     border-radius: 44px 44px 6px 6px;
     border-width: 2px;
   }
-
   .floating-orbit-leaf {
     width: 17px;
     height: 17px;
   }
-
   /* Pill tags: Anchored to avoid ANY right/left screen edge cropping */
   .orbit-badge-pill {
     padding: 3.5px 8px;
@@ -1725,12 +1600,10 @@
     z-index: 10;
     border: 1px solid rgba(0, 0, 0, 0.06);
   }
-
   .orbit-badge-dot {
     width: 5.5px;
     height: 5.5px;
   }
-
   /* Left tags: Anchored comfortably inside left edge */
   .orbit-tag-top-left {
     top: 7%;
@@ -1738,14 +1611,12 @@
     right: auto;
     transform: none;
   }
-
   .orbit-tag-bottom-left {
     bottom: 7%;
     left: 4px;
     right: auto;
     transform: none;
   }
-
   /* Right tags: Anchored inside right edge so they NEVER crop */
   .orbit-tag-top-right {
     top: 7%;
@@ -1753,21 +1624,18 @@
     left: auto;
     transform: none;
   }
-
   .orbit-tag-bottom-right {
     bottom: 7%;
     right: 4px;
     left: auto;
     transform: none;
   }
-
   .orbit-tag-right {
     top: 45%;
     right: 4px;
     left: auto;
     transform: translateY(-50%);
   }
-
   /* Content Column - Snug & clean vertical rhythm */
   .product-content-col {
     width: 100%;
@@ -1775,46 +1643,38 @@
     margin: 0 !important;
     padding: 0 !important;
   }
-
   .product-eyebrow-line {
     margin-top: 2px !important;
     margin-bottom: 4px !important;
     justify-content: center;
   }
-
   .product-counter-badge,
   .product-brand-subtitle {
     font-size: 12.5px !important;
   }
-
   .product-counter-sep {
     width: 20px !important;
   }
-
   .product-showcase-title {
     font-size: clamp(22px, 5.5vw, 25px) !important;
     margin: 0 0 8px !important;
     line-height: 1.2 !important;
   }
-
   .product-variant-pills {
     margin-bottom: 8px !important;
     gap: 8px !important;
     justify-content: center;
   }
-
   .variant-pill {
     padding: 4px 13px !important;
     font-size: 11.5px !important;
   }
-
   .product-showcase-description {
     font-size: 13px !important;
     line-height: 1.5 !important;
     margin: 0 0 10px !important;
     max-width: 320px !important;
   }
-
   .product-intel-panel {
     margin-bottom: 14px !important;
     padding: 12px !important;
@@ -1824,51 +1684,41 @@
     margin-right: auto;
     border-radius: 16px !important;
   }
-
   .product-info-tabs-nav {
     margin-bottom: 12px !important;
     padding: 3px !important;
   }
-
   .info-tab-btn {
     font-size: 11.5px !important;
     padding: 6px 8px !important;
     gap: 5px !important;
   }
-
   .tab-count-badge {
     font-size: 10px !important;
     padding: 1px 5px !important;
   }
-
   .bento-conditions-grid {
     grid-template-columns: 1fr !important;
     gap: 8px !important;
   }
-
   .bento-condition-card {
     padding: 10px 12px !important;
     border-radius: 10px !important;
   }
-
   .bento-card-title {
     font-size: 12px !important;
   }
-
   .bento-item-bullet {
     font-size: 11.5px !important;
   }
-
   .good-to-know-tab-card {
     font-size: 12px !important;
     padding: 8px 10px !important;
   }
-
   .good-to-know-leaf {
     width: 14px;
     height: 14px;
   }
-
   .product-cta-group {
     flex-direction: column;
     gap: 10px !important;
@@ -1876,7 +1726,6 @@
     max-width: 290px;
     margin: 0 auto;
   }
-
   .btn-showcase-details {
     width: 100%;
     justify-content: center;
@@ -1885,7 +1734,6 @@
     border-radius: 25px;
     box-sizing: border-box;
   }
-
   .btn-showcase-enquire {
     width: 100%;
     justify-content: center;
@@ -1894,126 +1742,102 @@
     border-radius: 25px;
     box-sizing: border-box;
   }
-
   .product-modal-card {
     padding: 20px 14px;
     border-radius: 16px;
     width: 94%;
   }
 }
-
 /* --- 4. Extra Small Phones (<= 360px) --- */
 @media (max-width: 360px) {
   .product-hero-img-box {
     max-width: 280px !important;
   }
-
   .product-hero-img {
     max-height: 165px !important;
   }
-
   .product-hero-title {
     font-size: 21px !important;
   }
-
   .product-hero-desc {
     font-size: 12.5px !important;
   }
-
   .product-showcase-row,
   .product-showcase-row.is-reversed {
     padding: 12px 6px 14px !important;
     gap: 6px !important;
   }
-
   .product-orbit-stage {
     max-width: 310px;
     height: 195px;
   }
-
   .orbit-ring-inner {
     width: 182px;
     height: 182px;
   }
-
   .orbit-ring-outer {
     width: 200px;
     height: 200px;
   }
-
   .product-round-disc {
     width: 152px;
     height: 152px;
   }
-
   .product-arch-frame {
     width: 78px;
     height: 106px;
     border-radius: 39px 39px 5px 5px;
     border-width: 2px;
   }
-
   .orbit-badge-pill {
     font-size: 9.5px;
     padding: 3px 6px;
     gap: 4px;
   }
-
   .orbit-badge-dot {
     width: 5px;
     height: 5px;
   }
-
   .orbit-tag-top-left {
     top: 5%;
     left: 2px;
   }
-
   .orbit-tag-bottom-left {
     bottom: 5%;
     left: 2px;
   }
-
   .orbit-tag-top-right {
     top: 5%;
     right: 2px;
     left: auto;
   }
-
   .orbit-tag-bottom-right {
     bottom: 5%;
     right: 2px;
     left: auto;
   }
-
   .orbit-tag-right {
     top: 45%;
     right: 2px;
     left: auto;
     transform: translateY(-50%);
   }
-
   .floating-orbit-leaf {
     width: 15px;
     height: 15px;
   }
-
   .product-showcase-title {
     font-size: 21px !important;
   }
-
   .variant-pill {
     padding: 4px 10px;
     font-size: 11px;
   }
-
   .good-to-know-grid {
     grid-template-columns: 1fr;
     gap: 5px;
   }
 }
-
-
 /* ==========================================================================
    COMING SOON PRODUCTS SECTION (Names Only - Clean & Minimal)
    ========================================================================== */
@@ -2024,7 +1848,6 @@
   overflow: hidden;
   border-top: 1px solid rgba(11, 70, 50, 0.12);
 }
-
 .coming-soon-section::before {
   content: "";
   position: absolute;
@@ -2042,21 +1865,18 @@
     transparent
   );
 }
-
 .coming-soon-container {
   max-width: 1080px;
   margin: 0 auto;
   position: relative;
   z-index: 2;
 }
-
 /* Header */
 .coming-soon-header {
   text-align: center;
   max-width: 700px;
   margin: 0 auto 40px;
 }
-
 .coming-soon-pill {
   display: inline-flex;
   align-items: center;
@@ -2072,17 +1892,14 @@
   box-shadow: 0 2px 8px rgba(11, 70, 50, 0.05);
   margin-bottom: 12px;
 }
-
 .coming-soon-pulse {
   color: #13a6a0;
   animation: pulseScale 3s ease-in-out infinite;
 }
-
 @keyframes pulseScale {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.18); }
 }
-
 .coming-soon-title {
   font-size: clamp(30px, 3.8vw, 44px);
   font-weight: 700;
@@ -2092,13 +1909,11 @@
   letter-spacing: -0.5px;
   font-family: "Poppins", sans-serif !important;
 }
-
 .coming-soon-title span {
   background: linear-gradient(135deg, #0b5132 0%, #13a6a0 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
 .coming-soon-subtitle {
   font-size: 15.5px;
   line-height: 1.7;
@@ -2106,7 +1921,6 @@
   margin: 0 auto;
   font-family: "Poppins", sans-serif;
 }
-
 /* 2-Column Clean Category Panels */
 .coming-soon-names-grid {
   display: grid;
@@ -2114,7 +1928,6 @@
   gap: 30px;
   margin-bottom: 35px;
 }
-
 .coming-soon-category-card {
   background: #ffffff;
   border-radius: 24px;
@@ -2123,7 +1936,6 @@
   box-shadow: 0 10px 30px rgba(11, 70, 50, 0.06);
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
-
 .coming-soon-category-card:hover {
   transform: translateY(-4px);
   border-color: #13a6a0;
@@ -2131,7 +1943,6 @@
     0 18px 45px rgba(11, 70, 50, 0.11),
     0 4px 12px rgba(19, 166, 160, 0.08);
 }
-
 .category-card-header {
   display: flex;
   align-items: center;
@@ -2140,7 +1951,6 @@
   padding-bottom: 16px;
   border-bottom: 1px solid rgba(11, 70, 50, 0.09);
 }
-
 .category-card-icon {
   width: 48px;
   height: 48px;
@@ -2157,7 +1967,6 @@
   flex-shrink: 0;
   box-shadow: 0 4px 12px rgba(11, 70, 50, 0.05);
 }
-
 .category-card-title {
   margin: 0 0 2px;
   font-size: 19px;
@@ -2165,7 +1974,6 @@
   color: #073523;
   font-family: "Poppins", sans-serif !important;
 }
-
 .category-card-badge {
   font-size: 11px;
   font-weight: 700;
@@ -2173,14 +1981,12 @@
   letter-spacing: 1px;
   text-transform: uppercase;
 }
-
 /* Category Items List (Pills/Tiles) */
 .category-items-list {
   display: flex;
   flex-direction: column;
   gap: 11px;
 }
-
 .coming-soon-item-tile {
   display: flex;
   align-items: center;
@@ -2192,14 +1998,12 @@
   padding: 13px 18px;
   transition: all 0.25s ease;
 }
-
 .coming-soon-item-tile:hover {
   background: #ffffff;
   border-color: #13a6a0;
   transform: translateX(4px);
   box-shadow: 0 4px 14px rgba(19, 166, 160, 0.12);
 }
-
 .item-tile-icon {
   color: #78b844;
   display: flex;
@@ -2207,7 +2011,6 @@
   justify-content: center;
   flex-shrink: 0;
 }
-
 .item-tile-name {
   font-size: 15px;
   font-weight: 600;
@@ -2215,7 +2018,6 @@
   flex-grow: 1;
   font-family: "Poppins", sans-serif !important;
 }
-
 .item-tile-status {
   font-size: 11px;
   font-weight: 600;
@@ -2226,13 +2028,11 @@
   padding: 3px 10px;
   white-space: nowrap;
 }
-
 /* CTA Row */
 .coming-soon-cta-row {
   text-align: center;
   margin-top: 15px;
 }
-
 .coming-soon-cta-btn {
   display: inline-flex;
   align-items: center;
@@ -2248,37 +2048,30 @@
   transition: all 0.25s ease;
   font-family: "Poppins", sans-serif;
 }
-
 .coming-soon-cta-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 26px rgba(19, 166, 160, 0.35);
 }
-
 /* Responsive */
 @media (max-width: 820px) {
   .coming-soon-section {
     padding: 65px 18px 75px;
   }
-
   .coming-soon-names-grid {
     grid-template-columns: 1fr;
     gap: 20px;
   }
-
   .coming-soon-category-card {
     padding: 22px 18px;
     border-radius: 20px;
   }
-
   .item-tile-name {
     font-size: 14px;
   }
-
   .item-tile-status {
     font-size: 10px;
     padding: 2px 8px;
   }
-
   .coming-soon-cta-btn {
     width: 100%;
     justify-content: center;

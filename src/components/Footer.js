@@ -69,6 +69,11 @@ function Footer() {
                 </Link>
               </li>
               <li>
+                <Link to="/blogs">
+                  <ChevronRight size={14} /> Health Blogs
+                </Link>
+              </li>
+              <li>
                 <Link to="/contact">
                   <ChevronRight size={14} /> Contact Us
                 </Link>
@@ -125,6 +130,7 @@ function Footer() {
           <div className="footer-bottom-links">
             <Link to="/about">About</Link>
             <Link to="/products">Products</Link>
+            <Link to="/blogs">Blogs</Link>
             <Link to="/contact">Contact</Link>
           </div>
         </div>

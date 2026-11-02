@@ -13,8 +13,8 @@ const LEAVES_DATA = [
   [148, 260, -140, 0.8],
   [133, 190, -45, 0.7],
   [133, 190, -135, 0.7],
-  [138, 120, -50, 0.55],
-  [138, 120, -130, 0.55],
+  [160, 120, -50, 0.55],
+  [160, 120, -130, 0.55],
   [160, 22, -90, 0.5],
 ];
 
@@ -47,6 +47,14 @@ function Contact() {
   const [enquiryProduct, setEnquiryProduct] = useState(
     location.state?.enquiryProduct || "",
   );
+
+  // Hiring / HR Specific State
+  const [jobRole, setJobRole] = useState("");
+  const [experience, setExperience] = useState("");
+  const [resumeLink, setResumeLink] = useState("");
+
+  const isHiring =
+    enquiryType === "Job opportunity" || enquiryType === "HR / Staff hiring";
 
   // Validation & UI State
   const [errors, setErrors] = useState({});
@@ -105,6 +113,9 @@ function Contact() {
     if (!/^\S+@\S+\.\S+$/.test(email.trim())) {
       errs.email = true;
     }
+    if (isHiring && jobRole.trim().length < 2) {
+      errs.jobRole = true;
+    }
     if (message.trim().length < 4) {
       errs.message = true;
     }
@@ -119,13 +130,27 @@ function Contact() {
 
     setIsSubmitting(true);
 
-    const productLine = enquiryProduct ? `Product: ${enquiryProduct}\n` : "";
-    const subject = `Website enquiry: ${enquiryType}${
-      enquiryProduct ? ` - ${enquiryProduct}` : ""
-    }`;
-    const body = `Enquiry type: ${enquiryType}\n${productLine}Name: ${fullName.trim()}\nEmail: ${email.trim()}\nPhone: ${
-      phone.trim() || "-"
-    }\n\nMessage:\n${message.trim()}`;
+    let subject = "";
+    let body = "";
+
+    if (isHiring) {
+      subject = `[${enquiryType}] Application for ${jobRole.trim()} - ${fullName.trim()}`;
+      body = `Enquiry Type: ${enquiryType}\nApplicant Name: ${fullName.trim()}\nEmail: ${email.trim()}\nPhone: ${
+        phone.trim() || "-"
+      }\nPosition / Role: ${jobRole.trim()}\nExperience / Qualifications: ${
+        experience.trim() || "-"
+      }\nResume / Portfolio Link: ${
+        resumeLink.trim() || "-"
+      }\n\nCandidate Message / Cover Note:\n${message.trim()}`;
+    } else {
+      const productLine = enquiryProduct ? `Product: ${enquiryProduct}\n` : "";
+      subject = `Website enquiry: ${enquiryType}${
+        enquiryProduct ? ` - ${enquiryProduct}` : ""
+      }`;
+      body = `Enquiry type: ${enquiryType}\n${productLine}Name: ${fullName.trim()}\nEmail: ${email.trim()}\nPhone: ${
+        phone.trim() || "-"
+      }\n\nMessage:\n${message.trim()}`;
+    }
 
     // Trigger user's mail client with filled details
     window.location.href = `mailto:darshanherbs25@gmail.com?subject=${encodeURIComponent(
@@ -143,6 +168,9 @@ function Contact() {
     setPhone("");
     setMessage("");
     setEnquiryProduct("");
+    setJobRole("");
+    setExperience("");
+    setResumeLink("");
     setErrors({});
     setIsSubmitted(false);
   };
@@ -201,8 +229,8 @@ function Contact() {
           </h1>
 
           <p className="lead">
-            Have a product question or a retail enquiry? Get in touch with the
-            Sat Aushadhi team.
+            Have a product question, career interest, or retail enquiry? Get in
+            touch with the Sat Aushadhi team.
           </p>
 
           {/* Contact Details Rows */}
@@ -310,10 +338,16 @@ function Contact() {
           <div className="card" id="card" ref={cardRef}>
             {!isSubmitted ? (
               <form id="s2" onSubmit={handleSubmit} noValidate>
-                <span className="tag">Enquiry form</span>
-                <h2>Send an Enquiry</h2>
+                <span className="tag">
+                  {isHiring ? "Careers & Staff Hiring" : "Enquiry form"}
+                </span>
+                <h2>
+                  {isHiring ? "Join Our Team" : "Send an Enquiry"}
+                </h2>
                 <p className="sub">
-                  Fill in the details below and our team will get back to you.
+                  {isHiring
+                    ? "Interested in working with Sat Aushadhi? Share your credentials below."
+                    : "Fill in the details below and our team will get back to you."}
                 </p>
 
                 {/* Enquiry Type Selector */}
@@ -327,6 +361,14 @@ function Contact() {
                       {
                         value: "Distributor enquiry",
                         label: "Distributor",
+                      },
+                      {
+                        value: "Job opportunity",
+                        label: "Job Opportunity",
+                      },
+                      {
+                        value: "HR / Staff hiring",
+                        label: "HR & Hiring",
                       },
                     ].map((opt) => (
                       <label key={opt.value}>
@@ -343,8 +385,34 @@ function Contact() {
                   </div>
                 </fieldset>
 
+                {/* Hiring Callout Banner */}
+                {isHiring && (
+                  <div className="hiring-callout-banner">
+                    <div className="hiring-callout-icon" aria-hidden="true">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <rect width="20" height="14" x="2" y="7" rx="2" ry="2" />
+                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                      </svg>
+                    </div>
+                    <div className="hiring-callout-text">
+                      <strong>Career Opportunities at Sat Aushadhi</strong>
+                      <span>
+                        We are hiring across Ayurvedic formulation, sales, QA/QC,
+                        distribution, and customer support.
+                      </span>
+                    </div>
+                  </div>
+                )}
+
                 {/* Pre-selected Product Pill if navigated from product page */}
-                {enquiryProduct && (
+                {enquiryProduct && !isHiring && (
                   <div className="chosen-product-chip">
                     <span>
                       Enquiring for: <strong>{enquiryProduct}</strong>
@@ -411,7 +479,53 @@ function Contact() {
                   <em>Please enter a valid email.</em>
                 </div>
 
-                {/* Message */}
+                {/* Hiring Specific Fields: Role Applied & Experience */}
+                {isHiring && (
+                  <>
+                    <div className="two">
+                      <div className={`fl ${errors.jobRole ? "bad" : ""}`}>
+                        <input
+                          id="jr"
+                          placeholder=" "
+                          value={jobRole}
+                          onChange={(e) => {
+                            setJobRole(e.target.value);
+                            if (errors.jobRole) {
+                              setErrors((prev) => ({ ...prev, jobRole: false }));
+                            }
+                          }}
+                        />
+                        <label htmlFor="jr">Role / Position Applied For *</label>
+                        <em>Please enter the role you are applying for.</em>
+                      </div>
+
+                      <div className="fl">
+                        <input
+                          id="exp"
+                          placeholder=" "
+                          value={experience}
+                          onChange={(e) => setExperience(e.target.value)}
+                        />
+                        <label htmlFor="exp">Total Experience / Qualifications</label>
+                      </div>
+                    </div>
+
+                    <div className="fl">
+                      <input
+                        id="res"
+                        type="url"
+                        placeholder=" "
+                        value={resumeLink}
+                        onChange={(e) => setResumeLink(e.target.value)}
+                      />
+                      <label htmlFor="res">
+                        Resume / Portfolio / LinkedIn Link (Optional)
+                      </label>
+                    </div>
+                  </>
+                )}
+
+                {/* Message / Cover Note */}
                 <div className={`fl ${errors.message ? "bad" : ""}`}>
                   <textarea
                     id="m"
@@ -424,8 +538,16 @@ function Contact() {
                       }
                     }}
                   />
-                  <label htmlFor="m">Your message *</label>
-                  <em>Please write your enquiry.</em>
+                  <label htmlFor="m">
+                    {isHiring
+                      ? "Brief introduction or cover note *"
+                      : "Your message *"}
+                  </label>
+                  <em>
+                    {isHiring
+                      ? "Please write a brief introduction or note."
+                      : "Please write your enquiry."}
+                  </em>
                 </div>
 
                 {/* Submit Action */}
@@ -435,7 +557,7 @@ function Contact() {
                   type="submit"
                   disabled={isSubmitting}
                 >
-                  Submit Enquiry{" "}
+                  {isHiring ? "Submit Application" : "Submit Enquiry"}{" "}
                   <svg
                     viewBox="0 0 24 24"
                     fill="none"
@@ -449,7 +571,9 @@ function Contact() {
                 </button>
 
                 <span className="note">
-                  We use your details only to reply to your enquiry.
+                  {isHiring
+                    ? "We review all candidate submissions with confidentiality."
+                    : "We use your details only to reply to your enquiry."}
                 </span>
               </form>
             ) : (
@@ -468,9 +592,9 @@ function Contact() {
                 </svg>
                 <h2>Thank you!</h2>
                 <p id="okt">
-                  Your email client should now open with your enquiry formatted.
-                  Please click send there to deliver your message directly to
-                  the Sat Aushadhi team.
+                  {isHiring
+                    ? "Your email client will open with your candidate details pre-filled. Please click send to deliver your application to the Sat Aushadhi team."
+                    : "Your email client should now open with your enquiry formatted. Please click send there to deliver your message directly to the Sat Aushadhi team."}
                 </p>
                 <button
                   className="go"
@@ -478,7 +602,7 @@ function Contact() {
                   type="button"
                   onClick={handleSendAnother}
                 >
-                  Send another enquiry
+                  {isHiring ? "Send another message" : "Send another enquiry"}
                 </button>
               </div>
             )}
@@ -490,13 +614,13 @@ function Contact() {
       <section className="band">
         <div className="trio" aria-hidden="true">
           <div>
-            <img src="/new-product1.jpeg" alt="Sat Aushadhi Pain Relief Oil" />
+            <img src="/product-oil-100ml.png" alt="Sat Aushadhi Pain Relief Oil" onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = "/new-product1.jpeg"; }} />
           </div>
           <div>
-            <img src="/new-product2.jpeg" alt="Sat Aushadhi Balm" />
+            <img src="/product-balm-25ml.png" alt="Sat Aushadhi Balm" onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = "/new-product2.jpeg"; }} />
           </div>
           <div>
-            <img src="/new-product3.jpeg" alt="Sat Aushadhi Calcimax Tablet" />
+            <img src="/product-calcimax-60tablets.png" alt="Sat Aushadhi Calcimax Tablet" onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = "/new-product3.jpeg"; }} />
           </div>
         </div>
 

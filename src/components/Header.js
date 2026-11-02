@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { ArrowRight, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import "./Header.css";
 
 function Header() {
@@ -64,6 +64,10 @@ function Header() {
 
           <NavLink to="/products" onClick={closeMenu}>
             Our Products
+          </NavLink>
+
+          <NavLink to="/blogs" onClick={closeMenu}>
+            Blogs
           </NavLink>
 
           <NavLink to="/contact" onClick={closeMenu}>

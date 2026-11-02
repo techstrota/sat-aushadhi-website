@@ -410,6 +410,53 @@
   color: var(--forest);
 }
 
+.contact-main .hiring-callout-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: linear-gradient(135deg, rgba(19, 166, 160, 0.08) 0%, rgba(11, 81, 50, 0.05) 100%);
+  border: 1.5px solid rgba(19, 166, 160, 0.25);
+  border-radius: 16px;
+  padding: 14px 18px;
+  margin: 0 0 20px;
+}
+
+.contact-main .hiring-callout-icon {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: 10px;
+  background: var(--teal);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.contact-main .hiring-callout-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.contact-main .hiring-callout-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.contact-main .hiring-callout-text strong {
+  color: var(--forest);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.contact-main .hiring-callout-text span {
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
 .contact-main .fl {
   position: relative;
   margin-bottom: 16px;

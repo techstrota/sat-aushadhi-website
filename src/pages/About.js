@@ -108,7 +108,7 @@ function About() {
               size={14}
               style={{ display: "inline", marginRight: "6px" }}
             />
-            OUR STORY
+            Pratyek Boond Ki Ayurved Ki Shakti
           </span>
           <h1>Rooted in Ayurveda, Crafted for Tomorrow</h1>
           <p>
@@ -125,7 +125,7 @@ function About() {
             <span className="eyebrow">ABOUT SAT AUSHADHI</span>
             <h2>Bridging Tradition and Clinical Precision</h2>
             <p className="lead-text">
-              Our products and ingredients takens from ancient Books like
+              Our products and ingredients taken from ancient Books like
               Charaka Samhita, Aryabhishek-Hindustan no khajano etc.
             </p>
 

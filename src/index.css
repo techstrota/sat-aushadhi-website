@@ -5,6 +5,23 @@
   font-family: 'Poppins', sans-serif !important;
 }
 
+/* ==========================================================================
+   Hide default vertical scrollbar globally across all major browsers
+   Smooth vertical scrolling remains fully functional
+   ========================================================================== */
+html,
+body {
+  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important; /* IE 10+ and Edge */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none !important; /* Chrome, Safari, Edge, Opera */
+  width: 0 !important;
+  height: 0 !important;
+}
+
 html {
   overflow-x: hidden;
   scroll-behavior: smooth;
