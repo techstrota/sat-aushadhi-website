@@ -34,7 +34,7 @@ function Contact() {
   const nameInputRef = useRef(null);
   const toastTimerRef = useRef(null);
 
-  // Form State
+  // Form State - 4 fields: fullName, phone, email, message + enquiryType & enquiryProduct
   const [enquiryType, setEnquiryType] = useState("Product question");
   const [fullName, setFullName] = useState("");
   const [phone, setPhone] = useState("");
@@ -48,20 +48,13 @@ function Contact() {
     location.state?.enquiryProduct || "",
   );
 
-  // Hiring / HR Specific State
-  const [jobRole, setJobRole] = useState("");
-  const [experience, setExperience] = useState("");
-  const [resumeLink, setResumeLink] = useState("");
-
-  const isHiring =
-    enquiryType === "Job opportunity" || enquiryType === "HR / Staff hiring";
-
   // Validation & UI State
   const [errors, setErrors] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
   const [toastVisible, setToastVisible] = useState(false);
+  const [whatsappRedirectUrl, setWhatsappRedirectUrl] = useState("");
 
   // Dynamic glow tracking on left hero panel
   const handleLeftMouseMove = (e) => {
@@ -104,7 +97,7 @@ function Contact() {
     }, 450);
   };
 
-  // Form validation
+  // Form validation - validates the 4 fields
   const validate = () => {
     const errs = {};
     if (fullName.trim().length < 2) {
@@ -113,9 +106,6 @@ function Contact() {
     if (!/^\S+@\S+\.\S+$/.test(email.trim())) {
       errs.email = true;
     }
-    if (isHiring && jobRole.trim().length < 2) {
-      errs.jobRole = true;
-    }
     if (message.trim().length < 4) {
       errs.message = true;
     }
@@ -123,39 +113,42 @@ function Contact() {
     return Object.keys(errs).length === 0;
   };
 
-  // Submission handler (mailto integration + Thank you view)
+  // Submission handler (WhatsApp redirection to +91 99099 28032 using selected enquiry type)
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!validate()) return;
 
     setIsSubmitting(true);
 
-    let subject = "";
-    let body = "";
+    const productLine = enquiryProduct
+      ? `*Product:* ${enquiryProduct}\n`
+      : "";
 
-    if (isHiring) {
-      subject = `[${enquiryType}] Application for ${jobRole.trim()} - ${fullName.trim()}`;
-      body = `Enquiry Type: ${enquiryType}\nApplicant Name: ${fullName.trim()}\nEmail: ${email.trim()}\nPhone: ${
-        phone.trim() || "-"
-      }\nPosition / Role: ${jobRole.trim()}\nExperience / Qualifications: ${
-        experience.trim() || "-"
-      }\nResume / Portfolio Link: ${
-        resumeLink.trim() || "-"
-      }\n\nCandidate Message / Cover Note:\n${message.trim()}`;
-    } else {
-      const productLine = enquiryProduct ? `Product: ${enquiryProduct}\n` : "";
-      subject = `Website enquiry: ${enquiryType}${
-        enquiryProduct ? ` - ${enquiryProduct}` : ""
-      }`;
-      body = `Enquiry type: ${enquiryType}\n${productLine}Name: ${fullName.trim()}\nEmail: ${email.trim()}\nPhone: ${
-        phone.trim() || "-"
-      }\n\nMessage:\n${message.trim()}`;
+    const messageText =
+      `*New Website Enquiry - Sat Aushadhi*\n\n` +
+      `*Enquiry Type:* ${enquiryType}\n` +
+      productLine +
+      `*Name:* ${fullName.trim()}\n` +
+      `*Phone:* ${phone.trim() || "Not provided"}\n` +
+      `*Email:* ${email.trim()}\n` +
+      `\n*Message:*\n${message.trim()}`;
+
+    const whatsappNumber = "919909928032";
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+      messageText,
+    )}`;
+
+    setWhatsappRedirectUrl(whatsappUrl);
+
+    // Direct redirect to WhatsApp
+    const newWindow = window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+    if (
+      !newWindow ||
+      newWindow.closed ||
+      typeof newWindow.closed === "undefined"
+    ) {
+      window.location.href = whatsappUrl;
     }
-
-    // Trigger user's mail client with filled details
-    window.location.href = `mailto:darshanherbs25@gmail.com?subject=${encodeURIComponent(
-      subject,
-    )}&body=${encodeURIComponent(body)}`;
 
     setIsSubmitted(true);
     setIsSubmitting(false);
@@ -168,10 +161,8 @@ function Contact() {
     setPhone("");
     setMessage("");
     setEnquiryProduct("");
-    setJobRole("");
-    setExperience("");
-    setResumeLink("");
     setErrors({});
+    setWhatsappRedirectUrl("");
     setIsSubmitted(false);
   };
 
@@ -330,6 +321,41 @@ function Contact() {
                 Copy
               </button>
             </div>
+
+            {/* WhatsApp Enquiry */}
+            <div className="row" style={{ "--k": 3 }}>
+              <span className="ico">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                </svg>
+              </span>
+              <div>
+                <small>WhatsApp Enquiry</small>
+                <a
+                  className="v"
+                  href="https://wa.me/919909928032"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  +91 99099 28032
+                </a>
+              </div>
+              <button
+                type="button"
+                className="cp"
+                onClick={() => handleCopy("+91 99099 28032")}
+                aria-label="Copy WhatsApp number"
+              >
+                Copy
+              </button>
+            </div>
           </div>
         </div>
 
@@ -338,16 +364,10 @@ function Contact() {
           <div className="card" id="card" ref={cardRef}>
             {!isSubmitted ? (
               <form id="s2" onSubmit={handleSubmit} noValidate>
-                <span className="tag">
-                  {isHiring ? "Careers & Staff Hiring" : "Enquiry form"}
-                </span>
-                <h2>
-                  {isHiring ? "Join Our Team" : "Send an Enquiry"}
-                </h2>
+                <span className="tag">Enquiry form</span>
+                <h2>Send an Enquiry</h2>
                 <p className="sub">
-                  {isHiring
-                    ? "Interested in working with Sat Aushadhi? Share your credentials below."
-                    : "Fill in the details below and our team will get back to you."}
+                  Fill in the details below and our team will get back to you.
                 </p>
 
                 {/* Enquiry Type Selector */}
@@ -385,34 +405,8 @@ function Contact() {
                   </div>
                 </fieldset>
 
-                {/* Hiring Callout Banner */}
-                {isHiring && (
-                  <div className="hiring-callout-banner">
-                    <div className="hiring-callout-icon" aria-hidden="true">
-                      <svg
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <rect width="20" height="14" x="2" y="7" rx="2" ry="2" />
-                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
-                      </svg>
-                    </div>
-                    <div className="hiring-callout-text">
-                      <strong>Career Opportunities at Sat Aushadhi</strong>
-                      <span>
-                        We are hiring across Ayurvedic formulation, sales, QA/QC,
-                        distribution, and customer support.
-                      </span>
-                    </div>
-                  </div>
-                )}
-
                 {/* Pre-selected Product Pill if navigated from product page */}
-                {enquiryProduct && !isHiring && (
+                {enquiryProduct && (
                   <div className="chosen-product-chip">
                     <span>
                       Enquiring for: <strong>{enquiryProduct}</strong>
@@ -479,53 +473,7 @@ function Contact() {
                   <em>Please enter a valid email.</em>
                 </div>
 
-                {/* Hiring Specific Fields: Role Applied & Experience */}
-                {isHiring && (
-                  <>
-                    <div className="two">
-                      <div className={`fl ${errors.jobRole ? "bad" : ""}`}>
-                        <input
-                          id="jr"
-                          placeholder=" "
-                          value={jobRole}
-                          onChange={(e) => {
-                            setJobRole(e.target.value);
-                            if (errors.jobRole) {
-                              setErrors((prev) => ({ ...prev, jobRole: false }));
-                            }
-                          }}
-                        />
-                        <label htmlFor="jr">Role / Position Applied For *</label>
-                        <em>Please enter the role you are applying for.</em>
-                      </div>
-
-                      <div className="fl">
-                        <input
-                          id="exp"
-                          placeholder=" "
-                          value={experience}
-                          onChange={(e) => setExperience(e.target.value)}
-                        />
-                        <label htmlFor="exp">Total Experience / Qualifications</label>
-                      </div>
-                    </div>
-
-                    <div className="fl">
-                      <input
-                        id="res"
-                        type="url"
-                        placeholder=" "
-                        value={resumeLink}
-                        onChange={(e) => setResumeLink(e.target.value)}
-                      />
-                      <label htmlFor="res">
-                        Resume / Portfolio / LinkedIn Link (Optional)
-                      </label>
-                    </div>
-                  </>
-                )}
-
-                {/* Message / Cover Note */}
+                {/* Message */}
                 <div className={`fl ${errors.message ? "bad" : ""}`}>
                   <textarea
                     id="m"
@@ -538,16 +486,8 @@ function Contact() {
                       }
                     }}
                   />
-                  <label htmlFor="m">
-                    {isHiring
-                      ? "Brief introduction or cover note *"
-                      : "Your message *"}
-                  </label>
-                  <em>
-                    {isHiring
-                      ? "Please write a brief introduction or note."
-                      : "Please write your enquiry."}
-                  </em>
+                  <label htmlFor="m">Your message *</label>
+                  <em>Please write your enquiry.</em>
                 </div>
 
                 {/* Submit Action */}
@@ -557,7 +497,7 @@ function Contact() {
                   type="submit"
                   disabled={isSubmitting}
                 >
-                  {isHiring ? "Submit Application" : "Submit Enquiry"}{" "}
+                  Send Enquiry{" "}
                   <svg
                     viewBox="0 0 24 24"
                     fill="none"
@@ -571,9 +511,7 @@ function Contact() {
                 </button>
 
                 <span className="note">
-                  {isHiring
-                    ? "We review all candidate submissions with confidentiality."
-                    : "We use your details only to reply to your enquiry."}
+                  We use your details only to reply to your enquiry.
                 </span>
               </form>
             ) : (
@@ -592,17 +530,43 @@ function Contact() {
                 </svg>
                 <h2>Thank you!</h2>
                 <p id="okt">
-                  {isHiring
-                    ? "Your email client will open with your candidate details pre-filled. Please click send to deliver your application to the Sat Aushadhi team."
-                    : "Your email client should now open with your enquiry formatted. Please click send there to deliver your message directly to the Sat Aushadhi team."}
+                  Your enquiry has been prepared and redirected to our official WhatsApp at +91 99099 28032. You can chat directly with our team.
                 </p>
+                {whatsappRedirectUrl && (
+                  <a
+                    href={whatsappRedirectUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="go"
+                    style={{
+                      marginBottom: "14px",
+                      textDecoration: "none",
+                      display: "inline-flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      gap: "8px",
+                      background: "#25D366",
+                      borderColor: "#25D366",
+                    }}
+                  >
+                    <span>Continue on WhatsApp (+91 99099 28032)</span>
+                    <svg
+                      viewBox="0 0 24 24"
+                      width="18"
+                      height="18"
+                      fill="currentColor"
+                    >
+                      <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z" />
+                    </svg>
+                  </a>
+                )}
                 <button
                   className="go"
                   id="again"
                   type="button"
                   onClick={handleSendAnother}
                 >
-                  {isHiring ? "Send another message" : "Send another enquiry"}
+                  Send another enquiry
                 </button>
               </div>
             )}
@@ -614,13 +578,34 @@ function Contact() {
       <section className="band">
         <div className="trio" aria-hidden="true">
           <div>
-            <img src="/product-oil-100ml.png" alt="Sat Aushadhi Pain Relief Oil" onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = "/new-product1.jpeg"; }} />
+            <img
+              src="/product-oil-100ml.png"
+              alt="Sat Aushadhi Pain Relief Oil"
+              onError={(e) => {
+                e.currentTarget.onerror = null;
+                e.currentTarget.src = "/new-product1.jpeg";
+              }}
+            />
           </div>
           <div>
-            <img src="/product-balm-25ml.png" alt="Sat Aushadhi Balm" onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = "/new-product2.jpeg"; }} />
+            <img
+              src="/product-balm-25ml.png"
+              alt="Sat Aushadhi Balm"
+              onError={(e) => {
+                e.currentTarget.onerror = null;
+                e.currentTarget.src = "/new-product2.jpeg";
+              }}
+            />
           </div>
           <div>
-            <img src="/product-calcimax-60tablets.png" alt="Sat Aushadhi Calcimax Tablet" onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = "/new-product3.jpeg"; }} />
+            <img
+              src="/product-calcimax-60tablets.png"
+              alt="Sat Aushadhi Calcimax Tablet"
+              onError={(e) => {
+                e.currentTarget.onerror = null;
+                e.currentTarget.src = "/new-product3.jpeg";
+              }}
+            />
           </div>
         </div>
 

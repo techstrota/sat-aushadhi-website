@@ -38,7 +38,13 @@ const blogArticles = [
     featured: true,
     excerpt:
       "Modern pharmacology often focuses on superficial symptom masking, but ancient Ayurvedic masters used lipid-soluble herb carriers (Sneha Dravya) to deliver botanical anti-inflammatories directly through the dermal barriers.",
-    tags: ["Sneha Dravya", "Joint Pain", "Charaka Samhita", "Nagod", "Ashwagandha"],
+    tags: [
+      "Sneha Dravya",
+      "Joint Pain",
+      "Charaka Samhita",
+      "Nagod",
+      "Ashwagandha",
+    ],
     relatedProduct: {
       name: "Sat Aushadhi Pain Relief Oil",
       size: "100 ml",
@@ -161,7 +167,13 @@ const blogArticles = [
     featured: false,
     excerpt:
       "Prolonged smartphone posture and sedentary desk hours lead to severe cervical stiffness, trapped nerves, and radiating arm pain. Here is how ancient spinal therapies soothe modern tech neck.",
-    tags: ["Tech Neck", "Cervical Spine", "Desk Ergonomics", "Sciatica", "Posture"],
+    tags: [
+      "Tech Neck",
+      "Cervical Spine",
+      "Desk Ergonomics",
+      "Sciatica",
+      "Posture",
+    ],
     relatedProduct: {
       name: "Sat Aushadhi Pain Relief Oil",
       size: "100 ml",
@@ -201,7 +213,12 @@ const blogArticles = [
     featured: false,
     excerpt:
       "Explore how ancient Ayurvedic encyclopedias like Charaka Samhita and Aryabhishek mapped out holistic human physiology millennia ahead of contemporary medicine.",
-    tags: ["Charaka Samhita", "Aryabhishek", "Herbal Heritage", "Ayurvedic Purity"],
+    tags: [
+      "Charaka Samhita",
+      "Aryabhishek",
+      "Herbal Heritage",
+      "Ayurvedic Purity",
+    ],
     relatedProduct: {
       name: "Sat Aushadhi Product Collection",
       size: "Complete Range",
@@ -240,7 +257,13 @@ const blogArticles = [
     featured: false,
     excerpt:
       "As temperatures drop, joint fluids thicken and morning mobility feels sluggish. Follow these time-tested seasonal habits (Ritucharya) to keep joints supple, warm, and pain-free.",
-    tags: ["Ritucharya", "Winter Care", "Abhyanga", "Joint Mobility", "Vata Care"],
+    tags: [
+      "Ritucharya",
+      "Winter Care",
+      "Abhyanga",
+      "Joint Mobility",
+      "Vata Care",
+    ],
     relatedProduct: {
       name: "Sat Aushadhi Pain Relief Oil (100 ml)",
       size: "100 ml",
@@ -284,7 +307,7 @@ function Blog() {
       article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       article.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
       article.tags.some((t) =>
-        t.toLowerCase().includes(searchQuery.toLowerCase())
+        t.toLowerCase().includes(searchQuery.toLowerCase()),
       );
     return matchesCategory && matchesSearch;
   });
@@ -311,7 +334,8 @@ function Blog() {
     }
   };
 
-  const featuredArticle = blogArticles.find((a) => a.featured) || blogArticles[0];
+  const featuredArticle =
+    blogArticles.find((a) => a.featured) || blogArticles[0];
 
   return (
     <div className="inner-page blog-page-wrapper">
@@ -331,13 +355,13 @@ function Blog() {
           <h1>Ayurvedic Wisdom & Health Insights</h1>
           <div className="blog-banner-tagline-badge">
             <Droplets size={14} className="banner-tagline-icon" />
-            <span>Pratyek Boond Ki Ayurved Ki Shakti</span>
+            <span>प्रत्येक बूंद में आयुर्वेद की शक्ति</span>
             <Sparkles size={13} className="banner-tagline-sparkle" />
           </div>
           <p>
-            Explore evidence-based Ayurvedic research, time-honored remedies from
-            Charaka Samhita, and practical natural therapies for everyday family
-            vitality.
+            Explore evidence-based Ayurvedic research, time-honored remedies
+            from Charaka Samhita, and practical natural therapies for everyday
+            family vitality.
           </p>
         </div>
       </section>
@@ -386,66 +410,71 @@ function Blog() {
         </section>
 
         {/* Featured Article Spotlight (shown when on "All Articles" and no search query) */}
-        {selectedCategory === "All Articles" && !searchQuery && featuredArticle && (
-          <section className="featured-article-card" aria-label="Featured Article">
-            <div className="featured-img-box">
-              <img
-                src={featuredArticle.image}
-                alt={featuredArticle.title}
-                loading="lazy"
-              />
-              <span className="featured-ribbon">
-                <Sparkles size={13} /> Featured Insight
-              </span>
-            </div>
-
-            <div className="featured-content-box">
-              <div className="article-meta-row">
-                <span className="article-category-badge">
-                  {featuredArticle.category}
-                </span>
-                <span className="meta-sep">•</span>
-                <span className="article-read-time">
-                  <Clock size={13} /> {featuredArticle.readTime}
-                </span>
-                <span className="meta-sep">•</span>
-                <span className="article-date">
-                  <Calendar size={13} /> {featuredArticle.date}
+        {selectedCategory === "All Articles" &&
+          !searchQuery &&
+          featuredArticle && (
+            <section
+              className="featured-article-card"
+              aria-label="Featured Article"
+            >
+              <div className="featured-img-box">
+                <img
+                  src={featuredArticle.image}
+                  alt={featuredArticle.title}
+                  loading="lazy"
+                />
+                <span className="featured-ribbon">
+                  <Sparkles size={13} /> Featured Insight
                 </span>
               </div>
 
-              <h2 className="featured-title">{featuredArticle.title}</h2>
-              <p className="featured-excerpt">{featuredArticle.excerpt}</p>
-
-              <div className="featured-tags-row">
-                {featuredArticle.tags.map((tag) => (
-                  <span className="article-tag" key={tag}>
-                    #{tag}
+              <div className="featured-content-box">
+                <div className="article-meta-row">
+                  <span className="article-category-badge">
+                    {featuredArticle.category}
                   </span>
-                ))}
-              </div>
+                  <span className="meta-sep">•</span>
+                  <span className="article-read-time">
+                    <Clock size={13} /> {featuredArticle.readTime}
+                  </span>
+                  <span className="meta-sep">•</span>
+                  <span className="article-date">
+                    <Calendar size={13} /> {featuredArticle.date}
+                  </span>
+                </div>
 
-              <div className="featured-action-row">
-                <button
-                  type="button"
-                  className="primary-button read-article-btn"
-                  onClick={() => setActiveArticleModal(featuredArticle)}
-                >
-                  <BookOpen size={16} /> Read Full Article
-                </button>
+                <h2 className="featured-title">{featuredArticle.title}</h2>
+                <p className="featured-excerpt">{featuredArticle.excerpt}</p>
 
-                <Link
-                  to={featuredArticle.relatedProduct.link}
-                  className="related-product-pill-link"
-                >
-                  <span>Related Product:</span>
-                  <strong>{featuredArticle.relatedProduct.name}</strong>
-                  <ArrowRight size={14} />
-                </Link>
+                <div className="featured-tags-row">
+                  {featuredArticle.tags.map((tag) => (
+                    <span className="article-tag" key={tag}>
+                      #{tag}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="featured-action-row">
+                  <button
+                    type="button"
+                    className="primary-button read-article-btn"
+                    onClick={() => setActiveArticleModal(featuredArticle)}
+                  >
+                    <BookOpen size={16} /> Read Full Article
+                  </button>
+
+                  <Link
+                    to={featuredArticle.relatedProduct.link}
+                    className="related-product-pill-link"
+                  >
+                    <span>Related Product:</span>
+                    <strong>{featuredArticle.relatedProduct.name}</strong>
+                    <ArrowRight size={14} />
+                  </Link>
+                </div>
               </div>
-            </div>
-          </section>
-        )}
+            </section>
+          )}
 
         {/* Blog Cards Grid */}
         <section className="blog-grid-section" aria-label="Articles list">
@@ -553,8 +582,8 @@ function Blog() {
               <h2>Pure Botanical Knowledge in Every Edition</h2>
               <p>
                 Subscribe to receive seasonal health tips, Ayurvedic dietary
-                ritucharya, and exclusive product updates directly from our herbal
-                experts.
+                ritucharya, and exclusive product updates directly from our
+                herbal experts.
               </p>
             </div>
 

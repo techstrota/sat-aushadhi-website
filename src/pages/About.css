@@ -1278,11 +1278,27 @@
     0 4px 12px rgba(19, 166, 160, 0.1);
 }
 
+
+/* Story Card Inner Grid (Default: Sidebar on Left, Narrative on Right) */
 .story-card-inner {
   display: grid;
   grid-template-columns: 350px 1fr;
   gap: 36px;
   padding: 34px;
+}
+
+/* Alternating / Reversed Layout for Story 2 (Narrative on Left, Sidebar on Right) */
+.story-editorial-card.is-reversed .story-card-inner {
+  grid-template-columns: 1fr 350px;
+}
+
+@media (max-width: 992px) {
+  .story-card-inner,
+  .story-editorial-card.is-reversed .story-card-inner {
+    grid-template-columns: 1fr;
+    gap: 26px;
+    padding: 26px;
+  }
 }
 
 /* Sidebar Column (Product & Quote) */

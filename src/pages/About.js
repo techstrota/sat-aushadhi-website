@@ -108,7 +108,7 @@ function About() {
               size={14}
               style={{ display: "inline", marginRight: "6px" }}
             />
-            Pratyek Boond Ki Ayurved Ki Shakti
+            प्रत्येक बूंद में आयुर्वेद की शक्ति
           </span>
           <h1>Rooted in Ayurveda, Crafted for Tomorrow</h1>
           <p>
@@ -125,8 +125,8 @@ function About() {
             <span className="eyebrow">ABOUT SAT AUSHADHI</span>
             <h2>Bridging Tradition and Clinical Precision</h2>
             <p className="lead-text">
-              Our products and ingredients taken from ancient Books like
-              Charaka Samhita, Aryabhishek-Hindustan no khajano etc.
+              Our products and ingredients taken from ancient Books like Charaka
+              Samhita, Aryabhishek-Hindustan no khajano etc.
             </p>
 
             {/* Core Pillars */}
@@ -268,7 +268,7 @@ function About() {
               <div className="ingredient-img-wrapper">
                 <img
                   src="/ingredient2.png"
-                  alt="Nirgundi (4%)"
+                  alt="Nirgundi"
                   className="ingredient-card-img"
                   loading="lazy"
                 />
@@ -277,7 +277,7 @@ function About() {
                 </div>
               </div>
               <div className="ingredient-card-body">
-                <h3>Nirgundi (4%)</h3>
+                <h3>Nirgundi</h3>
                 <div className="ingredient-tagline">
                   Pain & Swelling Reducer
                 </div>
@@ -294,7 +294,7 @@ function About() {
               <div className="ingredient-img-wrapper">
                 <img
                   src="/ingredient3.png"
-                  alt="Ashwagandha (2%)"
+                  alt="Ashwagandha"
                   className="ingredient-card-img"
                   loading="lazy"
                 />
@@ -303,7 +303,7 @@ function About() {
                 </div>
               </div>
               <div className="ingredient-card-body">
-                <h3>Ashwagandha (2%)</h3>
+                <h3>Ashwagandha</h3>
                 <div className="ingredient-tagline">
                   Strength & Muscle Vitality
                 </div>
@@ -315,12 +315,12 @@ function About() {
               </div>
             </article>
 
-            {/* 4. Camphor & Tagar */}
+            {/* 4. Camphor*/}
             <article className="ingredient-detail-card">
               <div className="ingredient-img-wrapper">
                 <img
                   src="/ingredient4.png"
-                  alt="Camphor & Tagar"
+                  alt="Camphor"
                   className="ingredient-card-img"
                   loading="lazy"
                 />
@@ -329,7 +329,7 @@ function About() {
                 </div>
               </div>
               <div className="ingredient-card-body">
-                <h3>Camphor & Tagar</h3>
+                <h3>Camphor</h3>
                 <div className="ingredient-tagline">
                   Instant Soothing Relief
                 </div>
@@ -503,83 +503,101 @@ function About() {
 
           {/* Stories Editorial Cards List */}
           <div className="stories-cards-container">
-            {filteredStories.map((story) => (
-              <article className="story-editorial-card" key={story.id}>
-                <div className="story-card-inner">
-                  {/* Left Column: Visual, Pull Quote, Product Link */}
-                  <div className="story-sidebar-col">
-                    <div className="story-product-badge">
-                      <div className="story-product-thumb">
-                        <img src={story.productImage} alt={story.productName} />
-                      </div>
-                      <div className="story-product-meta">
-                        <span className="story-product-used">Remedy Used</span>
-                        <span className="story-product-name">
-                          {story.productName}
-                        </span>
-                      </div>
-                    </div>
+            {filteredStories.map((story) => {
+              const isReversed = story.id === "story-2";
 
-                    <div className="story-quote-card">
-                      <div className="story-quote-icon-box">
-                        <Quote size={20} className="story-quote-icon" />
-                      </div>
-                      <blockquote className="story-quote-text">
-                        &ldquo;{story.highlightQuote}&rdquo;
-                      </blockquote>
-                      <span className="story-quote-author">
-                        &mdash; {story.quoteAuthor}
+              const sidebarCol = (
+                <div className="story-sidebar-col" key="sidebar">
+                  <div className="story-product-badge">
+                    <div className="story-product-thumb">
+                      <img src={story.productImage} alt={story.productName} />
+                    </div>
+                    <div className="story-product-meta">
+                      <span className="story-product-used">Remedy Used</span>
+                      <span className="story-product-name">
+                        {story.productName}
                       </span>
                     </div>
-
-                    <div className="story-motto-ribbon">
-                      <Sparkles size={14} className="story-motto-sparkle" />
-                      <span className="story-motto-text">
-                        {story.productName} &mdash; <em>{story.tagline}</em>
-                      </span>
-                    </div>
-
-                    <Link to={story.productLink} className="story-product-cta">
-                      Explore Remedy <ArrowRight size={15} />
-                    </Link>
                   </div>
 
-                  {/* Right Column: Story Header & Full Narrative */}
-                  <div className="story-narrative-col">
-                    <div className="story-header-meta">
-                      <span className="story-number-badge">
-                        {story.storyNumber}
-                      </span>
-                      <span className="story-category-tag">
-                        {story.categoryLabel}
-                      </span>
+                  <div className="story-quote-card">
+                    <div className="story-quote-icon-box">
+                      <Quote size={20} className="story-quote-icon" />
                     </div>
+                    <blockquote className="story-quote-text">
+                      &ldquo;{story.highlightQuote}&rdquo;
+                    </blockquote>
+                    <span className="story-quote-author">
+                      &mdash; {story.quoteAuthor}
+                    </span>
+                  </div>
 
-                    <h3 className="story-main-title">{story.title}</h3>
+                  <div className="story-motto-ribbon">
+                    <Sparkles size={14} className="story-motto-sparkle" />
+                    <span className="story-motto-text">
+                      {story.productName} &mdash; <em>{story.tagline}</em>
+                    </span>
+                  </div>
 
-                    <div className="story-paragraphs-flow">
-                      {story.paragraphs.map((para, pIdx) => (
-                        <p key={pIdx} className="story-paragraph">
-                          {para}
-                        </p>
-                      ))}
-                    </div>
+                  <Link to={story.productLink} className="story-product-cta">
+                    Explore Remedy <ArrowRight size={15} />
+                  </Link>
+                </div>
+              );
 
-                    <div className="story-footer-summary">
-                      <div className="story-outcome-pill">
-                        <CheckCircle2
-                          size={15}
-                          className="outcome-check-icon"
-                        />
-                        <span>
-                          Real Results With Gentle, Natural Consistency
-                        </span>
-                      </div>
+              const narrativeCol = (
+                <div className="story-narrative-col" key="narrative">
+                  <div className="story-header-meta">
+                    <span className="story-number-badge">
+                      {story.storyNumber}
+                    </span>
+                    <span className="story-category-tag">
+                      {story.categoryLabel}
+                    </span>
+                  </div>
+
+                  <h3 className="story-main-title">{story.title}</h3>
+
+                  <div className="story-paragraphs-flow">
+                    {story.paragraphs.map((para, pIdx) => (
+                      <p key={pIdx} className="story-paragraph">
+                        {para}
+                      </p>
+                    ))}
+                  </div>
+
+                  <div className="story-footer-summary">
+                    <div className="story-outcome-pill">
+                      <CheckCircle2 size={15} className="outcome-check-icon" />
+                      <span>Real Results With Gentle, Natural Consistency</span>
                     </div>
                   </div>
                 </div>
-              </article>
-            ))}
+              );
+
+              return (
+                <article
+                  className={`story-editorial-card ${
+                    isReversed ? "is-reversed" : ""
+                  }`}
+                  key={story.id}
+                >
+                  <div className="story-card-inner">
+                    {isReversed ? (
+                      <>
+                        {narrativeCol}
+                        {sidebarCol}
+                      </>
+                    ) : (
+                      <>
+                        {sidebarCol}
+                        {narrativeCol}
+                      </>
+                    )}
+                  </div>
+                </article>
+              );
+            })}
           </div>
 
           {/* Medical Disclaimer Banner */}

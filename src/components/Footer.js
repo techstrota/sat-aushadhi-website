@@ -27,7 +27,7 @@ function Footer() {
 
             <div className="footer-tagline-callout">
               <Droplets size={14} className="footer-tagline-icon" />
-              <span>Pratyek Boond Ki Ayurved Ki Shakti</span>
+              <span>प्रत्येक बूंद में आयुर्वेद की शक्ति</span>
             </div>
 
             <p>
@@ -124,7 +124,8 @@ function Footer() {
         {/* Footer Bottom */}
         <div className="footer-bottom">
           <div>
-            © {new Date().getFullYear()} Sat Aushadhi. | Developed with 🫶 by Techstrota | All Rights Reserved.
+            © {new Date().getFullYear()} Sat Aushadhi. | Developed with 🫶 by
+            Techstrota | All Rights Reserved.
           </div>
 
           <div className="footer-bottom-links">

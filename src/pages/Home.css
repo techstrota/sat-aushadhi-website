@@ -117,9 +117,9 @@
 
 
 .hero-copy {
-
-  display: contents;
-
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 
@@ -192,7 +192,7 @@
 
   padding: 10px 22px 10px 12px;
 
-  margin: 18px 0 8px;
+  margin: 18px 0 14px;
 
   box-shadow:
 
@@ -303,60 +303,23 @@
 
 
 .hero-tagline-content {
-
   display: flex;
-
   flex-direction: column;
-
   align-items: flex-start;
-
   text-align: left;
-
+  min-width: 0;
+  padding-right: 4px;
 }
-
-
-
-.hero-tagline-eyebrow {
-
-  font-size: 10px;
-
-  font-weight: 700;
-
-  letter-spacing: 1.6px;
-
-  color: #13a6a0;
-
-  text-transform: uppercase;
-
-  line-height: 1.2;
-
-  margin-bottom: 2px;
-
-}
-
-
 
 .hero-tagline-motto {
-
-  font-size: clamp(14.5px, 1.4vw, 17px);
-
-  font-weight: 800;
-
-  letter-spacing: 0.2px;
-
+  font-size: clamp(14px, 1.35vw, 17px);
+  font-weight: 700;
+  letter-spacing: normal;
   color: #073523;
-
-  line-height: 1.25;
-
-  background: linear-gradient(135deg, #073523 0%, #0d5f3d 50%, #13a6a0 100%);
-
-  -webkit-background-clip: text;
-
-  -webkit-text-fill-color: transparent;
-
+  line-height: 1.5;
+  white-space: nowrap;
+  display: inline-block;
 }
-
-
 
 .hero-tagline-sparkle {
 
@@ -463,13 +426,10 @@
 
 
 .ticker-tagline {
-
   font-weight: 700;
-
   color: #8be04e;
-
-  letter-spacing: 0.4px;
-
+  letter-spacing: normal;
+  line-height: 1.5;
 }
 
 
@@ -571,35 +531,21 @@
 /* --- Why Choose Sat Aushadhi Tagline Badge --- */
 
 .why-tagline-badge {
-
   display: inline-flex;
-
   align-items: center;
-
   gap: 8px;
-
   background: #ffffff;
-
   border: 1px solid rgba(11, 81, 50, 0.2);
-
   border-radius: 30px;
-
   padding: 6px 18px;
-
   margin-top: 10px;
-
   color: #0b5132;
-
   font-size: 13.5px;
-
   font-weight: 700;
-
-  letter-spacing: 0.4px;
-
+  letter-spacing: normal;
+  line-height: 1.5;
   box-shadow: 0 4px 14px rgba(11, 81, 50, 0.08);
-
   transition: transform 0.25s ease;
-
 }
 
 
@@ -661,6 +607,13 @@
 }
 
 
+
+
+.hero-button-wrapper {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+}
 
 .hero-button {
 
@@ -2332,6 +2285,12 @@
 
   }
 
+  .hero-button-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
 
 
   .hero-image {
@@ -3198,3 +3157,48 @@
 
 }
 
+
+/* Responsive adjustments for Hero Tagline Highlight Badge */
+@media (max-width: 768px) {
+  .hero-tagline-highlight {
+    padding: 8px 16px 8px 10px;
+    gap: 10px;
+    margin: 14px 0 6px;
+  }
+
+  .hero-tagline-icon-badge {
+    width: 32px;
+    height: 32px;
+  }
+
+  .hero-tagline-motto {
+    font-size: 13.5px;
+  }
+
+  .hero-tagline-sparkle {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-tagline-highlight {
+    padding: 7px 12px 7px 8px;
+    gap: 8px;
+    border-radius: 40px;
+  }
+
+  .hero-tagline-icon-badge {
+    width: 28px;
+    height: 28px;
+  }
+
+  .hero-tagline-motto {
+    font-size: 12px;
+  }
+
+  .hero-tagline-sparkle {
+    width: 13px;
+    height: 13px;
+  }
+}

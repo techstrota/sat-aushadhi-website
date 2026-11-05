@@ -422,6 +422,7 @@ Pain relief oils provide symptomatic relief by reducing local inflammation, rela
     price: "₹120",
     category: "Topical Fast-Acting Balm",
     image: "/product-balm-25ml.png",
+    video: "/Balm%20Demo%20video.mp4",
     variants: ["25 ml"],
     description:
       "Sat Aushadhi Pain Relief Balm (25 ml) provides soothing comfort and fast relief from headache, sinus-related discomfort, cold, and cough.",
@@ -528,6 +529,7 @@ Pain relief oils provide symptomatic relief by reducing local inflammation, rela
     price: "₹48",
     category: "Topical Fast-Acting Balm",
     image: "/product-balm-10ml.png",
+    video: "/Balm%20Demo%20video.mp4",
     variants: ["10 ml"],
     description:
       "Sat Aushadhi Pain Relief Balm (10 ml) is a pocket-friendly fast-action balm for instant on-the-go relief from tension headaches, sinus pressure, and cold symptoms.",
@@ -657,7 +659,8 @@ Pain relief oils provide symptomatic relief by reducing local inflammation, rela
       indications: `- Helps support bone strength.
 - Traditionally used for joint and bone health.
 - Supports nourishment of bones and joints.
-- Helps support comfortable movement and an active lifestyle.`,
+- Helps support comfortable movement and an active lifestyle.
+- Supports bone health during calcium deficiency.`,
       howToUse: `- Take 1–2 tablets twice daily.
 - Or as advised by your physician.`,
       packaging: `- Packaging: 60 Tablets per bottle.
@@ -771,12 +774,18 @@ function Product() {
   const scrollNav = (direction) => {
     if (navContainerRef.current) {
       const scrollAmount = direction === "left" ? -280 : 280;
-      navContainerRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      navContainerRef.current.scrollBy({
+        left: scrollAmount,
+        behavior: "smooth",
+      });
     }
   };
   const handleNavWheel = (e) => {
     if (navContainerRef.current && Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
-      if (navContainerRef.current.scrollWidth > navContainerRef.current.clientWidth) {
+      if (
+        navContainerRef.current.scrollWidth >
+        navContainerRef.current.clientWidth
+      ) {
         navContainerRef.current.scrollLeft += e.deltaY;
       }
     }
@@ -854,7 +863,7 @@ function Product() {
           <h1>Our Products</h1>
           <div className="product-banner-tagline-badge">
             <Droplets size={14} className="banner-tagline-icon" />
-            <span>Pratyek Boond Ki Ayurved Ki Shakti</span>
+            <span>प्रत्येक बूंद में आयुर्वेद की शक्ति</span>
             <Sparkles size={13} className="banner-tagline-sparkle" />
           </div>
           <p>Explore our range of Ayurvedic oil, balm and tablet products.</p>
@@ -904,8 +913,10 @@ function Product() {
                       alt={prod.name}
                       onError={(e) => {
                         e.currentTarget.onerror = null;
-                        if (prod.name.includes("Oil")) e.currentTarget.src = "/new-product1.jpeg";
-                        else if (prod.name.includes("Balm")) e.currentTarget.src = "/new-product2.jpeg";
+                        if (prod.name.includes("Oil"))
+                          e.currentTarget.src = "/new-product1.jpeg";
+                        else if (prod.name.includes("Balm"))
+                          e.currentTarget.src = "/new-product2.jpeg";
                         else e.currentTarget.src = "/new-product3.jpeg";
                       }}
                     />
@@ -973,21 +984,50 @@ function Product() {
                       <span className="orbit-badge-text">{tag.text}</span>
                     </div>
                   ))}
-                  {/* Center Deep Green ROUND Disc with Arched Product Photo */}
+                  {/* Center Deep Green ROUND Disc with Arched Product Photo / Demo Video */}
                   <div className="product-round-disc">
                     <div className="product-arch-frame">
-                      <img
-                        src={product.image}
-                        alt={`${product.name} presentation`}
-                        className="product-arch-image"
-                        loading="lazy"
-                        onError={(e) => {
-                          e.currentTarget.onerror = null;
-                          if (product.name.includes("Oil")) e.currentTarget.src = "/new-product1.jpeg";
-                          else if (product.name.includes("Balm")) e.currentTarget.src = "/new-product2.jpeg";
-                          else e.currentTarget.src = "/new-product3.jpeg";
-                        }}
-                      />
+                      {product.video ? (
+                        <div className="product-arch-video-wrapper">
+                          <video
+                            src={product.video}
+                            poster={product.image}
+                            className="product-arch-video"
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            controls
+                            preload="metadata"
+                            title={`${product.name} Demo Video`}
+                          >
+                            <source src={product.video} type="video/mp4" />
+                            <source
+                              src="/Balm Demo video.mp4"
+                              type="video/mp4"
+                            />
+                            Your browser does not support the video tag.
+                          </video>
+                          <span className="product-video-badge">
+                            <Sparkles size={11} /> Demo Video
+                          </span>
+                        </div>
+                      ) : (
+                        <img
+                          src={product.image}
+                          alt={`${product.name} presentation`}
+                          className="product-arch-image"
+                          loading="lazy"
+                          onError={(e) => {
+                            e.currentTarget.onerror = null;
+                            if (product.name.includes("Oil"))
+                              e.currentTarget.src = "/new-product1.jpeg";
+                            else if (product.name.includes("Balm"))
+                              e.currentTarget.src = "/new-product2.jpeg";
+                            else e.currentTarget.src = "/new-product3.jpeg";
+                          }}
+                        />
+                      )}
                     </div>
                   </div>
                 </div>
@@ -1015,7 +1055,9 @@ function Product() {
                         <button
                           key={variant}
                           type="button"
-                          onClick={() => handleVariantSelect(product.id, variant)}
+                          onClick={() =>
+                            handleVariantSelect(product.id, variant)
+                          }
                           className={`variant-pill ${
                             isSelected ? "is-selected" : ""
                           }`}
@@ -1028,7 +1070,9 @@ function Product() {
                   </div>
                   <div className="product-price-badge">
                     <span className="product-price-tag">Price:</span>
-                    <span className="product-price-number">{product.price}</span>
+                    <span className="product-price-number">
+                      {product.price}
+                    </span>
                     <span className="product-price-mrp">(MRP incl. taxes)</span>
                   </div>
                 </div>
@@ -1170,7 +1214,11 @@ function Product() {
       {/* ================================================================= */}
       {/* COMING SOON PRODUCTS SECTION (Names Only - Clean & Minimal) */}
       {/* ================================================================= */}
-      <section className="coming-soon-section" id="coming-soon" aria-label="Coming Soon Products">
+      <section
+        className="coming-soon-section"
+        id="coming-soon"
+        aria-label="Coming Soon Products"
+      >
         <div className="coming-soon-container">
           {/* Header */}
           <div className="coming-soon-header">
@@ -1182,7 +1230,8 @@ function Product() {
               Coming Soon <span>Products</span>
             </h2>
             <p className="coming-soon-subtitle">
-              Pure classical Ayurvedic formulations arriving soon to Sat Aushadhi.
+              Pure classical Ayurvedic formulations arriving soon to Sat
+              Aushadhi.
             </p>
           </div>
           {/* 2 Clean Category Panels - Names Only */}
@@ -1220,7 +1269,9 @@ function Product() {
           <div className="coming-soon-cta-row">
             <Link
               to="/contact"
-              state={{ enquiryProduct: "Pre-Launch Enquiry for Upcoming Products" }}
+              state={{
+                enquiryProduct: "Pre-Launch Enquiry for Upcoming Products",
+              }}
               className="coming-soon-cta-btn"
             >
               <Bell size={16} />
@@ -1270,16 +1321,42 @@ function Product() {
             </div>
             <div className="product-modal-body">
               <div className="modal-img-col">
-                <img
-                  src={activeModalProduct.image}
-                  alt={activeModalProduct.name}
-                  onError={(e) => {
-                    e.currentTarget.onerror = null;
-                    if (activeModalProduct.name.includes("Oil")) e.currentTarget.src = "/new-product1.jpeg";
-                    else if (activeModalProduct.name.includes("Balm")) e.currentTarget.src = "/new-product2.jpeg";
-                    else e.currentTarget.src = "/new-product3.jpeg";
-                  }}
-                />
+                {activeModalProduct.video ? (
+                  <div className="modal-video-wrapper">
+                    <video
+                      src={activeModalProduct.video}
+                      poster={activeModalProduct.image}
+                      className="modal-product-video"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      controls
+                      preload="metadata"
+                      title={`${activeModalProduct.name} Demo Video`}
+                    >
+                      <source src={activeModalProduct.video} type="video/mp4" />
+                      <source src="/Balm Demo video.mp4" type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                    <span className="modal-video-badge">
+                      <Sparkles size={12} /> Balm Demo Video
+                    </span>
+                  </div>
+                ) : (
+                  <img
+                    src={activeModalProduct.image}
+                    alt={activeModalProduct.name}
+                    onError={(e) => {
+                      e.currentTarget.onerror = null;
+                      if (activeModalProduct.name.includes("Oil"))
+                        e.currentTarget.src = "/new-product1.jpeg";
+                      else if (activeModalProduct.name.includes("Balm"))
+                        e.currentTarget.src = "/new-product2.jpeg";
+                      else e.currentTarget.src = "/new-product3.jpeg";
+                    }}
+                  />
+                )}
                 <div className="modal-guarantee-badge">
                   <Leaf size={16} /> 100% Herbal Formula
                 </div>
